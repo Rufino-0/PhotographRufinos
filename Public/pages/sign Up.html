@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - PR</title>
+</head>
+<body onload = "x'x()" >
+    <h1>faça seu cadastro</h1>
+     
+    <input type="text" placeholder="Insira seu nome " id="ipt_nome">
+    
+    <input type="text" placeholder="Insira um nome de usuario" id="ipt_User"> 
+    <br>
+    <input style="width: 350px;" type="text" placeholder="Insira seu email" id="ipt_email">
+    <br>
+    <input type="password" placeholder="Insira sua senha" id="ipt_senha">
+    <input type="text" placeholder="Confirme sua senha" id="ipt_confirmacao">
+    <br><br>
+    <button onclick="cadastrar()">Cadastrar</button> 
+    <br><br>
+    <div id="div_msg"></div>
+</body>
+</html>
+<script>
+    function cadastrar(){
+        
+        var nome = ipt_nome.value;
+        var usuario = ipt_User.value;
+        var senha = ipt_senha.value;
+        var confirmacaoSenha = ipt_confirmacao.value;
+
+        if (nome == "" || usuario == "" || senha == ""|| confirmacaoSenha == ""){
+            alert("Preencha os campos corretamente")
+        } else {}
+    }
+    function verificar(){
+        
+    }
+</script>
