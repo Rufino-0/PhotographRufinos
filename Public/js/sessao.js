@@ -19,9 +19,14 @@ function limparSessao() {
 
 // carregamento (loading)
 function aguardar() {
-    var divAguardar = document.getElementById("div_aguardar");
+    var divAguardar = document.getElementById("loader");
     divAguardar.style.display = "flex";
 }
+function aguardarCadastro() {
+    var divAguardar = document.getElementById("loaderCad");
+    divAguardar.style.display = "flex";
+}
+
 
 function finalizarAguardar(texto) {
     var divAguardar = document.getElementById("div_aguardar");

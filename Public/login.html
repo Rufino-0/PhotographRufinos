@@ -24,24 +24,38 @@
         </div>
         <div class="containerLogin">
             <div class="cardLogin card-login">
-                <h2>Login</h2>
-                <div class="formularioLogin">
-                    <div class="campo">
-                        <span>E-mail:</span>
-                        <input id="email_input" type="text" placeholder="Login">
-                    </div>
-                    <div class="campo">
-                        <span>Senha:</span>
-                        <input id="senha_input" type="password" placeholder="******">
-                    </div>
-                    <button class="botao" onclick="entrar()">Entrar</button>
-                </div>
+                <div class="conteudoLogin">
 
-                <div id="div_aguardar" class="loading-div">
-                    <img src="./assets/circle-loading.gif" id="loading-gif">
-                </div>
+                    <div class="formularioLogin">
+                        <h2>Login</h2>
+                        <div class="campo">
+                            <span>E-mail:</span>
+                            <input id="email_input" type="text" placeholder="Login">
+                        </div>
+                        <div class="campo">
+                            <span>Senha:</span>
+                            <input id="senha_input" type="password" placeholder="******">
+                        </div>
+                        <button class="botao" onclick="entrar()">Entrar</button>
+                    </div>
+                    <div class="imgLateralLogin">
+                        <h1>Bem vindo novamente!</h1>
 
-                <div id="div_erros_login"></div>
+                        <p>Ainda não tem login ?
+                            faça agora mesmo!
+                        </p>
+                    
+                        <button onclick="NovoCadastro()">Cadastrar</button>
+                    </div>
+                </div>
+                <div id="loader" class="loader">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                  </div>
+                
             </div>
         </div>
     </div>
@@ -51,6 +65,15 @@
 
 <script>
 
+    function NovoCadastro(){
+        aguardar();
+        setTimeout(function () {
+                        window.location = "./cadastro.html";
+                    }, 1500);
+
+    }
+    
+
 
     function entrar() {
         aguardar();
@@ -59,10 +82,10 @@
         var senhaVar = senha_input.value;
 
         if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            finalizarAguardar();
-            return false;
+            // cardErro.style.display = "block"
+            // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            // // finalizarAguardar();
+            // return false;
         }
         else {
             setInterval(sumirMensagem, 5000)
@@ -116,9 +139,4 @@
 
         return false;
     }
-
-    function sumirMensagem() {
-        cardErro.style.display = "none"
-    }
-
 </script>
