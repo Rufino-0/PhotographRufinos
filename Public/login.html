@@ -70,7 +70,6 @@
         setTimeout(function () {
                         window.location = "./cadastro.html";
                     }, 1500);
-
     }
     
 
@@ -82,13 +81,10 @@
         var senhaVar = senha_input.value;
 
         if (emailVar == "" || senhaVar == "") {
-            // cardErro.style.display = "block"
-            // mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            // // finalizarAguardar();
-            // return false;
+           alert("Preencha todos os campos")
         }
         else {
-            setInterval(sumirMensagem, 5000)
+            setInterval(aguardar, 5000)
         }
 
         console.log("FORM LOGIN: ", emailVar);
@@ -115,7 +111,6 @@
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
 
                     setTimeout(function () {
                         window.location = "./dashboard/cards.html";
@@ -127,10 +122,6 @@
 
                 console.log("Houve um erro ao tentar realizar o login!");
 
-                resposta.text().then(texto => {
-                    console.error(texto);
-                    finalizarAguardar(texto);
-                });
             }
 
         }).catch(function (erro) {

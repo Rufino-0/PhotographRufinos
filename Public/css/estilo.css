@@ -51,7 +51,7 @@ body {
 
 .imgLateralLogin P {
   width: 221px;
-  height: 63px;
+  height: 71px;
   font-size: 18px;
 
 }
@@ -206,7 +206,7 @@ body {
 .cardLogin {
   width: 651px;
   height: 312px;
-  background-color: #d9d9d9c0;
+  background-color: #d9d9d975;
   border-radius: 10px;
   display: flex;
   justify-content: space-evenly;

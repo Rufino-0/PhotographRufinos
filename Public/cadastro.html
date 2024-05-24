@@ -60,8 +60,7 @@
 
 <script>
   function cadastrar() {
-    aguardarCadastro();
-
+    
     //Recupere o valor da nova input pelo nome do id
     // Agora vá para o método fetch logo abaixo
     var nomeCad = nome_input.value;
@@ -75,12 +74,12 @@
       senhaCad == "" ||
       confirmacaosenhaCad == ""
     ) {
-      finalizarAguardar()
+      // finalizarAguardar()
       alert("preencha os campos corretamente")
-    }
+    } else {
     if (senhaCad != confirmacaosenhaCad) {
       alert("Senhas diferentes!")
-      finalizarAguardar();
+      // finalizarAguardar();
       return false;
     } 
 
@@ -103,6 +102,7 @@
 
         if (resposta.ok) {
             alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
+            aguardarCadastro();
 
           setTimeout(() => {
             window.location = "login.html";
@@ -121,4 +121,5 @@
 
     return false;
   }
+}
 </script>
