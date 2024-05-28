@@ -1,11 +1,123 @@
-body{
+body {
     margin: 0;
     padding: 0;
 }
-.fundoImg{
-    width: 100vw;
+
+.fundoImg {
+    width: 100%;
     height: 100vh;
     background-image: url(../assets/index/FundoBack1.png);
+    background-repeat: round;
     background-size: cover;
+}
+
+.box img {
+    width: 98vw;
+    height: 97vh;
+}
+
+#navbar {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    position: sticky;
+
+}
+
+#navbar ul {
+    list-style: none;
+    margin: 5px;
+    padding: 8px;
+    font-size: 25px;
+}
+
+#navbar li {
+    margin-left: 30px;
+    float: left;
+}
+
+.ContainerGrande {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.PrimeiraPagina {
+    height: 100vh;
+    width: 100%;
+    background-image: url(../assets/index/FundoBack2.png);
+    background-size: cover;
+    background-repeat: round;
+
+}
+
+.textoPagina {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: end;
+}
+
+.textoPagina p {
+    font-size: 43px;
+    margin-bottom: 10px;
+    width: 38vw;
+    font-family: math;
+}
+
+#citacao {
+    font-size: 30px;
+}
+
+.SegundaPagina {
+    height: 100vh;
+    width: 100%;
+    background-image: url(../assets/index/FundoBack3.png);
     background-repeat: no-repeat;
+    background-position: 80vh;
+    justify-content: center;
+}
+
+.textoPaginaP3 {
+    position: absolute;
+    width: 39vw;
+    height: 100vh;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 23px;
+
+}
+
+.textoPaginaP3 p {
+    font-size: 28px;
+    margin-bottom: 10px;
+    width: 39vw;
+    font-family: math;
+}
+
+.textoPaginaP3 button {
+    width: 156px;
+    height: 50px;
+    margin-top: 91px;
+    color: white;
+    background-color: rgba(151, 146, 122, 1);
+    border-radius: 20px;
+    border: none;
+    font-size: 22px;
+}
+
+#depoimento {
+    font-size: 19px;
+    margin: 10px;
+}
+
+.Sobreposicao img {
+    width: 100%;
+    height: 100vh;
 }
