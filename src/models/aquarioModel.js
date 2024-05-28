@@ -1,14 +1,14 @@
-var database = require("../database/config");
+// var database = require("../database/config");
 
-function buscarAquariosPorEmpresa() {
+// function buscarAquariosPorEmpresa() {
 
-  var instrucaoSql = `SELECT * FROM empresa WHERE id = 1`;
+//   var instrucaoSql = `SELECT * FROM empresa WHERE id = 1`;
 
-  console.log("Executando a instrução SQL: \n" + instrucaoSql);
-  return database.executar(instrucaoSql);
-}
+//   console.log("Executando a instrução SQL: \n" + instrucaoSql);
+//   return database.executar(instrucaoSql);
+// }
 
 
-module.exports = {
-  buscarAquariosPorEmpresa
-}
+// module.exports = {
+//   buscarAquariosPorEmpresa
+// }
