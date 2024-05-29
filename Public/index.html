@@ -47,9 +47,44 @@
         <button>Saiba mais</button>
         <p id="depoimento">*Depoimentos</p>
       </div>
-        <div class="Sobreposicao">
-          <img src="../Public/assets/index/tela3.png" alt="">
-        </div>
+      <div class="Sobreposicao">
+        <img src="../Public/assets/index/tela3.png" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="ContainerGrande">
+    <div class="TerceiraPagina">
+      <div class="cards">
+        <div class="telinha1"></div>
+        <div class="telinha1"></div>
+        <div class="telinha1"></div>
+      </div>
+    </div>
+  </div>
+  <div class="ContainerGrande">
+    <div class="QuintaPagina">
+      <div class="SobreMim">
+        <div class="MinhaFoto"></div>
+        <div class="pont"></div>
+        <div class="pont"></div>
+        <div class="pont"></div>
+      </div>
+      <div class="SeobreMimText">
+        <span>Sobre Mim</span>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam et elit turpis. Nunc tempor pulvinar erat,
+          eu porta quam auctor a. Mauris sodales dictum felis, ut porttitor dolor. Suspendisse eleifend lorem sit amet
+          enim fringilla elementum non nec dui. Pellentesque condimentum, urna vel venenatis bibendum, massa turpis
+          feugiat tellus, eu pellentesque diam odio a enim. Etiam sed bibendum turpis.
+          <br><br>
+          Pellentesque ante ex, tincidunt sit amet quam et, porta facilisis mauris. Fusce aliquam commodo tortor, quis
+          vehicula purus vestibulum eu. Nullam pretium varius mi feugiat placerat. Ut eu nisl nec nibh eleifend
+          vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
+          <br><br>
+          Pellentesque ante ex, tincidunt sit amet quam et, porta facilisis mauris. Fusce aliquam commodo tortor, quis
+          vehicula purus vestibulum eu. Nullam pretium varius mi feugiat placerat. Ut eu nisl nec nibh eleifend
+          vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
+        </p>
+      </div>
     </div>
   </div>
 
@@ -58,5 +93,17 @@
 
 
 </body>
+<script>
+
+
+
+  // Aqui eu estou criando uma função nde eu peço para que ela selecione o id do section
+  function scrollToSection(sectionId) {
+    // aqui eu estou criando uma variavel onde ela vai ficar responsável por indentificar no HTML o section que eu quero
+    var section = document.getElementById(sectionId);
+    // aqui eu estou pedindo que para após encontrar que ele vá até ele de forma suave
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+</script>
 
 </html>
