@@ -20,7 +20,7 @@ function autenticar(req, res) {
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
 
-                                (resultadoAutenticar[0])
+                        usuarioModel(resultadoConferiri[0].id)
                             .then(() => {
                                 if (usuarioModel.length > 0) {
                                     res.json({

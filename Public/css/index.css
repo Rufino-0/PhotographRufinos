@@ -184,7 +184,7 @@ body::-webkit-scrollbar {
     background-image: url(../assets/index/FundoBack4.png);
     background-repeat: no-repeat;
     background-size: cover;
-    justify-content: space-around;
+    justiiy-content: space-around;
 }
 
 .cards {
@@ -202,8 +202,41 @@ body::-webkit-scrollbar {
     height: 65vh;
     border-radius: 34px;
     background-color: rgba(245, 245, 245, 0.501);
+
+}
+.telinha1 img {
+    margin: 0;
+    width: 27vw;
+    height: 65vh;
+    border-radius: 34px;
 }
 
+.telinha2 {
+    margin: 0;
+    width: 27vw;
+    height: 65vh;
+    border-radius: 34px;
+    background-color: rgba(245, 245, 245, 0.501);
+}
+.telinha2 img {
+    margin: 0;
+    width: 27vw;
+    height: 65vh;
+    border-radius: 34px;
+}
+.telinha3 {
+    margin: 0;
+    width: 27vw;
+    height: 65vh;
+    border-radius: 34px;
+    background-color: rgba(245, 245, 245, 0.501);
+}
+.telinha3 img {
+    margin: 0;
+    width: 27vw;
+    height: 65vh;
+    border-radius: 34px;
+}
 .QuintaPagina {
     height: 100vh;
     width: 100%;
