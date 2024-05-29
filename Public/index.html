@@ -89,32 +89,34 @@
   </div>
   <div id="contato" class="ContainerGrande">
     <div class="SextaTela">
+      <div class="TextoPaginaFinal">
+        <span>Fale comigo!</span>
+        <div class="iptFooter">
+        <input id="ipt" required placeholder="Insira seu nome" type="text">
+        <input id="" required placeholder="Insira seu sobrenome" type="text"> <br>
+       </div>
+        <input id="" required placeholder="Insira seu email" type="text"> <br>
+        <input id="ipt_desc" required placeholder="Descrição" type="text">
+        <p>*Máximo de 255 caracteres</p> 
+        <button onclick="contatar()">Enviar</button>
+      </div>
       <div class="SextaConteudo">
-        <div></div>
-        <img src="" alt="">
+        <img src="../Public/assets/index/tela7.png">
       </div>
       <footer>
-
+        <div class="LogoBlack">
+          <img src="../Public/assets/index/LogoBlack.png">
+        </div>
+        <div class="RedesContato">
+          <img src="../Public/assets/index/IconGitHub.png">
+          <img src="../Public/assets/index/IconInsta.png">
+          <img src="../Public/assets/index/IconLinkdin.png">
+          <img src="../Public/assets/index/IconMaps.png">
+        </div>
       </footer>
     </div>
   </div>
 
-
-
-
-
 </body>
-<script>
-
-
-
-  // Aqui eu estou criando uma função nde eu peço para que ela selecione o id do section
-  function scrollToSection(sectionId) {
-    // aqui eu estou criando uma variavel onde ela vai ficar responsável por indentificar no HTML o section que eu quero
-    var section = document.getElementById(sectionId);
-    // aqui eu estou pedindo que para após encontrar que ele vá até ele de forma suave
-    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
-</script>
 
 </html>

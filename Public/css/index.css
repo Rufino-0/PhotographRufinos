@@ -11,7 +11,8 @@ body {
     margin: 0;
     padding: 0;
 }
-body::-webkit-scrollbar{
+
+body::-webkit-scrollbar {
     display: none;
 }
 
@@ -54,6 +55,13 @@ body::-webkit-scrollbar{
 #navbar li {
     margin-left: 30px;
     float: left;
+}
+
+#navbar .fixed {
+    position: sticky;
+    top: 0%;
+    left: 0%;
+
 }
 
 #cadastro {
@@ -112,6 +120,7 @@ body::-webkit-scrollbar{
     background-image: url(../assets/index/FundoBack3.png);
     background-repeat: no-repeat;
     background-position: 80vh;
+    background-attachment: fixed;
     justify-content: center;
 }
 
@@ -225,9 +234,101 @@ body::-webkit-scrollbar{
     font-size: 19px;
 }
 
-#navbar .fixed {
-    position: sticky;
-    top: 0%;
-    left: 0%;
+.SextaTela {
+    margin: 0;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background-image: url(../assets/index/FundoBack7.png);
+    background-repeat: no-repeat;
+    justify-content: center;
+    background-position-x: -13vh;
+    background-size: 65.3vw;
+    flex-direction: column;
 
+
+}
+.TextoPaginaFinal{
+    position: absolute;
+    height: 100vh;
+    width: 89%;
+    justify-content: center;
+    display: flex;
+    align-items: end;
+    flex-direction: column;
+    top: 218vw;
+}
+.TextoPaginaFinal button{
+    margin-right: 10vw;
+    width: 10vw;
+    height: 6vh;
+    background-color: #2C3373;
+    border-radius: 15px;
+    border: none;
+    font-size: 4vh;
+    color: white;
+}
+.TextoPaginaFinal input{
+    border-radius: 15px;
+    border: solid 1px black;
+    background-color: #d7d7d7;
+    height: 6vh;
+    width: 30vw;
+}
+.TextoPaginaFinal span {
+    font-size: 6vh;
+    width: 30vw;
+    margin: 5px;
+}
+.TextoPaginaFinal p {
+    margin-right: 19vw;
+    font-size: 2vh;
+    color: red;
+}
+
+.iptFooter{
+    flex-direction: row;
+}
+.iptFooter input {
+    height: 6vh;
+    width: 15vw;
+    margin-bottom: 2vh;
+}
+#ipt_desc{
+    width: 30vw;
+    height: 28vh;
+}
+#ipt_desc input{
+    text-align: start;
+}
+
+.SextaConteudo {
+    margin: -5px;
+
+}
+
+.SextaConteudo img {
+    width: 100%;
+    height: 83vh;
+    margin: 0;
+}
+
+.SextaTela footer {
+    width: 100%;
+    height: 157px;
+    background-color: #AFAFAF;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.LogoBlack img {
+    margin-right: 57vw;
+    height: 11vh;
+}
+
+.RedesContato img {
+    height: 6vh;
+    margin: 6px
 }
