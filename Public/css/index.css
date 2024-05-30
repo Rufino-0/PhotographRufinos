@@ -125,9 +125,9 @@ body::-webkit-scrollbar {
     height: 100vh;
     width: 100%;
     margin: 0;
-    background-image: url(../assets/index/FundoBack3.png);
+    background-image: url(../assets/index/Fundoback3.jpg);
     background-repeat: no-repeat;
-    background-position: 80vh;
+    background-position: 59vh;
     background-attachment: fixed;
     justify-content: center;
 }
@@ -188,73 +188,84 @@ body::-webkit-scrollbar {
     background-size: cover;
     justiiy-content: space-around;
 }
-.cards{
+
+.cards {
     display: flex;
     flex-direction: row;
+    width: 100vw;
+    margin-top: 24vh;
 }
-.card-area{
+
+.card-area {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 40px;
     margin-top: 50px;
 }
+
 .card {
-	border-radius: 10px;
-	position: relative;
-	overflow: hidden;
-	card-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
 }
-.card img{
-    width: 100%;
+
+.card img {
+    width: 331px;
     border-radius: 10px;
     display: block;
-    transition: transform 0.5s;
+    transition: transform 0.4s;
+    height: 369px;
+    display: flex;
 }
+
 .intro {
-	width: 100%;
-	height: 0;
-	background: linear-gradient(transparent,#1c1c1c 58%);
-	border-radius: 10px;
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	overflow: hidden;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	padding: 0 40px;
-	text-align: center;
-	font-size: 14px;
-	transition: height 0.5s;
+    width: 20vw;
+    height: 0px;
+    background: linear-gradient(transparent, #909090e6 120%);
+    border-radius: 15px;
+    position: absolute;
+    left: 5vw;
+    bottom: 9vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0px 38px;
+    text-align: center;
+    font-size: 14px;
+    transition: height 0.5s;
+    margin-left: 0vw;
 }
+
 .intro h3 {
-	font-weight: 500;
-	margin-bottom: 5px;
-	margin-top: 80%;
-	font-family: 'Bebas Neue', sans-serif;
-	font-size: 30px;
-	letter-spacing: 2px;
+    font-weight: 500;
+    margin-bottom: 6px;
+    margin-top: 71%;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 30px;
+    letter-spacing: 2px;
 }
+
+.intro p {
+    font-size: 15px;
+}
+
 .intro a {
-	margin-top: 10px;
-	color: #262626;
-	text-decoration: none;
-	font-size: 14px;
-	background: #fff;
-	border-radius: 50px;
-	text-align: center;
-	padding: 5px 15px;
-}
-.card:hover img{
-    transform: scale(1.1);
-}
-.card:hover .intro{
-    height: 100%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: #262626;
+    text-decoration: none;
+    font-size: 14px;
+    background: #fff;
+    border-radius: 50px;
+    text-align: center;
+    padding: 5px 15px;
 }
 
-
-
+.card:hover .intro {
+    height: 75%;
+}
 
 .QuintaPagina {
     height: 100vh;
@@ -310,12 +321,12 @@ body::-webkit-scrollbar {
 .TextoPaginaFinal {
     position: absolute;
     height: 100vh;
-    width: 89%;
+    width: 93%;
     justify-content: center;
     display: flex;
     align-items: end;
     flex-direction: column;
-    top: 218vw;
+    top: 219vw;
 }
 
 .TextoPaginaFinal button {
@@ -335,6 +346,13 @@ body::-webkit-scrollbar {
     background-color: #d7d7d7;
     height: 6vh;
     width: 30vw;
+}
+
+.TextoPaginaFinal textarea {
+    width: 30.5vw;
+    height: 23vh;
+    border-radius: 7px;
+    background-color: #d7d7d7;
 }
 
 .TextoPaginaFinal span {
