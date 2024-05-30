@@ -2,6 +2,7 @@
     padding: 0;
     margin: 0;
     font-family: math;
+
 }
 
 html {
@@ -25,7 +26,7 @@ body::-webkit-scrollbar {
     background-size: cover;
 }
 
-.box img {
+.card img {
     width: 90vw;
     height: 90vh;
     margin-left: 5vw;
@@ -43,12 +44,13 @@ body::-webkit-scrollbar {
     color: rgb(0, 0, 0);
     position: sticky;
     top: 0;
-    box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.5);
+    card-shadow: 5px 5px 25px rgba(0, 0, 0, 0.5);
 
 
 }
+
 #navbar img {
-    size: 4vw; 
+    size: 4vw;
 }
 
 #navbar ul {
@@ -186,57 +188,74 @@ body::-webkit-scrollbar {
     background-size: cover;
     justiiy-content: space-around;
 }
-
-.cards {
-    width: 100%;
+.cards{
     display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+    flex-direction: row;
+}
+.card-area{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 40px;
+    margin-top: 50px;
+}
+.card {
+	border-radius: 10px;
+	position: relative;
+	overflow: hidden;
+	card-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+}
+.card img{
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+    transition: transform 0.5s;
+}
+.intro {
+	width: 100%;
+	height: 0;
+	background: linear-gradient(transparent,#1c1c1c 58%);
+	border-radius: 10px;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 40px;
+	text-align: center;
+	font-size: 14px;
+	transition: height 0.5s;
+}
+.intro h3 {
+	font-weight: 500;
+	margin-bottom: 5px;
+	margin-top: 80%;
+	font-family: 'Bebas Neue', sans-serif;
+	font-size: 30px;
+	letter-spacing: 2px;
+}
+.intro a {
+	margin-top: 10px;
+	color: #262626;
+	text-decoration: none;
+	font-size: 14px;
+	background: #fff;
+	border-radius: 50px;
+	text-align: center;
+	padding: 5px 15px;
+}
+.card:hover img{
+    transform: scale(1.1);
+}
+.card:hover .intro{
+    height: 100%;
 }
 
 
 
-.telinha1 {
-    margin: 0;
-    width: 27vw;
-    height: 65vh;
-    border-radius: 34px;
-    background-color: rgba(245, 245, 245, 0.501);
 
-}
-.telinha1 img {
-    margin: 0;
-    width: 27vw;
-    height: 65vh;
-    border-radius: 34px;
-}
-
-.telinha2 {
-    margin: 0;
-    width: 27vw;
-    height: 65vh;
-    border-radius: 34px;
-    background-color: rgba(245, 245, 245, 0.501);
-}
-.telinha2 img {
-    margin: 0;
-    width: 27vw;
-    height: 65vh;
-    border-radius: 34px;
-}
-.telinha3 {
-    margin: 0;
-    width: 27vw;
-    height: 65vh;
-    border-radius: 34px;
-    background-color: rgba(245, 245, 245, 0.501);
-}
-.telinha3 img {
-    margin: 0;
-    width: 27vw;
-    height: 65vh;
-    border-radius: 34px;
-}
 .QuintaPagina {
     height: 100vh;
     width: 100%;
@@ -287,7 +306,8 @@ body::-webkit-scrollbar {
 
 
 }
-.TextoPaginaFinal{
+
+.TextoPaginaFinal {
     position: absolute;
     height: 100vh;
     width: 89%;
@@ -297,7 +317,8 @@ body::-webkit-scrollbar {
     flex-direction: column;
     top: 218vw;
 }
-.TextoPaginaFinal button{
+
+.TextoPaginaFinal button {
     margin-right: 10vw;
     width: 10vw;
     height: 6vh;
@@ -307,37 +328,43 @@ body::-webkit-scrollbar {
     font-size: 4vh;
     color: white;
 }
-.TextoPaginaFinal input{
+
+.TextoPaginaFinal input {
     border-radius: 15px;
     border: solid 1px black;
     background-color: #d7d7d7;
     height: 6vh;
     width: 30vw;
 }
+
 .TextoPaginaFinal span {
     font-size: 6vh;
     width: 30vw;
     margin: 5px;
 }
+
 .TextoPaginaFinal p {
     margin-right: 19vw;
     font-size: 2vh;
     color: red;
 }
 
-.iptFooter{
+.iptFooter {
     flex-direction: row;
 }
+
 .iptFooter input {
     height: 6vh;
     width: 15vw;
     margin-bottom: 2vh;
 }
-#ipt_desc{
+
+#ipt_desc {
     width: 30vw;
     height: 28vh;
 }
-#ipt_desc input{
+
+#ipt_desc input {
     text-align: start;
 }
 
