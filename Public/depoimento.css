@@ -1,0 +1,63 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+background-image: url(./assets/index/fundoCadastro.jpg);
+background-size: cover;
+background-repeat: no-repeat;
+background-attachment: fixed;
+}
+body ::-webkit-scrollbar{
+    display: none;
+}
+body h1{
+    margin-top: 5vh;
+    font-size: 4vw;
+    margin-left: 25px;
+}
+.topo{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10vh;
+}
+.geral{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.container{
+    display: flex;
+    width: 93vw;
+    height: 60vh;
+    margin-left: 30px;
+    flex-direction: row;
+    border: solid 2px black;
+    align-items: center;
+    border-radius: 10px;
+    margin-bottom: 15vh;
+    background-color: rgb(226, 226, 226);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+
+}
+
+.img{
+    width: 192vw;
+    height: 53vh;
+    background-color: gray;
+    margin-right: 37px;
+    margin-left: 31px;
+    border-radius: 15px;
+}
+.texto_depoimento h1{
+    font-size: 6vh;
+    margin-left: 0px;
+    margin-bottom: 11px;
+}
+.texto_depoimento p {
+    width: 115vh;
+}
+.bolinhas{
+   width:100px;
+}
