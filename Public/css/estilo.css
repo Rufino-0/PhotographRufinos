@@ -3,7 +3,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-image: url(../assets/FundoCadastro.png);
+  background-image: url(../assets/index/fundoCadastro.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -26,7 +26,7 @@ body {
   display: flex;
   width: 100%;
   margin: 0;
-  height: 607px;
+  height: 551px;
   align-items: center;
   justify-content: center;
 }
@@ -186,8 +186,9 @@ body {
 .login .container {
   justify-content: center;
   align-items: center;
-  height: 607px;
+  height: 551px;
 }
+
 
 .card {
   width: 623px;

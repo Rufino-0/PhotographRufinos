@@ -3,7 +3,7 @@
     padding: 0;
 }
 body{
-background-image: url(./assets/index/fundoCadastro.jpg);
+background-image: url(../assets/index/fundoCadastro.jpg);
 background-size: cover;
 background-repeat: no-repeat;
 background-attachment: fixed;
@@ -21,6 +21,8 @@ body h1{
     display: flex;
     align-items: center;
     margin-bottom: 10vh;
+ 
+    
 }
 .geral{
     display: flex;
@@ -57,7 +59,26 @@ body h1{
 }
 .texto_depoimento p {
     width: 115vh;
+    margin-right: 27px;
 }
 .bolinhas{
    width:100px;
+}
+.container2{
+    display: flex;
+    width: 93vw;
+    height: 60vh;
+    margin-left: 30px;
+    flex-direction: row-reverse;
+    border: solid 2px black;
+    align-items: center;
+    border-radius: 10px;
+    margin-bottom: 15vh;
+    background-color: rgb(226, 226, 226);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+
+}
+.texto_depoimento2 p {
+    width: 115vh;
+    margin-left: 27px;
 }

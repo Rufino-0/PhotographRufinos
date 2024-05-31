@@ -21,7 +21,7 @@ body::-webkit-scrollbar {
 .fundoImg {
     width: 100%;
     height: 100vh;
-    background-image: url(../assets/index/FundoBack1.png);
+    background-image: url(../assets/index/fundoCadastro.jpg);
     background-repeat: round;
     background-size: cover;
 }
