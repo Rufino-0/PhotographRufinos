@@ -7,14 +7,10 @@ background-image: url(../assets/index/fundoCadastro.jpg);
 background-size: cover;
 background-repeat: no-repeat;
 background-attachment: fixed;
+
 }
 body ::-webkit-scrollbar{
     display: none;
-}
-body h1{
-    margin-top: 5vh;
-    font-size: 4vw;
-    margin-left: 25px;
 }
 .topo{
     justify-content: center;
