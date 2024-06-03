@@ -44,7 +44,7 @@ body::-webkit-scrollbar {
     color: rgb(0, 0, 0);
     position: sticky;
     top: 0;
-    card-shadow: 5px 5px 25px rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.5);
 
 
 }
@@ -58,18 +58,27 @@ body::-webkit-scrollbar {
     margin: 5px;
     padding: 8px;
     font-size: 25px;
+    
 }
 
 #navbar li {
     margin-left: 30px;
     float: left;
+    color: black;
+    transition: .5s;
 }
-
+#navbar a {
+    text-decoration: none;
+    color: black;
+    transition: 0.5s;
+}
+#navbar :checked a {
+    color: white;
+}
 #navbar .fixed {
     position: sticky;
     top: 0%;
     left: 0%;
-
 }
 
 #cadastro {
@@ -185,7 +194,6 @@ body::-webkit-scrollbar {
     background-image: url(../assets/index/FundoBack4.png);
     background-repeat: no-repeat;
     background-size: cover;
-    justiiy-content: space-around;
 }
 
 .cards {
@@ -252,7 +260,7 @@ body::-webkit-scrollbar {
 
 .intro a {
     margin-top: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     color: #262626;
     text-decoration: none;
     font-size: 14px;
@@ -263,7 +271,7 @@ body::-webkit-scrollbar {
 }
 
 .card:hover .intro {
-    height: 75%;
+    height: 85%;
 }
 
 .QuintaPagina {
@@ -278,7 +286,7 @@ body::-webkit-scrollbar {
 .SobreMim {
     width: 35vw;
     height: 75vh;
-    }
+}
 
 .SobreMim img {
     width: 85%;
@@ -292,7 +300,32 @@ body::-webkit-scrollbar {
     font-family: math;
     font-size: 19px;
 }
-.butao{
+
+.SeobreMimText h1 {
+    font-size: 29px;
+    margin-top: -23px;
+}
+
+.SeobreMimText a {
+    text-decoration: none;
+    border-radius: 15px;
+    background-color: rgba(151, 146, 122, 1);
+    width: 100px;
+    height: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-top: 15px;
+   transform: 1s;
+}
+
+
+.SeobreMimText a :hover {
+    background-color: rgb(196, 174, 67);
+}
+
+.butao {
     position: absolute;
     left: 16vw;
     top: 494vh;
@@ -300,13 +333,13 @@ body::-webkit-scrollbar {
     flex-direction: row;
 }
 
-.butao div{
+.butao div {
     width: 19px;
     height: 12px;
     background-color: #262626;
     border-radius: 80px;
     border: solid 1.5px;
-    
+
 
 }
 
@@ -412,6 +445,10 @@ body::-webkit-scrollbar {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+}
+
+#maps {
+    margin-right: 50px;
 }
 
 .LogoBlack img {

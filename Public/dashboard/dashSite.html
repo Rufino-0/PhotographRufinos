@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photograph | Dashboard</title>
+    <link rel="stylesheet" href="./../css/dashboards.css">
+    <script src="../js/sessao.js"></script>
+    <script src="./../js/alerta.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+    <nav id="navbar">
+        <a onclick="limparSessaohome()" href="../index.html"><img id="logo" src="../assets/index/LogoBlack.png" alt="LogoBlack"></a>
+        <ul>
+            <li class="dropdown"><a href="foto">Fotografia</a>
+
+                <div class="dropdown-menu">
+                    <a href="../paginas/Objetos.html">Objetos</a>
+                    <a href="../paginas/Pessoaa.html">Pessoas</a>
+                    <a href="../paginas/paisagem.html">Paisagens</a>
+                </div>
+            </li>
+
+            <li class="dropdown2"> <a href="games">Games</a>
+
+                <div class="dropdown-menu2">
+                    <a href="../paginas/games/iniciante.html">Quiz iniciante</a>
+                    <a href="../paginas/games/experiente.html">Quiz Experiente</a>
+                    <a href="../paginas/games/cruzadinha.html">Cruzadinha</a>
+                </div>
+
+            </li>
+
+            <li class="dropdown3"> <a href="dev">Devs</a>
+
+                <div class="dropdown-menu3">
+                    <a href="../paginas/dev/metricas.html">Metricas</a>
+                    <a href="../paginas/dev/chat.html">Chat-Bot</a>
+                </div>
+            </li>
+        </ul>
+        <button onclick=" limparSessao()"><img id="exit" src="../assets/dash/exit.png" alt=""></button>
+    </nav> 
+
+    <div class="container">
+        
+        <div class="card">
+                <div class="teste"></div>
+                <h3>Curiosidade 1</h3>
+                <p>A primeira fotografia reconhecida como a mais antiga já feita foi tirada por Joseph Nicéphore Niépce em 1826 ou 1827. A imagem, intitulada "View from the Window at Le Gras", capturou a vista de uma janela e é um marco na história da fotografia, demonstrando os primórdios da técnica. </p>
+            </div>
+            <div class="card">
+                <div class="teste"></div>
+                <h3>Curiosidade 2</h3>
+                <p>Você sabia que a palavra "fotografia" tem origem grega? É uma combinação de "photos", que significa "luz", e "graphê", que se traduz como "escrita" ou "desenho". Portanto, fotografia literalmente significa "escrever com luz", refletindo a essência da arte de capturar imagens por meio da luz.</p>
+            </div>
+            <div class="card">
+                <div class="teste"></div>
+                <h3>Curiosidade 3</h3>
+                <p>A menor câmera fotográfica do mundo, reconhecida pelo Guinness World Records, tem dimensões de apenas 2,5 x 2 x 1,1 centímetros. Essa câmera, chamada "Mame-Cam", foi desenvolvida pelo japonês Yasuhiko Meguro em 1996 e pode tirar fotografias de alta qualidade apesar do seu tamanho diminuto.</p>
+            </div>
+           
+    </div>
+</body>
+
+</html>
+<script>
+    function home(){
+        alert("Saindo da dash, faça login para  entrar novamente...")
+
+        limparSessao()
+    }
+</script>

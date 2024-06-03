@@ -16,6 +16,11 @@ function limparSessao() {
     sessionStorage.clear();
     window.location = "../login.html";
 }
+function limparSessaohome() {
+    alert("Redirecionando para Home, faça login pra entrar novamente")
+    sessionStorage.clear();
+    window.location = "../index.html";
+}
 
 // carregamento (loading)
 function aguardar() {

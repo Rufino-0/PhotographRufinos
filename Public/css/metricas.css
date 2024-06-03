@@ -54,7 +54,7 @@ nav button {
  background-color: transparent;
 }
 
-.dropdown-menu {
+.lista-menu {
  position: absolute;
  border: solid 1px black;
  border-radius: 2px;
@@ -64,17 +64,17 @@ nav button {
  display: none;
 }
 
-.dropdown-menu a {
+.lista-menu a {
  display: block;
  color: black;
 }
 
-.dropdown:hover .dropdown-menu {
+.lista:hover .lista-menu {
  display: block;
  background-color: rgba(110, 110, 110, 0.596);
 }
 
-.dropdown-menu2 {
+.lista-menu2 {
  position: absolute;
  border: solid 1px black;
  border-radius: 2px;
@@ -84,17 +84,17 @@ nav button {
  display: none;
 }
 
-.dropdown-menu2 a {
+.lista-menu2 a {
  display: block;
  color: black;
 }
 
-.dropdown2:hover .dropdown-menu2 {
+.lista2:hover .lista-menu2 {
  display: block;
  background-color: rgba(110, 110, 110, 0.596);
 }
 
-.dropdown-menu3 {
+.lista-menu3 {
  position: absolute;
  border: solid 1px black;
  border-radius: 2px;
@@ -103,12 +103,12 @@ nav button {
  display: none;
 }
 
-.dropdown-menu3 a {
+.lista-menu3 a {
  display: block;
  color: black;
 }
 
-.dropdown3:hover .dropdown-menu3 {
+.lista3:hover .lista-menu3 {
  display: block;
  background-color: rgba(110, 110, 110, 0.596);
 }
@@ -123,44 +123,4 @@ nav button {
 
 #exit {
  width: 32px;
-}
-
-.container {
- width: 100%;
- height: 100vh;
- display: flex;
- flex-direction: row;
- justify-content: center;
- align-items: center;
-}
-
-.card {
- width: 346px;
- height: 355px;
- background-color: rgba(138, 138, 138, 0.823);
- margin: 14px;
- border-radius: 13px;
- box-shadow: -1px 1px 20px 0px black;
- margin-top: 70px;
- display: flex;
- flex-direction: column;
- align-items: center;
- justify-content: space-around;
- font-family: math;
-}
-
-.card p {
- margin: 13px;
-}
-.card h3 {
- margin-top: 8px;
- 
-}
-
-.teste {
- width: 307px;
- height: 180px;
- background-color: whitesmoke;
- border-radius: 14px;
- margin-top: 10px;
 }
