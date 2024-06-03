@@ -1,43 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Public/css/metricas.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Photograph | Metricas</title>
 </head>
-<body>
-    <nav>
-        <a onclick="limparSessaohome()" href="../index.html"><img id="logo" src="../assets/index/LogoBlack.png" alt="LogoBlack"></a>
-        <ul>
-            <li class="lista"><a href="foto">Fotografia</a>
 
-                <div class="lista-menu">
+<body>
+    <nav id="navbar">
+        <a onclick="limparSessaohome()" href="../dashboard/dashSite.html"><img id="logo" src="../assets/index/LogoBlack.png"
+                alt="LogoBlack"></a>
+        <ul>
+            <li class="dropdown"><a>Fotografia</a>
+
+                <div class="dropdown-menu">
                     <a href="../paginas/Objetos.html">Objetos</a>
                     <a href="../paginas/Pessoaa.html">Pessoas</a>
                     <a href="../paginas/paisagem.html">Paisagens</a>
                 </div>
             </li>
 
-            <li class="lista2"> <a href="games">Games</a>
+            <li class="dropdown2"> <a>Games</a>
 
-                <div class="lista-menu2">
-                    <a href="../paginas/games/iniciante.html">Quiz iniciante</a>
-                    <a href="../paginas/games/experiente.html">Quiz Experiente</a>
-                    <a href="../paginas/games/cruzadinha.html">Cruzadinha</a>
+                <div class="dropdown-menu2">
+                    <a href="../paginas/games/iniciante.html">Quiz Fotografia</a>
+    
                 </div>
 
             </li>
 
-            <li class="lista3"> <a href="dev">Devs</a>
+            <li class="dropdown3"> <a>Info</a>
 
-                <div class="lista-menu3">
-                    <a href="../paginas/dev/metricas.html">Metricas</a>
-                    <a href="../paginas/dev/chat.html">Chat-Bot</a>
+                <div class="dropdown-menu3">
+                    <a href="../dashboard/metricas.html">Metricas</a>
                 </div>
             </li>
         </ul>
         <button onclick=" limparSessao()"><img id="exit" src="../assets/dash/exit.png" alt=""></button>
-    </nav> 
+    </nav>
+
+
+    <div class="container">
+
+        <div class="grafico">
+            <h3>Suas metricas</h3>
+            <canvas style="width: 269px;" id="chart1"></canvas>
+        </div>
+        <div class="grafico">
+            <h3>Score Geral</h3>
+            <canvas id="chart2"></canvas>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
+
 </html>
+<script>
+    
+    const grafico1 = document.getElementById('chart1');
+    const data = {
+        labels: [
+            'Erros',
+            'Acertos'
+        ],
+        datasets: [{
+            label: 'chart1',
+            data: [300, 50],
+            options: {
+            maintainAspectRatio: false,
+            responsive: false,
+
+        },
+            backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)'
+            ],
+            hoverOffset: 4
+        }]
+    };
+    const config = {
+        type: 'pie',
+        data: data,
+        options: {
+            maintainAspectRatio: false,
+            responsive: false,
+
+        }
+    };
+
+    new Chart(grafico1, config);
+
+
+const grafico2 = document.getElementById('chart2');
+
+  new Chart(grafico2, {
+    type: 'bar',
+    data: {
+            labels: ['João', 'Maria', 'Pedro', 'Ana', 'Lucas', 'Julia'],
+      datasets: [{
+        label: 'Qnt de acertos',
+        data: [12, 25, 3, 5, 2, 3],
+        borderWidth: 1,
+        backgroundColor: [
+                    'rgba(255, 0, 0, 0.2)',
+                    'rgba(255, 128, 0, 0.2)',
+                    'rgba(255, 255, 0, 0.2)',
+                    'rgba(0, 255, 0, 0.2)',
+                    'rgba(0, 0, 255, 0.2)',
+                    'rgba(128, 0, 128, 0.2)'
+
+        ],
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>

@@ -8,6 +8,7 @@ body {
  background-image: url(../assets/index/fundoCadastro.jpg);
  background-size: cover;
  background-repeat: no-repeat;
+
 }
 
 #logo {
@@ -126,43 +127,29 @@ nav button {
  width: 32px;
 }
 
-.container {
+.container{
  width: 100%;
- height: 100vh;
+ height: 100%;
  display: flex;
  flex-direction: row;
- justify-content: center;
- align-items: center;
-}
-
-.card {
- width: 346px;
- height: 355px;
- background-color: rgba(138, 138, 138, 0.823);
- margin: 14px;
- border-radius: 13px;
- box-shadow: -1px 1px 20px 0px black;
- margin-top: 70px;
- display: flex;
- flex-direction: column;
- align-items: center;
  justify-content: space-around;
- font-family: math;
-}
-
-.card p {
- margin: 13px;
-}
-.card h3 {
- margin-top: 8px;
+ align-items: center;
  
 }
-
-.teste {
- width: 307px;
- height: 180px;
- background-color: whitesmoke;
- border-radius: 14px;
- margin-top: 10px;
+.grafico{
+ width: 576px;
+ height: 318px;
+ border-radius: 15px;
+ background-color: gray;
+ display: flex;
+ flex-direction: column;
+ margin-top: 162px;
+ margin-left: 3px;
+ align-items: center;
 }
-
+canvas {
+ margin: 15px;
+}
+#grafico1{
+ width: 50%;
+}
