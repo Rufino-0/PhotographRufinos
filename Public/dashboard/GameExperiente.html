@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photograph | Quiz</title>
-    <link rel="stylesheet" href="gameExperiente.css">
+    <title>Photograph | Quiz Experiente</title>
+    <link rel="stylesheet" href="game.css">
     <script src="../js/sessao.js"></script>
 </head>
 
@@ -28,8 +28,7 @@
             <li class="dropdown2"> <a>Games</a>
 
                 <div class="dropdown-menu2">
-                    <a href="../dashboard/Game.html">Quiz Fotografia iniciante</a>
-                    <a href="../dashboard/GameExperiente.html">Quiz Fotografia experiente</a>
+                    <a href="../dashboard/Game.html">Quiz Fotografia</a>
 
                 </div>
 
@@ -47,13 +46,14 @@
     <div class="geral">
 
         <div id="content" class="content">
-            <h3>Quiz - Fotografia</h3>
+            <h3>Quiz - Fotografia Experiente</h3>
 
             <p>Bem vindo! ao nosso Quiz
                 <br>
-                entre e descubra se você sabe sobre fotografia, respire fundo, ajuste suas configurações e esteja pronto
-                para jogar nosso game.
-                Que cada resposta certa seja um flash de sucesso e que cada erro seja apenas uma nova oportunidade de
+                entre e descubra se você sabe sobre fotograifa, respire fundo, ajuste suas configurações e esteja pronto
+                para jogar nosso game, nessa versão as perguntas são mais dificeis e mais complexas mas um bom fotografo
+                saberia.
+                Que cada resposta certa seja um flash de sucesso e que cada seja apenas uma nova oportunidade de
                 aprendizado. Estamos ansiosos para ver suas pontuações.
             </p>
 
@@ -64,140 +64,129 @@
             <h3>1° - Questão</h3>
 
 
-            <p> Qual é a abertura máxima de uma câmera DSLR típica? <br><br>
-            </p>
+            <p>Qual é a distância focal de uma lente de 50mm em uma câmera full-frame?</p>
 
 
             <div class="respostas">
-                <button class="resposta-btn " onclick="errada1()">f/22</button>
-                <button class="resposta-btn " onclick="errada1()">f/5.6</button>
-                <button class="resposta-btn " onclick="errada1()">f/11</button>
-                <button class="resposta-btn" onclick="certa1()">f/2.8</button>
+                <button class="resposta-btn " onclick="errada1()">25mm</button>
+                <button class="resposta-btn " onclick="errada1()">35mm</button>
+                <button class="resposta-btn " onclick="errada1()">75mm</button>
+                <button class="resposta-btn" onclick="certa1()">50mm</button>
             </div>
         </div>
         <div id="content2" class="content2">
             <h3>2° - Questão</h3>
 
-            <p>Qual destes não é um tipo comum de lente fotográfica?</p>
+            <p>O que é o "bokeh" em fotografia?</p>
 
             <div class="respostas">
-                <button class="resposta-btn " onclick="errada2()">Grande Angular</button>
-                <button class="resposta-btn" onclick="certa2()">Pixel</button>
-                <button class="resposta-btn " onclick="errada2()">Teleobjetiva</button>
-                <button class="resposta-btn " onclick="errada2()">Macro</button>
+                <button class="resposta-btn " onclick="errada2()">Um tipo de filtro fotográfico</button>
+                <button class="resposta-btn" onclick="certa2()">Um efeito de desfoque agradável no fundo da
+                    imagem</button>
+                <button class="resposta-btn " onclick="errada2()">Uma técnica de iluminação para retratos</button>
+                <button class="resposta-btn " onclick="errada2()">Um tipo de lente macro especializada</button>
             </div>
         </div>
         <div id="content3" class="content3">
             <h3>3° - Questão</h3>
 
-            <p>O que faz o obturador em uma câmera?</p>
+            <p>O que é a "regra dos terços" na composição fotográfica?</p>
 
             <div class="respostas">
-                <button class="resposta-btn " onclick="errada3()">Controla a quantidade de luz que entra na
-                    câmera</button>
-                <button class="resposta-btn " onclick="errada3()">Controla a nitidez da imagem</button>
-                <button class="resposta-btn " onclick="errada3()">Controla a cor da imagem</button>
-                <button class="resposta-btn" onclick="certa3()">Controla a velocidade do obturador</button>
+                <button class="resposta-btn " onclick="errada3()">Um método de focagem automática</button>
+                <button class="resposta-btn " onclick="errada3()">Uma técnica de medição de luz</button>
+                <button class="resposta-btn " onclick="errada3()"> Uma regra para calcular a profundidade de
+                    campo</button>
+                <button class="resposta-btn" onclick="certa3()">Um princípio de composição que divide a imagem em
+                    terços, tanto horizontal como verticalmente</button>
             </div>
         </div>
         <div id="content4" class="content4">
             <h3>4° - Questão</h3>
 
-            <p>Qual é a função do ISO em uma câmera?</p>
+            <p>Qual é o propósito do "polarizador" em fotografia?</p>
 
             <div class="respostas">
-                <button class="resposta-btn " onclick="errada4()">Controlar a velocidade do obturador</button>
-                <button class="resposta-btn " onclick="errada4()">Controlar a abertura do diafragma</button>
-                <button class="resposta-btn " onclick="errada4()">Controlar o zoom da lente</button>
-                <button class="resposta-btn" onclick="certa4()">Controlar a sensibilidade do sensor à luz</button>
+                <button class="resposta-btn " onclick="errada4()">Reduzir reflexos e aumentar a saturação das
+                    cores</button>
+                <button class="resposta-btn " onclick="errada4()">Ajustar a temperatura de cor da imagem</button>
+                <button class="resposta-btn " onclick="errada4()">Controlar o brilho da imagem em ambientes muito
+                    iluminados</button>
+                <button class="resposta-btn" onclick="certa4()">Reduzir reflexos e aumentar a saturação das
+                    cores</button>
             </div>
         </div>
         <div id="content5" class="content5">
             <h3>5° - Questão</h3>
 
-            <p>O que é o foco automático em uma câmera?</p>
+            <p>O que é "exposição composta" em fotografia?</p>
 
             <div class="respostas">
-                <button class="resposta-btn " onclick="errada5()">Um tipo de lente que permite zoom automático</button>
-                <button class="resposta-btn " onclick="errada5()">Um tipo de câmera que ajusta automaticamente a
-                    abertura do diafragma</button>
-                <button class="resposta-btn" onclick="certa5()">Um recurso que ajusta automaticamente o foco da
-                    imagem</button>
-                <button class="resposta-btn " onclick="errada5()">Um modo de disparo que ajusta automaticamente a
-                    velocidade do obturador</button>
+                <button class="resposta-btn " onclick="errada5()">Um método para corrigir a exposição durante a captura da imagem</button>
+                <button class="resposta-btn " onclick="errada5()">Um tipo de medição de luz automática na câmera</button>
+                <button class="resposta-btn" onclick="certa5()">Uma técnica de fotografia de múltipla exposição</button>
+                <button class="resposta-btn " onclick="errada5()">Uma técnica de edição de imagens no pós-processamento</button>
             </div>
         </div>
         <div id="content6" class="content6">
             <h3>6° - Questão</h3>
 
-            <p>Qual é a função do diafragma em uma câmera?</p>
+            <p>Qual é a principal diferença entre uma câmera DSLR e uma câmera mirrorless?</p>
 
             <div class="respostas">
-                <button class="resposta-btn" onclick="certa6()">Controlar a profundidade de campo</button>
-                <button class="resposta-btn " onclick="errada6()">Controlar a sensibilidade do sensor à luz</button>
-                <button class="resposta-btn " onclick="errada6()">Controlar a velocidade do obturador</button>
-                <button class="resposta-btn " onclick="errada6()">Controlar a nitidez da imagem</button>
+                <button class="resposta-btn" onclick="certa6()">A presença ou ausência de um espelho reflexivo</button>
+                <button class="resposta-btn " onclick="errada6()">O tipo de sensor utilizado</button>
+                <button class="resposta-btn " onclick="errada6()">O sistema de visualização do visor</button>
+                <button class="resposta-btn " onclick="errada6()">O método de focagem automática</button>
             </div>
         </div>
         <div id="content7" class="content7">
             <h3>7° - Questão</h3>
 
-            <p>Qual é a principal diferença entre fotografia em preto e branco e fotografia em cores?</p>
+            <p>O que é "profundidade de campo" em fotografia?</p>
 
             <div class="respostas">
-                <button class="resposta-btn " onclick="errada7()">Fotografia em cores tem mais detalhes</button>
-                <button class="resposta-btn" onclick="certa7()">Fotografia em preto e branco não utiliza cores</button>
-                <button class="resposta-btn " onclick="errada7()">Fotografia em preto e branco é mais antiga</button>
-                <button class="resposta-btn " onclick="errada7()">Fotografia em preto e branco é mais barata</button>
+                <button class="resposta-btn " onclick="errada7()">O tempo necessário para a câmera capturar a imagem após o disparo</button>
+                <button class="resposta-btn" onclick="certa7()">A quantidade de nitidez em uma imagem, do primeiro plano ao plano de fundo</button>
+                <button class="resposta-btn " onclick="errada7()">A distância máxima entre o fotógrafo e o assunto que pode ser mantida em foco</button>
+                <button class="resposta-btn " onclick="errada7()">A faixa dinâmica de cores em uma imagem</button>
             </div>
         </div>
         <div id="content8" class="content8">
             <h3>8° - Questão</h3>
 
-            <p>O que é o "formato RAW" em fotografia digital?</p>
+            <p>Qual é a função do "balanço de branco" em uma câmera?</p>
 
             <div class="respostas">
-                <button class="resposta-btn " onclick="errada8()">Um formato de imagem com compressão com
-                    perdas</button>
-                <button class="resposta-btn " onclick="errada8()">Um formato de imagem com compressão sem
-                    perdas</button>
-                <button class="resposta-btn" onclick="certa8()">Um formato de imagem que inclui todos os dados do
-                    sensor</button>
-                <button class="resposta-btn " onclick="errada8()">Um formato de imagem que só pode ser editado em preto
-                    e branco</button>
+                <button class="resposta-btn " onclick="errada8()"> Ajustar a exposição da imagem</button>
+                <button class="resposta-btn " onclick="errada8()">Ajustar a velocidade do obturador</button>
+                <button class="resposta-btn" onclick="certa8()">Controlar a temperatura de cor da luz na cena</button>
+                <button class="resposta-btn " onclick="errada8()">Corrigir a distorção da lente</button>
             </div>
         </div>
         <div id="content9" class="content9">
             <h3>9° - Questão</h3>
 
-            <p>O que é o "modo manual" em uma câmera?</p>
+            <p>O que é o "histograma" em fotografia digital?</p>
 
             <div class="respostas">
-                <button class="resposta-btn " onclick="errada9()">Um modo que ajusta automaticamente todas as
-                    configurações da câmera</button>
-                <button class="resposta-btn " onclick="errada9()">Um modo que só permite a captura de fotografias em
-                    preto e branco</button>
-                <button class="resposta-btn" onclick="certa9()">Um modo que permite ao fotógrafo ajustar manualmente as
-                    configurações da câmera</button>
-                <button class="resposta-btn " onclick="errada9()">Um modo que captura automaticamente imagens
-                    panorâmicas</button>
+                <button class="resposta-btn " onclick="errada9()">Um gráfico que mostra a quantidade de ruído na imagem</button>
+                <button class="resposta-btn " onclick="errada9()">Um indicador da nitidez da imagem</button>
+                <button class="resposta-btn" onclick="certa9()">Uma representação visual da distribuição de cores na imagem</button>
+                <button class="resposta-btn " onclick="errada9()">Uma técnica para reduzir a aberração cromática</button>
             </div>
 
         </div>
         <div id="content10" class="content10">
             <h3>10° - Questão</h3>
 
-            <p>Qual é a função do visor em uma câmera?</p>
+            <p>Qual é a vantagem de fotografar em formato JPEG em comparação com o formato RAW?</p>
 
             <div class="respostas">
-                <button class="resposta-btn" onclick="certa10()">Permitir que o fotógrafo enxergue a cena antes de
-                    capturar a imagem</button>
-                <button class="resposta-btn " onclick="errada10()">Conectar a câmera a dispositivos externos para
-                    compartilhamento de imagens</button>
-                <button class="resposta-btn " onclick="errada10()">Controlar a exposição da imagem em tempo
-                    real</button>
-                <button class="resposta-btn " onclick="errada10()">Mostrar a imagem capturada após a foto ter sido
-                    tirada</button>
+                <button class="resposta-btn" onclick="certa10()">Menor tamanho de arquivo</button>
+                <button class="resposta-btn " onclick="errada10()">Melhor reprodução de cores</button>
+                <button class="resposta-btn " onclick="errada10()">Maior flexibilidade na pós-produção</button>
+                <button class="resposta-btn " onclick="errada10()">Maior flexibilidade na pós-produção</button>
             </div>
         </div>
 
@@ -216,11 +205,11 @@
     function errada1() {
         pontos += 4;
 
-        
+
         setTimeout(function () {
             content1.style.display = "none";
             content2.style.display = "flex";
-        },400);
+        }, 1000);
 
         console.log("Pontuação atual: " + pontos);
 
@@ -228,11 +217,11 @@
     function errada2() {
         pontos += 4;
 
-        
+
         setTimeout(function () {
             content2.style.display = "none";
             content3.style.display = "flex";
-        },400);
+        }, 1000);
 
         console.log("Pontuação atual: " + pontos);
 
@@ -240,11 +229,11 @@
     function errada3() {
         pontos += 4;
 
-        
+
         setTimeout(function () {
             content3.style.display = "none";
             content4.style.display = "flex";
-        },400);
+        }, 1000);
 
         console.log("Pontuação atual: " + pontos);
 
@@ -252,11 +241,11 @@
     function errada4() {
         pontos += 4;
 
-        
+
         setTimeout(function () {
             content4.style.display = "none";
             content5.style.display = "flex";
-        },400);
+        }, 1000);
 
         console.log("Pontuação atual: " + pontos);
 
@@ -264,11 +253,11 @@
     function errada5() {
         pontos += 4;
 
-        
+
         setTimeout(function () {
             content5.style.display = "none";
             content6.style.display = "flex";
-        },400);
+        }, 1000);
 
         console.log("Pontuação atual: " + pontos);
 
@@ -276,11 +265,11 @@
     function errada6() {
         pontos += 4;
 
-        
+
         setTimeout(function () {
             content6.style.display = "none";
             content7.style.display = "flex";
-        },400);
+        }, 1000);
 
         console.log("Pontuação atual: " + pontos);
 
@@ -288,11 +277,11 @@
     function errada7() {
         pontos += 4;
 
-        
+
         setTimeout(function () {
             content7.style.display = "none";
             content8.style.display = "flex";
-        },400);
+        }, 1000);
 
         console.log("Pontuação atual: " + pontos);
 
@@ -300,11 +289,11 @@
     function errada8() {
         pontos += 4;
 
-        
+
         setTimeout(function () {
             content8.style.display = "none";
             content9.style.display = "flex";
-        },400);
+        }, 1000);
 
         console.log("Pontuação atual: " + pontos);
 
@@ -312,11 +301,11 @@
     function errada9() {
         pontos += 4;
 
-        
+
         setTimeout(function () {
             content9.style.display = "none";
             content10.style.display = "flex";
-        },400);
+        }, 1000);
 
         console.log("Pontuação atual: " + pontos);
 
@@ -324,22 +313,22 @@
     function errada10() {
         pontos += 4;
 
-        
+
         setTimeout(function () {
             content9.style.display = "none";
             finalizar()
-        },400);
+        }, 1000);
         console.log("Pontuação atual: " + pontos);
 
     }
 
     function certa1() {
         pontos += 10;
-        
+
         setTimeout(function () {
             content1.style.display = "none";
             content2.style.display = "flex";
-        },400);
+        }, 1000);
 
         console.log("Pontuação atual: " + pontos);
 
@@ -347,81 +336,81 @@
 
     function certa2() {
         pontos += 10;
-        
+
         setTimeout(function () {
             content2.style.display = "none";
             content3.style.display = "flex";
-        },400);
+        }, 1000);
         console.log("Pontuação atual: " + pontos);
     }
 
     function certa3() {
         pontos += 10;
-        
+
         setTimeout(function () {
             content3.style.display = "none";
             content4.style.display = "flex";
-        },400);
+        }, 1000);
         console.log("Pontuação atual: " + pontos);
     }
 
     function certa4() {
         pontos += 10;
-        
+
         setTimeout(function () {
             content4.style.display = "none";
             content5.style.display = "flex";
-        },400);
+        }, 1000);
         console.log("Pontuação atual: " + pontos);
     }
 
     function certa5() {
         pontos += 10;
-        
+
         setTimeout(function () {
             content5.style.display = "none";
             content6.style.display = "flex";
-        },400);
+        }, 1000);
         console.log("Pontuação atual: " + pontos);
     }
 
     function certa6() {
         pontos += 10;
-        
+
         setTimeout(function () {
             content6.style.display = "none";
             content7.style.display = "flex";
-        },400);
+        }, 1000);
         console.log("Pontuação atual: " + pontos);
     }
 
     function certa7() {
         pontos += 10;
-        
+
         setTimeout(function () {
             content7.style.display = "none";
             content8.style.display = "flex";
-        },400);
+        }, 1000);
         console.log("Pontuação atual: " + pontos);
     }
 
     function certa8() {
         pontos += 10;
-        
+
         setTimeout(function () {
             content8.style.display = "none";
             content9.style.display = "flex";
-        },400);
+        }, 1000);
         console.log("Pontuação atual: " + pontos);
     }
 
     function certa9() {
         pontos += 10;
-        
+
         setTimeout(function () {
             content9.style.display = "none";
             content10.style.display = "flex";
-        },400);
+        }, 1000);
         console.log("Pontuação atual: " + pontos);
     }
 
@@ -431,13 +420,13 @@
 
         setTimeout(function () {
             finalizar()
-        },400);
+        }, 1000);
     }
 
     function finalizar() {
         lista_pontos.push(pontos);
 
-        window.location.href = "GameExperiente.html";
+        window.location.href = "metricas.html";
 
         if (pontos >= 100) {
             alert("Parabéns, você acertou todas as questões!");
