@@ -1,4 +1,4 @@
-var MetricasModel = require("../models/MetricasModel");
+var medidaModel = require("../models/medidaModel");
 
 function buscarUltimasMedidasIniciante(req, res) {
 
@@ -6,7 +6,7 @@ function buscarUltimasMedidasIniciante(req, res) {
 
     console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
 
-    MetricasModel.buscarUltimasMedidasIniciante(limite_linhas).then(function (resultado) {
+    medidaModel.buscarUltimasMedidasIniciante(limite_linhas).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -22,11 +22,10 @@ function buscarUltimasMedidasIniciante(req, res) {
 function buscarUltimasMedidasExperiente(req, res) {
 
     const limite_linhas = 7;
-    const idUsuarioServer = req.query.idUsuarioServer
 
     console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
 
-    MetricasModel.buscarUltimasMedidasExperiente(idUsuarioServer, limite_linhas).then(function (resultado) {
+    medidaModel.buscarUltimasMedidasExperiente(limite_linhas).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -40,7 +39,6 @@ function buscarUltimasMedidasExperiente(req, res) {
 }
 
 module.exports = {
-    
     buscarUltimasMedidasExperiente,
     buscarUltimasMedidasIniciante
 }
