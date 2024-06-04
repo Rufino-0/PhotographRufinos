@@ -207,6 +207,10 @@
 
     const lista_pontos = [];
     var pontos = 0;
+    var pontoFinal = 0;
+    var erro = 0;
+    var acerto = 0;
+    var idUsuario = sessionStorage.ID_USUARIO;
 
     function entrada() {
         content1.style.display = "flex";
@@ -214,236 +218,272 @@
     }
 
     function errada1() {
-        pontos += 4;
+        pontos += 0;
 
-        
+
         setTimeout(function () {
             content1.style.display = "none";
             content2.style.display = "flex";
-        },400);
+        }, 400);
 
         console.log("Pontuação atual: " + pontos);
 
     }
     function errada2() {
-        pontos += 4;
+        pontos += 0;
 
-        
+
         setTimeout(function () {
             content2.style.display = "none";
             content3.style.display = "flex";
-        },400);
+        }, 400);
 
         console.log("Pontuação atual: " + pontos);
 
     }
     function errada3() {
-        pontos += 4;
+        pontos += 0;
 
-        
+
         setTimeout(function () {
             content3.style.display = "none";
             content4.style.display = "flex";
-        },400);
+        }, 400);
 
         console.log("Pontuação atual: " + pontos);
 
     }
     function errada4() {
-        pontos += 4;
+        pontos += 0;
 
-        
+
         setTimeout(function () {
             content4.style.display = "none";
             content5.style.display = "flex";
-        },400);
+        }, 400);
 
         console.log("Pontuação atual: " + pontos);
 
     }
     function errada5() {
-        pontos += 4;
+        pontos += 0;
 
-        
+
         setTimeout(function () {
             content5.style.display = "none";
             content6.style.display = "flex";
-        },400);
+        }, 400);
 
         console.log("Pontuação atual: " + pontos);
 
     }
     function errada6() {
-        pontos += 4;
+        pontos += 0;
 
-        
+
         setTimeout(function () {
             content6.style.display = "none";
             content7.style.display = "flex";
-        },400);
+        }, 400);
 
         console.log("Pontuação atual: " + pontos);
 
     }
     function errada7() {
-        pontos += 4;
+        pontos += 0;
 
-        
+
         setTimeout(function () {
             content7.style.display = "none";
             content8.style.display = "flex";
-        },400);
+        }, 400);
 
         console.log("Pontuação atual: " + pontos);
 
     }
     function errada8() {
-        pontos += 4;
+        pontos += 0;
 
-        
+
         setTimeout(function () {
             content8.style.display = "none";
             content9.style.display = "flex";
-        },400);
+        }, 400);
 
         console.log("Pontuação atual: " + pontos);
 
     }
     function errada9() {
-        pontos += 4;
+        pontos += 0;
 
-        
+
         setTimeout(function () {
             content9.style.display = "none";
             content10.style.display = "flex";
-        },400);
+        }, 400);
 
         console.log("Pontuação atual: " + pontos);
 
     }
     function errada10() {
-        pontos += 4;
+        pontos += 0;
 
-        
+
         setTimeout(function () {
             content9.style.display = "none";
             finalizar()
-        },400);
+        }, 400);
         console.log("Pontuação atual: " + pontos);
 
     }
 
     function certa1() {
-        pontos += 10;
-        
+        pontos += 1;
+
         setTimeout(function () {
             content1.style.display = "none";
             content2.style.display = "flex";
-        },400);
+        }, 400);
 
         console.log("Pontuação atual: " + pontos);
 
     }
 
     function certa2() {
-        pontos += 10;
-        
+        pontos += 1;
+
         setTimeout(function () {
             content2.style.display = "none";
             content3.style.display = "flex";
-        },400);
+        }, 400);
         console.log("Pontuação atual: " + pontos);
     }
 
     function certa3() {
-        pontos += 10;
-        
+        pontos += 1;
+
         setTimeout(function () {
             content3.style.display = "none";
             content4.style.display = "flex";
-        },400);
+        }, 400);
         console.log("Pontuação atual: " + pontos);
     }
 
     function certa4() {
-        pontos += 10;
-        
+        pontos += 1;
+
         setTimeout(function () {
             content4.style.display = "none";
             content5.style.display = "flex";
-        },400);
+        }, 400);
         console.log("Pontuação atual: " + pontos);
     }
 
     function certa5() {
-        pontos += 10;
-        
+        pontos += 1;
+
         setTimeout(function () {
             content5.style.display = "none";
             content6.style.display = "flex";
-        },400);
+        }, 400);
         console.log("Pontuação atual: " + pontos);
     }
 
     function certa6() {
-        pontos += 10;
-        
+        pontos += 1;
+
         setTimeout(function () {
             content6.style.display = "none";
             content7.style.display = "flex";
-        },400);
+        }, 400);
         console.log("Pontuação atual: " + pontos);
     }
 
     function certa7() {
-        pontos += 10;
-        
+        pontos += 1;
+
         setTimeout(function () {
             content7.style.display = "none";
             content8.style.display = "flex";
-        },400);
+        }, 400);
         console.log("Pontuação atual: " + pontos);
     }
 
     function certa8() {
-        pontos += 10;
-        
+        pontos += 1;
+
         setTimeout(function () {
             content8.style.display = "none";
             content9.style.display = "flex";
-        },400);
+        }, 400);
         console.log("Pontuação atual: " + pontos);
     }
 
     function certa9() {
-        pontos += 10;
-        
+        pontos += 1;
+
         setTimeout(function () {
             content9.style.display = "none";
             content10.style.display = "flex";
-        },400);
+        }, 400);
         console.log("Pontuação atual: " + pontos);
     }
 
     function certa10() {
-        pontos += 10;
+        pontos += 1;
         console.log("Pontuação atual: " + pontos);
 
         setTimeout(function () {
             finalizar()
-        },400);
+        }, 400);
     }
 
     function finalizar() {
         lista_pontos.push(pontos);
 
+        pontoFinal += pontos * 10
+        acertos = pontos;
+        erro = pontos - 10;
+
+
         window.location.href = "GameExperiente.html";
+        pontuacao1();
 
         if (pontos >= 100) {
             alert("Parabéns, você acertou todas as questões!");
         } else {
             alert("Seu score " + (100 - pontos) + "pontos");
         }
+    }
+
+
+    function pontuacao1() {
+
+        gameTimeout = setTimeout(() => {
+            fetch("/score/aplicarI", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    acertoServer: acertos,
+                    erroServer: erro,
+                    PontoServer: lista_pontos[idUsuario],
+                    usuarioServer: idUsuario
+                }),
+            }).then(response => {
+                if (response.ok) {
+
+                    console.log('Pontos cadastrados com sucesso!');
+                } else {
+                    console.error('Erro ao cadastrar .');
+                }
+            }).catch(error => {
+                console.error('Erro ao enviar a requisição:', error);
+            });
+
+
+        }, 45000); // 60 segundos
     }
 </script>
 
