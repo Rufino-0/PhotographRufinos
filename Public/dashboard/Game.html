@@ -182,6 +182,7 @@
                 <button class="resposta-btn " onclick="errada9()">Um modo que captura automaticamente imagens
                     panorâmicas</button>
             </div>
+            <button id="finalizar-btn" style="display: none;" onclick="finalizar()">Finalizar</button>
 
         </div>
         <div id="content10" class="content10">
@@ -204,13 +205,12 @@
     </div>
 </body>
 <script>
-
+    var idUsuario = sessionStorage.ID_USUARIO;
     const lista_pontos = [];
     var pontos = 0;
     var pontoFinal = 0;
     var erro = 0;
     var acerto = 0;
-    var idUsuario = sessionStorage.ID_USUARIO;
 
     function entrada() {
         content1.style.display = "flex";
@@ -439,28 +439,33 @@
     }
 
     function finalizar() {
-        lista_pontos.push(pontos);
+    lista_pontos.push(pontos);
+    pontoFinal += pontos * 10;
+    acertos = pontos;
+    erro = pontos - 10;
 
-        pontoFinal += pontos * 10
-        acertos = pontos;
-        erro = pontos - 10;
-
-
+    pontuacao1().then(() => {
         window.location.href = "GameExperiente.html";
-        pontuacao1();
 
         if (pontos >= 100) {
             alert("Parabéns, você acertou todas as questões!");
         } else {
-            alert("Seu score " + (100 - pontos) + "pontos");
+            alert("Seu score " + (pontos) + "pontos");
         }
-    }
+    }).catch((error) => {
+        console.error('Erro ao enviar pontuação para o servidor:', error);
+    });
+}
 
 
-    function pontuacao1() {
 
+
+function pontuacao1() {
+    return new Promise((resolve, reject) => {
+        var idUsuario = sessionStorage.ID_USUARIO;
+        var pontos = lista_pontos.length;
         gameTimeout = setTimeout(() => {
-            fetch("/score/aplicarI", {
+            fetch("/score/pontuacao1", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -468,23 +473,24 @@
                 body: JSON.stringify({
                     acertoServer: acertos,
                     erroServer: erro,
-                    PontoServer: lista_pontos[idUsuario],
+                    PontoServer: pontos,
                     usuarioServer: idUsuario
                 }),
             }).then(response => {
                 if (response.ok) {
-
                     console.log('Pontos cadastrados com sucesso!');
+                    resolve(); // Resolve the promise if request is successful
                 } else {
-                    console.error('Erro ao cadastrar .');
+                    console.error('Erro ao cadastrar.');
+                    reject(new Error('Erro ao cadastrar.'));
                 }
             }).catch(error => {
                 console.error('Erro ao enviar a requisição:', error);
+                reject(error); // Reject the promise if there's an error
             });
-
-
-        }, 45000); // 60 segundos
-    }
+        }, 45000);
+    });
+}
 </script>
 
 </html>

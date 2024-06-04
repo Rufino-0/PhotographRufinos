@@ -11,4 +11,10 @@ router.post("/aplicarE", function (req, res) {
     scoreController.aplicarE(req, res);
 })
 
+router.post("/pontuacao1", function (req, res) {
+    scoreController.pontuacao1(req, res);
+})
+
+
+
 module.exports = router;
