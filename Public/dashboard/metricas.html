@@ -8,10 +8,10 @@
     <title>Photograph | Metricas</title>
 </head>
 
-<body>
+<body onload="mostrarGrafico()">
     <nav id="navbar">
-        <a onclick="limparSessaohome()" href="../dashboard/dashSite.html"><img id="logo" src="../assets/index/LogoBlack.png"
-                alt="LogoBlack"></a>
+        <a onclick="limparSessaohome()" href="../dashboard/dashSite.html"><img id="logo"
+                src="../assets/index/LogoBlack.png" alt="LogoBlack"></a>
         <ul>
             <li class="dropdown"><a>Fotografia</a>
 
@@ -26,7 +26,7 @@
 
                 <div class="dropdown-menu2">
                     <a href="../paginas/games/iniciante.html">Quiz Fotografia</a>
-    
+
                 </div>
 
             </li>
@@ -43,15 +43,30 @@
 
 
     <div class="container">
+        <div class="parte1">
+            <div class="grafico">
+                <h3>Taxa de acertos Quiz - Iniciante</h3>
+                <canvas id="myChart-acertosIniciante"></canvas>
 
-        <div class="grafico">
-            <h3>Suas metricas</h3>
-            <canvas style="width: 269px;" id="chart1"></canvas>
+            </div>
+            <div class="grafico">
+                <h3>Rank de pontos - Iniciante</h3>
+                <canvas id="myChart-globalIniciante"></canvas>
+            </div>
         </div>
-        <div class="grafico">
-            <h3>Score Geral</h3>
-            <canvas id="chart2"></canvas>
+
+        <div class="parte2">
+            <div class="grafico">
+                <h3>Taxa de acertos Quiz - experiente</h3>
+                <canvas id="myChart-acertosExperiente"></canvas>
+
+            </div>
+            <div class="grafico">
+                <h3>Rank de pontos - Experiente</h3>
+                <canvas id="myChart-globalExperiente"></canvas>
+            </div>
         </div>
+
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -59,68 +74,430 @@
 
 </html>
 <script>
-    
-    const grafico1 = document.getElementById('chart1');
-    const data = {
-        labels: [
-            'Erros',
-            'Acertos'
-        ],
-        datasets: [{
-            label: 'chart1',
-            data: [300, 50],
-            options: {
-            maintainAspectRatio: false,
-            responsive: false,
 
-        },
-            backgroundColor: [
-                'rgb(255, 99, 132)',
-                'rgb(54, 162, 235)'
-            ],
-            hoverOffset: 4
-        }]
-    };
-    const config = {
-        type: 'pie',
-        data: data,
-        options: {
-            maintainAspectRatio: false,
-            responsive: false,
-
-        }
-    };
-
-    new Chart(grafico1, config);
+    var idUsuario = sessionStorage.ID_USUARIO;
 
 
-const grafico2 = document.getElementById('chart2');
+    function mostrarGraficos(idUsuario) {
+        var graficoiniciante = document.getElementById('myChart-acertosIniciante');
+        var graficoExperiente = document.getElementById('myChart-acertosExperiente');
+        var graficoGlogalIniciante = document.getElementById('myChart-globalIniciante');
+        var graficoGlogalExperiente = document.getElementById('myChart-globalExperiente');
 
-  new Chart(grafico2, {
-    type: 'bar',
-    data: {
-            labels: ['João', 'Maria', 'Pedro', 'Ana', 'Lucas', 'Julia'],
-      datasets: [{
-        label: 'Qnt de acertos',
-        data: [12, 25, 3, 5, 2, 3],
-        borderWidth: 1,
-        backgroundColor: [
-                    'rgba(255, 0, 0, 0.2)',
-                    'rgba(255, 128, 0, 0.2)',
-                    'rgba(255, 255, 0, 0.2)',
-                    'rgba(0, 255, 0, 0.2)',
-                    'rgba(0, 0, 255, 0.2)',
-                    'rgba(128, 0, 128, 0.2)'
 
-        ],
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
+        graficoIniciante.style.display = 'none';
+        graficoExperiente.style.display = 'none';
+        graficoGlogalIniciante.style.display = 'none';
+        graficoGlogalExperiente.style.display = 'none';
+
     }
-  });
+
+    function obterDadosGraficoIniciante() {
+        fetch(`/medidas/UltimasMedidas/`, { cache: 'no-store' })
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        resposta.reverse();
+                        plotarGraficoIniciante(resposta);
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+    function plotarGraficoIniciante(resposta) {
+        console.log('Começando a plotagem de dados...');
+
+        let labels = [];
+        let dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Highscore',
+                data: [],
+                fill: false,
+                borderColor: '#00225e',
+                borderWidth: 2,
+                backgroundColor: '#1b4385',
+                tension: 0.1
+            }]
+        };
+
+        console.log('Dados recebidos para plotar no gráfico Global:', resposta);
+
+        for (let i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            labels.push(registro.nome);
+            dados.datasets[0].data.push(registro.highscore);
+        }
+
+        console.log('Labels:', labels);
+        console.log('Dados do Dataset:', dados.datasets);
+
+        const config = {
+            type: 'bar',
+            data: dados,
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Scoreboard Global',
+                        font: {
+                            size: 16,
+                            weight: 'bold',
+                            family: 'math'
+                        },
+                        color: 'black'
+                    },
+                    legend: {
+                        labels: {
+                            font: {
+                                size: 14, // Tamanho da fonte das legendas
+                                weight: 'bold', // Deixar a fonte das legendas em negrito
+                                family: 'math' // Fonte importada
+                            },
+                            color: 'black'
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            font: {
+                                size: 14, // Tamanho da fonte dos rótulos do eixo X
+                                weight: 'bold', // Deixar a fonte dos rótulos do eixo X em negrito
+                                family: 'math' // Fonte importada
+                            },
+                            color: 'black' // Cor do texto dos rótulos do eixo X
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            font: {
+                                size: 12, // Tamanho da fonte dos rótulos do eixo Y
+                                weight: 'bold', // Deixar a fonte dos rótulos do eixo Y em negrito
+                                family: 'math' // Fonte importada
+                            },
+                            color: 'black' // Cor do texto dos rótulos do eixo Y
+                        }
+                    }
+                }
+            }
+        };
+
+        let ax = document.getElementById('myChart-acertosIniciante').getContext('2d');
+
+
+        let myChartGlobal = new Chart(ax, config);
+    }
+
+    function obterDadosGraficoExperiente() {
+        fetch(`/medidas/ultimasMedidas/`, { cache: 'no-store' })
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        resposta.reverse();
+                        plotarGraficoExperiente(resposta);
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+    function plotarGraficoExperiente(resposta) {
+        console.log('Começando a plotagem de dados...');
+
+        let labels = [];
+        let dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Highscore',
+                data: [],
+                fill: false,
+                borderColor: '#00225e',
+                borderWidth: 2,
+                backgroundColor: '#1b4385',
+                tension: 0.1
+            }]
+        };
+
+        console.log('Dados recebidos para plotar no gráfico Global:', resposta);
+
+        for (let i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            labels.push(registro.nome);
+            dados.datasets[0].data.push(registro.highscore);
+        }
+
+        console.log('Labels:', labels);
+        console.log('Dados do Dataset:', dados.datasets);
+
+        const config = {
+            type: 'bar',
+            data: dados,
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Scoreboard Global',
+                        font: {
+                            size: 16,
+                            weight: 'bold',
+                            family: 'math'
+                        },
+                        color: 'black'
+                    },
+                    legend: {
+                        labels: {
+                            font: {
+                                size: 14, // Tamanho da fonte das legendas
+                                weight: 'bold', // Deixar a fonte das legendas em negrito
+                                family: 'math' // Fonte importada
+                            },
+                            color: 'black'
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            font: {
+                                size: 14, // Tamanho da fonte dos rótulos do eixo X
+                                weight: 'bold', // Deixar a fonte dos rótulos do eixo X em negrito
+                                family: 'math' // Fonte importada
+                            },
+                            color: 'black' // Cor do texto dos rótulos do eixo X
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            font: {
+                                size: 12, // Tamanho da fonte dos rótulos do eixo Y
+                                weight: 'bold', // Deixar a fonte dos rótulos do eixo Y em negrito
+                                family: 'math' // Fonte importada
+                            },
+                            color: 'black' // Cor do texto dos rótulos do eixo Y
+                        }
+                    }
+                }
+            }
+        };
+
+        let ax = document.getElementById('myChart-acertosExperiente').getContext('2d');
+
+
+        let myChartGlobal = new Chart(ax, config);
+    }
+
+    function obterDadosGraficoGlobalIniciante() {
+        fetch(`/medidas/ultimasGlobal/`, { cache: 'no-store' })
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        resposta.reverse();
+                        plotarGraficoGlobalIniciante(resposta);
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+    function plotarGraficoGlobalIniciante(resposta) {
+
+        console.log('Começando a plotagem de dados...');
+
+        let labels = [];
+        let dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Highscore',
+                data: [],
+                fill: false,
+                borderColor: '#00225e',
+                borderWidth: 2,
+                backgroundColor: '#1b4385',
+                tension: 0.1
+            }]
+        };
+
+        console.log('Dados recebidos para plotar no gráfico Global:', resposta);
+
+        for (let i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            labels.push(registro.nome);
+            dados.datasets[0].data.push(registro.highscore);
+        }
+
+        console.log('Labels:', labels);
+        console.log('Dados do Dataset:', dados.datasets);
+
+        const config = {
+            type: 'bar',
+            data: dados,
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Scoreboard Global',
+                        font: {
+                            size: 16,
+                            weight: 'bold',
+                            family: 'math'
+                        },
+                        color: 'black'
+                    },
+                    legend: {
+                        labels: {
+                            font: {
+                                size: 14, // Tamanho da fonte das legendas
+                                weight: 'bold', // Deixar a fonte das legendas em negrito
+                                family: 'math' // Fonte importada
+                            },
+                            color: 'black'
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            font: {
+                                size: 14, // Tamanho da fonte dos rótulos do eixo X
+                                weight: 'bold', // Deixar a fonte dos rótulos do eixo X em negrito
+                                family: 'math' // Fonte importada
+                            },
+                            color: 'black' // Cor do texto dos rótulos do eixo X
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            font: {
+                                size: 12, // Tamanho da fonte dos rótulos do eixo Y
+                                weight: 'bold', // Deixar a fonte dos rótulos do eixo Y em negrito
+                                family: 'math' // Fonte importada
+                            },
+                            color: 'black' // Cor do texto dos rótulos do eixo Y
+                        }
+                    }
+                }
+            }
+        };
+
+        let ax = document.getElementById('myChart-globalIniciante').getContext('2d');
+
+
+        let myChartGlobal = new Chart(ax, config);
+    }
+
+    function obterDadosGraficoGlobalExperiente() {
+        fetch(`/medidas/ultimasGlobal/`, { cache: 'no-store' })
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        resposta.reverse();
+                        plotarGraficoGlobalExperiente(resposta);
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+    function plotarGraficoGlobalExperiente(resposta) {
+        console.log('Começando a plotagem de dados...');
+
+        let labels = [];
+        let dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Highscore',
+                data: [],
+                fill: false,
+                borderColor: '#00225e',
+                borderWidth: 2,
+                backgroundColor: '#1b4385',
+                tension: 0.1
+            }]
+        };
+
+        console.log('Dados recebidos para plotar no gráfico Global:', resposta);
+
+        for (let i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            labels.push(registro.nome);
+            dados.datasets[0].data.push(registro.highscore);
+        }
+
+        console.log('Labels:', labels);
+        console.log('Dados do Dataset:', dados.datasets);
+
+        const config = {
+            type: 'bar',
+            data: dados,
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Scoreboard Global',
+                        font: {
+                            size: 16,
+                            weight: 'bold',
+                            family: 'math'
+                        },
+                        color: 'black'
+                    },
+                    legend: {
+                        labels: {
+                            font: {
+                                size: 14, // Tamanho da fonte das legendas
+                                weight: 'bold', // Deixar a fonte das legendas em negrito
+                                family: 'math' // Fonte importada
+                            },
+                            color: 'black'
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            font: {
+                                size: 14, // Tamanho da fonte dos rótulos do eixo X
+                                weight: 'bold', // Deixar a fonte dos rótulos do eixo X em negrito
+                                family: 'math' // Fonte importada
+                            },
+                            color: 'black' // Cor do texto dos rótulos do eixo X
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            font: {
+                                size: 12, // Tamanho da fonte dos rótulos do eixo Y
+                                weight: 'bold', // Deixar a fonte dos rótulos do eixo Y em negrito
+                                family: 'math' // Fonte importada
+                            },
+                            color: 'black' // Cor do texto dos rótulos do eixo Y
+                        }
+                    }
+                }
+            }
+        };
+
+        let ax = document.getElementById('myChart-globalExperiente').getContext('2d');
+
+
+        let myChartGlobal = new Chart(ax, config);
+    }
 </script>
