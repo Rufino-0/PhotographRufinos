@@ -6,7 +6,6 @@ function aplicarI(req, res) {
     var idUsuario = req.body.usuarioServer;
     var erro = req.body.erroServer;
     var ponto = req.body.pontoServer;
-<<<<<<< HEAD
 
 
     // Faça as validações dos valores
@@ -48,21 +47,7 @@ function aplicarE(req, res) {
     var idUsuario = req.body.usuarioServer;
     var erro = req.body.erroServer;
     var ponto = req.body.pontoServer;
-=======
 
-    // Faça as validações dos valores
-<<<<<<< HEAD
-    if (acerto == undefined) {
-        res.status(400).send("Seu score está undefined!");
-
-    } else if (erro == undefined) {
-        res.status(400).send("Seu erro está undefined!");
->>>>>>> f5c84f4768dcfc842c0bec7d67eb9bc261cb4eec
-
-    } else if (ponto == undefined) {
-        res.status(400).send("Seu ponto está undefined!");
-
-<<<<<<< HEAD
     // Faça as validações dos valores
     if (acerto == undefined) {
         res.status(400).send("Seu score está undefined!");
@@ -73,19 +58,14 @@ function aplicarE(req, res) {
     } else if (ponto == undefined) {
         res.status(400).send("Seu ponto está undefined!");
 
-=======
->>>>>>> f5c84f4768dcfc842c0bec7d67eb9bc261cb4eec
     } else if (idUsuario == undefined) {
         res.status(400).send("Seu id está undefined!");
     }
     
         
     // Passe os valores como parâmetro e vá para o arquivo scoreModel.js
-<<<<<<< HEAD
-    scoreModel.aplicarE(acerto, erro, ponto, idUsuario)
-=======
     scoreModel.aplicarI(acerto, erro, ponto, idUsuario)
-=======
+
     if (ponto == undefined) {
         res.status(400).send("Seu ponto está undefined!");
     } else if (idUsuario == undefined) {
@@ -98,8 +78,6 @@ function aplicarE(req, res) {
 
     // Passe os valores como parâmetro e vá para o arquivo scoreModel.js
     scoreModel.aplicarI(idUsuario, ponto, acerto, erro)
->>>>>>> 8371e951fd1c1757890263f38cd3a8079bee3a8b
->>>>>>> f5c84f4768dcfc842c0bec7d67eb9bc261cb4eec
         .then(
             function () {
                 console.log('Pontos cadastrados com sucesso!');
@@ -124,19 +102,6 @@ function pontuacao1(req, res) {
     var ponto = req.body.pontoServer;
 
     // Faça as validações dos valores
-<<<<<<< HEAD
-    if (acerto == undefined) {
-        res.status(400).send("Seu score está undefined!");
-
-    } else if (erro == undefined) {
-        res.status(400).send("Seu erro está undefined!");
-
-    } else if (ponto == undefined) {
-        res.status(400).send("Seu ponto está undefined!");
-
-    } else if (idUsuario == undefined) {
-        res.status(400).send("Seu id está undefined!");
-=======
     if (ponto == undefined) {
         res.status(400).send("Seu ponto está undefined!");
     } else if (idUsuario == undefined) {
@@ -145,15 +110,10 @@ function pontuacao1(req, res) {
         res.status(400).send("Seu acerto está undefined!");
     } else if (erro == undefined) {
         res.status(400).send("Seu erro está undefined!");
->>>>>>> 8371e951fd1c1757890263f38cd3a8079bee3a8b
     }
 
     // Passe os valores como parâmetro e vá para o arquivo scoreModel.js
-<<<<<<< HEAD
-    scoreModel.aplicarE(acerto, erro, ponto, idUsuario)
-=======
     scoreModel.pontuacao1(idUsuario, ponto, acerto, erro)
->>>>>>> 8371e951fd1c1757890263f38cd3a8079bee3a8b
         .then(
             function () {
                 console.log('Pontos cadastrados com sucesso!');

@@ -30,15 +30,8 @@ app.use(cors());
 app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
 app.use("/score", scoreRouter);
-<<<<<<< HEAD
-app.use("/medidas", medidaRouter);
-=======
-<<<<<<< HEAD
-app.use("/medidas", medidaRouter);
-=======
->>>>>>> 8371e951fd1c1757890263f38cd3a8079bee3a8b
->>>>>>> f5c84f4768dcfc842c0bec7d67eb9bc261cb4eec
 
+app.use("/medidas", medidaRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`
