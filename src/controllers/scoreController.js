@@ -5,19 +5,26 @@ function aplicarI(req, res) {
     var acerto = req.body.acertoServer;
     var idUsuario = req.body.usuarioServer;
     var erro = req.body.erroServer;
-    var ponto = req.body.PontoServer;
+    var ponto = req.body.pontoServer;
 
 
     // Faça as validações dos valores
-    if (score == undefined) {
+    if (acerto == undefined) {
         res.status(400).send("Seu score está undefined!");
-    } 
-    else if (idUsuario == undefined) {
-        res.status(400).send("Seu momento está undefined!");
+
+    } else if (erro == undefined) {
+        res.status(400).send("Seu erro está undefined!");
+
+    } else if (ponto == undefined) {
+        res.status(400).send("Seu ponto está undefined!");
+
+    } else if (idUsuario == undefined) {
+        res.status(400).send("Seu id está undefined!");
     }
+    
         
     // Passe os valores como parâmetro e vá para o arquivo scoreModel.js
-    scoreModel.aplicarI(idUsuario,ponto, acerto, erro)
+    scoreModel.aplicarI(acerto, erro, ponto, idUsuario)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -26,7 +33,7 @@ function aplicarI(req, res) {
             function (erro) {
                 console.log(erro);
                 console.log(
-                    "\nHouve um erro ao inserir os dados iniciante Erro: ",
+                    "\nHouve um erro ao inserir os dados experientes Erro: ",
                     erro.sqlMessage
                 );
                 res.status(500).json(erro.sqlMessage);
@@ -39,20 +46,26 @@ function aplicarE(req, res) {
     var acerto = req.body.acertoServer;
     var idUsuario = req.body.usuarioServer;
     var erro = req.body.erroServer;
-    var ponto = req.body.PontoServer;
+    var ponto = req.body.pontoServer;
 
 
     // Faça as validações dos valores
-    if (score == undefined) {
+    if (acerto == undefined) {
         res.status(400).send("Seu score está undefined!");
-    } 
-    else if (idUsuario == undefined) {
-        res.status(400).send("Seu momento está undefined!");
+
+    } else if (erro == undefined) {
+        res.status(400).send("Seu erro está undefined!");
+
+    } else if (ponto == undefined) {
+        res.status(400).send("Seu ponto está undefined!");
+
+    } else if (idUsuario == undefined) {
+        res.status(400).send("Seu id está undefined!");
     }
     
         
     // Passe os valores como parâmetro e vá para o arquivo scoreModel.js
-    scoreModel.aplicarE(idUsuario, ponto, acerto, erro)
+    scoreModel.aplicarE(acerto, erro, ponto, idUsuario)
         .then(
             function (resultado) {
                 res.json(resultado);

@@ -28,7 +28,8 @@
             <li class="dropdown2"> <a>Games</a>
 
                 <div class="dropdown-menu2">
-                    <a href="../dashboard/Game.html">Quiz Fotografia</a>
+                    <a href="../dashboard/Game.html">Quiz iniciante</a>
+                    <a href="../dashboard/GameExperiente.html">Quiz experiente</a>
 
                 </div>
 
@@ -122,10 +123,13 @@
             <p>O que é "exposição composta" em fotografia?</p>
 
             <div class="respostas">
-                <button class="resposta-btn " onclick="errada5()">Um método para corrigir a exposição durante a captura da imagem</button>
-                <button class="resposta-btn " onclick="errada5()">Um tipo de medição de luz automática na câmera</button>
+                <button class="resposta-btn " onclick="errada5()">Um método para corrigir a exposição durante a captura
+                    da imagem</button>
+                <button class="resposta-btn " onclick="errada5()">Um tipo de medição de luz automática na
+                    câmera</button>
                 <button class="resposta-btn" onclick="certa5()">Uma técnica de fotografia de múltipla exposição</button>
-                <button class="resposta-btn " onclick="errada5()">Uma técnica de edição de imagens no pós-processamento</button>
+                <button class="resposta-btn " onclick="errada5()">Uma técnica de edição de imagens no
+                    pós-processamento</button>
             </div>
         </div>
         <div id="content6" class="content6">
@@ -146,9 +150,12 @@
             <p>O que é "profundidade de campo" em fotografia?</p>
 
             <div class="respostas">
-                <button class="resposta-btn " onclick="errada7()">O tempo necessário para a câmera capturar a imagem após o disparo</button>
-                <button class="resposta-btn" onclick="certa7()">A quantidade de nitidez em uma imagem, do primeiro plano ao plano de fundo</button>
-                <button class="resposta-btn " onclick="errada7()">A distância máxima entre o fotógrafo e o assunto que pode ser mantida em foco</button>
+                <button class="resposta-btn " onclick="errada7()">O tempo necessário para a câmera capturar a imagem
+                    após o disparo</button>
+                <button class="resposta-btn" onclick="certa7()">A quantidade de nitidez em uma imagem, do primeiro plano
+                    ao plano de fundo</button>
+                <button class="resposta-btn " onclick="errada7()">A distância máxima entre o fotógrafo e o assunto que
+                    pode ser mantida em foco</button>
                 <button class="resposta-btn " onclick="errada7()">A faixa dinâmica de cores em uma imagem</button>
             </div>
         </div>
@@ -170,10 +177,13 @@
             <p>O que é o "histograma" em fotografia digital?</p>
 
             <div class="respostas">
-                <button class="resposta-btn " onclick="errada9()">Um gráfico que mostra a quantidade de ruído na imagem</button>
+                <button class="resposta-btn " onclick="errada9()">Um gráfico que mostra a quantidade de ruído na
+                    imagem</button>
                 <button class="resposta-btn " onclick="errada9()">Um indicador da nitidez da imagem</button>
-                <button class="resposta-btn" onclick="certa9()">Uma representação visual da distribuição de cores na imagem</button>
-                <button class="resposta-btn " onclick="errada9()">Uma técnica para reduzir a aberração cromática</button>
+                <button class="resposta-btn" onclick="certa9()">Uma representação visual da distribuição de cores na
+                    imagem</button>
+                <button class="resposta-btn " onclick="errada9()">Uma técnica para reduzir a aberração
+                    cromática</button>
             </div>
 
         </div>
@@ -194,7 +204,7 @@
 </body>
 <script>
 
-    const lista_pontos = [];
+    // const lista_pontos = [];
     var pontos = 0;
     var pontoFinal = 0;
     var erro = 0;
@@ -428,50 +438,39 @@
     }
 
     function finalizar() {
-        lista_pontos.push(pontos);
-
-        pontoFinal += pontos * 10 
+        pontoFinal = pontos * 10
         acertos = pontos;
         erro = pontos - 10;
-
-        window.location.href = "metricas.html";
-        pontuacao()
 
         if (pontos >= 100) {
             alert("Parabéns, você acertou todas as questões!");
         } else {
             alert("Seu score " + (10 - pontos) + "perguntas");
         }
-    }
 
-    function pontuacao() {
-    
-        gameTimeout = setTimeout(() => {
-            // Enviar o score atual para o banco de dados
-            fetch("/score/aplicarE", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    acertoServer: acertos,
-                    erroServer: erro,
-                    PontoServer: lista_pontos[idUsuario],
-                    usuarioServer: idUsuario 
-                }),
-            }).then(response => {
-                if (response.ok) {
-                
-                    console.log('Pontos cadastrados com sucesso!');
-                } else {
-                    console.error('Erro ao cadastrar .');
-                }
-            }).catch(error => {
-                console.error('Erro ao enviar a requisição:', error);
-            });
-
+        fetch("/score/aplicarE", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                pontoServer: pontoFinal,
+                acertoServer: acertos,
+                erroServer: erro,
+                usuarioServer: idUsuario
+            }),
             
-        }, 45000); // 60 segundos
+        }).then(response => {
+            if (response.ok) {
+                console.log('Pontos cadastrados com sucesso!');
+
+                window.location.href = "metricas.html";
+            } else {
+                console.error('Erro ao cadastrar os dados.');
+            }
+        }).catch(error => {
+            console.error('Erro ao enviar a requisição:', error);
+        });
     }
 </script>
 

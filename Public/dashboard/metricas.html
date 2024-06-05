@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Photograph | Metricas</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body onload="mostrarGrafico()">
+<body onload="exibirGraficos()">
     <nav id="navbar">
         <a onclick="limparSessaohome()" href="../dashboard/dashSite.html"><img id="logo"
                 src="../assets/index/LogoBlack.png" alt="LogoBlack"></a>
@@ -25,7 +27,8 @@
             <li class="dropdown2"> <a>Games</a>
 
                 <div class="dropdown-menu2">
-                    <a href="../paginas/games/iniciante.html">Quiz Fotografia</a>
+                    <a href="../dashboard/Game.html">Quiz iniciante</a>
+                    <a href="../dashboard/GameExperiente.html">Quiz experiente</a>
 
                 </div>
 
@@ -38,48 +41,47 @@
                 </div>
             </li>
         </ul>
-        <button onclick=" limparSessao()"><img id="exit" src="../assets/dash/exit.png" alt=""></button>
+        <button onclick="limparSessao()"><img id="exit" src="../assets/dash/exit.png" alt=""></button>
     </nav>
 
 
-    <div class="container">
+    <div class="container" id="container">
 
-        <div class="grafico">
-            <h3>Score Quiz - Iniciante</h3>
-            <canvas id="myChart-acertosIniciante"></canvas>
-
-        </div>
-        <div class="grafico">
-            <h3>Score Quiz - Experiente</h3>
-            <canvas id="myChart-acertosExperiente"></canvas>
-        </div>
 
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 
 </html>
-<script>s
+<script>
 
-    var idUsuario = sessionStorage.ID_USUARIO;
+    function exibirGraficos() {
 
+        document.getElementById("container").innerHTML += `
+                <div class="grafico">
+                    <h3>Score Quiz - Iniciante</h3>
+                    <canvas id="myChart-acertosIniciante"></canvas>
 
-    function mostrarGraficos(idUsuario) {
-        var graficoiniciante = document.getElementById('myChart-acertosIniciante');
-        var graficoExperiente = document.getElementById('myChart-acertosExperiente');
-    
+                </div>
+                <div class="grafico">
+                    <h3>Score Quiz - Experiente</h3>
+                    <canvas id="myChart-acertosExperiente"></canvas>
+                </div>
+            `
+        obterDadosGraficoIniciante();
+        obterDadosGraficoExperiente();
 
-        graficoIniciante.style.display = 'none';
-        graficoExperiente.style.display = 'none';
     }
 
+    // Iniciante
     function obterDadosGraficoIniciante() {
-        fetch(`/medidas/UltimasMedidas/`, { cache: 'no-store' })
+
+        fetch(`/medidas/ultimasIniciante/`, { cache: 'no-store' })
             .then(function (response) {
                 if (response.ok) {
                     response.json().then(function (resposta) {
                         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                         resposta.reverse();
+
                         plotarGraficoIniciante(resposta);
                     });
                 } else {
@@ -90,29 +92,30 @@
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
     }
+
     function plotarGraficoIniciante(resposta) {
-        console.log('Começando a plotagem de dados...');
+        console.log('iniciando plotagem do gráfico...');
 
         let labels = [];
         let dados = {
             labels: labels,
             datasets: [{
-                label: 'Highscore',
+                label: 'Pontuação',
                 data: [],
                 fill: false,
-                borderColor: '#00225e',
+                borderColor: '#2d88bc',
                 borderWidth: 2,
-                backgroundColor: '#1b4385',
+                backgroundColor: '#5da0c7',
                 tension: 0.1
             }]
         };
 
-        console.log('Dados recebidos para plotar no gráfico Global:', resposta);
+        console.log('Dados recebidos para plotar no gráfico Usuario:', resposta);
 
         for (let i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
             labels.push(registro.nome);
-            dados.datasets[0].data.push(registro.highscore);
+            dados.datasets[0].data.push(registro.qndPontos);
         }
 
         console.log('Labels:', labels);
@@ -121,67 +124,24 @@
         const config = {
             type: 'bar',
             data: dados,
-            options: {
-                plugins: {
-                    title: {
-                        display: true,
-                        text: 'Scoreboard Global',
-                        font: {
-                            size: 16,
-                            weight: 'bold',
-                            family: 'math'
-                        },
-                        color: 'black'
-                    },
-                    legend: {
-                        labels: {
-                            font: {
-                                size: 14, // Tamanho da fonte das legendas
-                                weight: 'bold', // Deixar a fonte das legendas em negrito
-                                family: 'math' // Fonte importada
-                            },
-                            color: 'black'
-                        }
-                    }
-                },
-                scales: {
-                    x: {
-                        ticks: {
-                            font: {
-                                size: 14, // Tamanho da fonte dos rótulos do eixo X
-                                weight: 'bold', // Deixar a fonte dos rótulos do eixo X em negrito
-                                family: 'math' // Fonte importada
-                            },
-                            color: 'black' // Cor do texto dos rótulos do eixo X
-                        }
-                    },
-                    y: {
-                        ticks: {
-                            font: {
-                                size: 12, // Tamanho da fonte dos rótulos do eixo Y
-                                weight: 'bold', // Deixar a fonte dos rótulos do eixo Y em negrito
-                                family: 'math' // Fonte importada
-                            },
-                            color: 'black' // Cor do texto dos rótulos do eixo Y
-                        }
-                    }
-                }
-            }
         };
 
-        let ax = document.getElementById('myChart-acertosIniciante').getContext('2d');
+        let ctx = document.getElementById('myChart-acertosIniciante').getContext('2d');
 
+        let myChartIniciante = new Chart(ctx, config);
 
-        let myChartGlobal = new Chart(ax, config);
     }
 
+    // Experiente
     function obterDadosGraficoExperiente() {
-        fetch(`/medidas/ultimasMedidas/`, { cache: 'no-store' })
+
+        fetch(`/medidas/ultimasExperiente/`, { cache: 'no-store' })
             .then(function (response) {
                 if (response.ok) {
                     response.json().then(function (resposta) {
                         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                         resposta.reverse();
+
                         plotarGraficoExperiente(resposta);
                     });
                 } else {
@@ -192,29 +152,30 @@
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
     }
+
     function plotarGraficoExperiente(resposta) {
-        console.log('Começando a plotagem de dados...');
+        console.log('iniciando plotagem do gráfico...');
 
         let labels = [];
         let dados = {
             labels: labels,
             datasets: [{
-                label: 'Highscore',
+                label: 'Pontuação',
                 data: [],
                 fill: false,
-                borderColor: '#00225e',
+                borderColor: '#2d88bc',
                 borderWidth: 2,
-                backgroundColor: '#1b4385',
+                backgroundColor: '#5da0c7',
                 tension: 0.1
             }]
         };
 
-        console.log('Dados recebidos para plotar no gráfico Global:', resposta);
+        console.log('Dados recebidos para plotar no gráfico Usuario:', resposta);
 
         for (let i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
             labels.push(registro.nome);
-            dados.datasets[0].data.push(registro.highscore);
+            dados.datasets[0].data.push(registro.qndPontos);
         }
 
         console.log('Labels:', labels);
@@ -223,57 +184,12 @@
         const config = {
             type: 'bar',
             data: dados,
-            options: {
-                plugins: {
-                    title: {
-                        display: true,
-                        text: 'Scoreboard Global',
-                        font: {
-                            size: 16,
-                            weight: 'bold',
-                            family: 'math'
-                        },
-                        color: 'black'
-                    },
-                    legend: {
-                        labels: {
-                            font: {
-                                size: 14, // Tamanho da fonte das legendas
-                                weight: 'bold', // Deixar a fonte das legendas em negrito
-                                family: 'math' // Fonte importada
-                            },
-                            color: 'black'
-                        }
-                    }
-                },
-                scales: {
-                    x: {
-                        ticks: {
-                            font: {
-                                size: 14, // Tamanho da fonte dos rótulos do eixo X
-                                weight: 'bold', // Deixar a fonte dos rótulos do eixo X em negrito
-                                family: 'math' // Fonte importada
-                            },
-                            color: 'black' // Cor do texto dos rótulos do eixo X
-                        }
-                    },
-                    y: {
-                        ticks: {
-                            font: {
-                                size: 12, // Tamanho da fonte dos rótulos do eixo Y
-                                weight: 'bold', // Deixar a fonte dos rótulos do eixo Y em negrito
-                                family: 'math' // Fonte importada
-                            },
-                            color: 'black' // Cor do texto dos rótulos do eixo Y
-                        }
-                    }
-                }
-            }
         };
 
-        let ax = document.getElementById('myChart-acertosExperiente').getContext('2d');
+        let ctx = document.getElementById('myChart-acertosExperiente').getContext('2d');
 
+        let myChartExperiente = new Chart(ctx, config);
 
-        let myChartGlobal = new Chart(ax, config);
     }
+
 </script>
