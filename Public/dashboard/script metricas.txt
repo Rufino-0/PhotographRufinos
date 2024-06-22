@@ -1,0 +1,138 @@
+// function exibirGraficos() {
+
+    //     document.getElementById("container").innerHTML += `
+    //             <div class="grafico"
+    //             >
+    //                 <h3>Score Quiz - Iniciante</h3>
+    //                 <canvas id="myChart-acertosIniciante"></canvas>
+
+    //             </div>
+    //             <div class="grafico">
+    //                 <h3>Score Quiz - Experiente</h3>
+    //                 <canvas id="myChart-acertosExperiente"></canvas>
+    //             </div>
+    //         `
+    //     obterDadosGraficoIniciante();
+    //     obterDadosGraficoExperiente();
+
+    // }
+
+    // Iniciante
+    function obterDadosGraficoIniciante() {
+
+        fetch(`/medidas/ultimasIniciante/`, { cache: 'no-store' })
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        resposta.reverse();
+
+                        plotarGraficoIniciante(resposta);
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    function plotarGraficoIniciante(resposta) {
+        console.log('iniciando plotagem do gráfico...');
+
+        let labels = [];
+        let dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Pontuação',
+                data: [],
+                fill: false,
+                borderColor: '#2d88bc',
+                borderWidth: 2,
+                backgroundColor: '#5da0c7',
+                tension: 0.1
+            }]
+        };
+
+        console.log('Dados recebidos para plotar no gráfico Usuario:', resposta);
+
+        for (let i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            labels.push(registro.nome);
+            dados.datasets[0].data.push(registro.qndPontos);
+        }
+
+        console.log('Labels:', labels);
+        console.log('Dados do Dataset:', dados.datasets);
+
+        const config = {
+            type: 'bar',
+            data: dados,
+        };
+
+        let ctx = document.getElementById('myChart-acertosIniciante').getContext('2d');
+
+        let myChartIniciante = new Chart(ctx, config);
+
+    }
+
+    // Experiente
+    function obterDadosGraficoExperiente() {
+
+        fetch(`/medidas/ultimasExperiente/`, { cache: 'no-store' })
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        resposta.reverse();
+
+                        plotarGraficoExperiente(resposta);
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    function plotarGraficoExperiente(resposta) {
+        console.log('iniciando plotagem do gráfico...');
+
+        let labels = [];
+        let dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Pontuação',
+                data: [],
+                fill: false,
+                borderColor: '#2d88bc',
+                borderWidth: 2,
+                backgroundColor: '#5da0c7',
+                tension: 0.1
+            }]
+        };
+
+        console.log('Dados recebidos para plotar no gráfico Usuario:', resposta);
+
+        for (let i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            labels.push(registro.nome);
+            dados.datasets[0].data.push(registro.qndPontos);
+        }
+
+        console.log('Labels:', labels);
+        console.log('Dados do Dataset:', dados.datasets);
+
+        const config = {
+            type: 'bar',
+            data: dados,
+        };
+
+        let ctx = document.getElementById('myChart-acertosExperiente').getContext('2d');
+
+        let myChartExperiente = new Chart(ctx, config);
+
+    }
