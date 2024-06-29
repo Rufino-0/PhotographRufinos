@@ -1,49 +1,46 @@
 var database = require("../database/config")
 
+// funções para inserir os dados vindos do controller para inserir no banco de dados
 
-// Coloque os mesmos parâmetros aqui. Vá para a var instrucaoSql
-function aplicarI(idUsuario, ponto, acerto, erro) {
+// inserindo os dados do quiz iniciante no banco de dados
+function registrarIniciante(usuario, pontos, acertos, erros, tempo) {
 
-    console.log("ACESSEI O SCORE MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function aplicarI():", idUsuario, ponto, acerto, erro);
-    
- 
+    // exibindo o console.log para facilitar a identificação de erros no script do insert do banco de dados
+
+    console.log("ACESSEI O SCORE MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function registrarIniciante():", usuario, pontos, acertos, erros, tempo);
+
+    // criando a instrução SQL para inserir os dados no banco de dados e atribuindo os novos valores usando as variáveis
+
     var instrucaoSql = `
-    insert into quizIniciante (fkUsuario, qndPontos, qndAcertos, qndErros ) values ( ${idUsuario}, ${ponto}, ${acerto}, ${erro});
+    insert into quizIniciante (fkUsuario, Pontuacao, acertos, erros, tempoFinalizado ) values ( ${usuario}, ${pontos}, ${acertos}, ${erros}, '${tempo}');
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
+// inserindo os dados do quiz experiente no banco de dados
+
+function registrarExperiente(usuario, pontos, acertos, erros, tempo) {
+
+    // exibindo o console.log para facilitar a identificação de erros no script do insert do banco de dados
+
+    console.log("ACESSEI O SCORE MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function registrarExperiente():", usuario, pontos, acertos, erros, tempo);
 
 
-function pontuacao1(idUsuario, ponto, acerto, erro) {
+    // criando a instrução SQL para inserir os dados no banco de dados e atribuindo os novos valores usando as variáveis
 
-    console.log("ACESSEI O SCORE MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function aplicar():", idUsuario, ponto, acerto, erro);
-    
- 
     var instrucaoSql = `
-    insert into quizIniciante (fkUsuario, qndPontos, qndAcertos, qndErros ) values ( ${idUsuario}, ${ponto}, ${acerto}, ${erro});
+    insert into quizExperiente (fkUsuario, Pontuacao, acertos, erros, tempoFinalizado ) values ( ${usuario}, ${pontos}, ${acertos}, ${erros}, '${tempo}');
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
 
-function aplicarE(ponto, acerto, erro, idUsuario) {
-
-    console.log("ACESSEI O SCORE MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function aplicarE():", idUsuario, ponto, acerto, erro);
-    
-    var instrucaoSql = `
-    insert into quizExperiente (qndPontos, qndAcertos, qndErros, fkUsuario) values (${ponto}, ${acerto}, ${erro}, ${idUsuario});
-    `;
-
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
-}
+// pegando os dados das funções do controller para usar nos models 
 
 module.exports = {
-    aplicarI,
-    aplicarE,
-    pontuacao1
+    registrarIniciante,
+    registrarExperiente
 };

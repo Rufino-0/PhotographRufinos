@@ -2,7 +2,6 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,6 +45,8 @@
     </nav>
     <div class="geral">
 
+        <h1 id="cronometro">00:00</h1>
+
         <div id="content" class="content">
             <h3>Quiz - Fotografia Experiente</h3>
 
@@ -69,10 +70,10 @@
 
 
             <div class="respostas">
-                <button class="resposta-btn " onclick="errada1()">25mm</button>
-                <button class="resposta-btn " onclick="errada1()">35mm</button>
-                <button class="resposta-btn " onclick="errada1()">75mm</button>
-                <button class="resposta-btn" onclick="certa1()">50mm</button>
+                <button class="resposta-btn " onclick="responder(false)">25mm</button>
+                <button class="resposta-btn " onclick="responder(false)">35mm</button>
+                <button class="resposta-btn " onclick="responder(false)">75mm</button>
+                <button class="resposta-btn" onclick="responder(true)">50mm</button>
             </div>
         </div>
         <div id="content2" class="content2">
@@ -81,11 +82,12 @@
             <p>O que é o "bokeh" em fotografia?</p>
 
             <div class="respostas">
-                <button class="resposta-btn " onclick="errada2()">Um tipo de filtro fotográfico</button>
-                <button class="resposta-btn" onclick="certa2()">Um efeito de desfoque agradável no fundo da
+                <button class="resposta-btn " onclick="responder(false)">Um tipo de filtro fotográfico</button>
+                <button class="resposta-btn" onclick="responder(true)">Um efeito de desfoque agradável no fundo da
                     imagem</button>
-                <button class="resposta-btn " onclick="errada2()">Uma técnica de iluminação para retratos</button>
-                <button class="resposta-btn " onclick="errada2()">Um tipo de lente macro especializada</button>
+                <button class="resposta-btn " onclick="responder(false)">Uma técnica de iluminação para
+                    retratos</button>
+                <button class="resposta-btn " onclick="responder(false)">Um tipo de lente macro especializada</button>
             </div>
         </div>
         <div id="content3" class="content3">
@@ -94,11 +96,11 @@
             <p>O que é a "regra dos terços" na composição fotográfica?</p>
 
             <div class="respostas">
-                <button class="resposta-btn " onclick="errada3()">Um método de focagem automática</button>
-                <button class="resposta-btn " onclick="errada3()">Uma técnica de medição de luz</button>
-                <button class="resposta-btn " onclick="errada3()"> Uma regra para calcular a profundidade de
+                <button class="resposta-btn " onclick="responder(false)">Um método de focagem automática</button>
+                <button class="resposta-btn " onclick="responder(false)">Uma técnica de medição de luz</button>
+                <button class="resposta-btn " onclick="responder(false)"> Uma regra para calcular a profundidade de
                     campo</button>
-                <button class="resposta-btn" onclick="certa3()">Um princípio de composição que divide a imagem em
+                <button class="resposta-btn" onclick="responder(true)">Um princípio de composição que divide a imagem em
                     terços, tanto horizontal como verticalmente</button>
             </div>
         </div>
@@ -108,12 +110,12 @@
             <p>Qual é o propósito do "polarizador" em fotografia?</p>
 
             <div class="respostas">
-                <button class="resposta-btn " onclick="errada4()">Reduzir reflexos e aumentar a saturação das
+                <button class="resposta-btn " onclick="responder(false)">Reduzir reflexos e aumentar a saturação das
                     cores</button>
-                <button class="resposta-btn " onclick="errada4()">Ajustar a temperatura de cor da imagem</button>
-                <button class="resposta-btn " onclick="errada4()">Controlar o brilho da imagem em ambientes muito
+                <button class="resposta-btn " onclick="responder(false)">Ajustar a temperatura de cor da imagem</button>
+                <button class="resposta-btn " onclick="responder(false)">Controlar o brilho da imagem em ambientes muito
                     iluminados</button>
-                <button class="resposta-btn" onclick="certa4()">Reduzir reflexos e aumentar a saturação das
+                <button class="resposta-btn" onclick="responder(true)">Reduzir reflexos e aumentar a saturação das
                     cores</button>
             </div>
         </div>
@@ -123,12 +125,14 @@
             <p>O que é "exposição composta" em fotografia?</p>
 
             <div class="respostas">
-                <button class="resposta-btn " onclick="errada5()">Um método para corrigir a exposição durante a captura
+                <button class="resposta-btn " onclick="responder(false)">Um método para corrigir a exposição durante a
+                    captura
                     da imagem</button>
-                <button class="resposta-btn " onclick="errada5()">Um tipo de medição de luz automática na
+                <button class="resposta-btn " onclick="responder(false)">Um tipo de medição de luz automática na
                     câmera</button>
-                <button class="resposta-btn" onclick="certa5()">Uma técnica de fotografia de múltipla exposição</button>
-                <button class="resposta-btn " onclick="errada5()">Uma técnica de edição de imagens no
+                <button class="resposta-btn" onclick="responder(true)">Uma técnica de fotografia de múltipla
+                    exposição</button>
+                <button class="resposta-btn " onclick="responder(false)">Uma técnica de edição de imagens no
                     pós-processamento</button>
             </div>
         </div>
@@ -138,10 +142,11 @@
             <p>Qual é a principal diferença entre uma câmera DSLR e uma câmera mirrorless?</p>
 
             <div class="respostas">
-                <button class="resposta-btn" onclick="certa6()">A presença ou ausência de um espelho reflexivo</button>
-                <button class="resposta-btn " onclick="errada6()">O tipo de sensor utilizado</button>
-                <button class="resposta-btn " onclick="errada6()">O sistema de visualização do visor</button>
-                <button class="resposta-btn " onclick="errada6()">O método de focagem automática</button>
+                <button class="resposta-btn" onclick="responder(true)">A presença ou ausência de um espelho
+                    reflexivo</button>
+                <button class="resposta-btn " onclick="responder(false)">O tipo de sensor utilizado</button>
+                <button class="resposta-btn " onclick="responder(false)">O sistema de visualização do visor</button>
+                <button class="resposta-btn " onclick="responder(false)">O método de focagem automática</button>
             </div>
         </div>
         <div id="content7" class="content7">
@@ -150,13 +155,17 @@
             <p>O que é "profundidade de campo" em fotografia?</p>
 
             <div class="respostas">
-                <button class="resposta-btn " onclick="errada7()">O tempo necessário para a câmera capturar a imagem
+                <button class="resposta-btn " onclick="responder(false)">O tempo necessário para a câmera capturar a
+                    imagem
                     após o disparo</button>
-                <button class="resposta-btn" onclick="certa7()">A quantidade de nitidez em uma imagem, do primeiro plano
+                <button class="resposta-btn" onclick="responder(true)">A quantidade de nitidez em uma imagem, do
+                    primeiro plano
                     ao plano de fundo</button>
-                <button class="resposta-btn " onclick="errada7()">A distância máxima entre o fotógrafo e o assunto que
+                <button class="resposta-btn " onclick="responder(false)">A distância máxima entre o fotógrafo e o
+                    assunto que
                     pode ser mantida em foco</button>
-                <button class="resposta-btn " onclick="errada7()">A faixa dinâmica de cores em uma imagem</button>
+                <button class="resposta-btn " onclick="responder(false)">A faixa dinâmica de cores em uma
+                    imagem</button>
             </div>
         </div>
         <div id="content8" class="content8">
@@ -165,10 +174,11 @@
             <p>Qual é a função do "balanço de branco" em uma câmera?</p>
 
             <div class="respostas">
-                <button class="resposta-btn " onclick="errada8()"> Ajustar a exposição da imagem</button>
-                <button class="resposta-btn " onclick="errada8()">Ajustar a velocidade do obturador</button>
-                <button class="resposta-btn" onclick="certa8()">Controlar a temperatura de cor da luz na cena</button>
-                <button class="resposta-btn " onclick="errada8()">Corrigir a distorção da lente</button>
+                <button class="resposta-btn " onclick="responder(false)"> Ajustar a exposição da imagem</button>
+                <button class="resposta-btn " onclick="responder(false)">Ajustar a velocidade do obturador</button>
+                <button class="resposta-btn" onclick="responder(true)">Controlar a temperatura de cor da luz na
+                    cena</button>
+                <button class="resposta-btn " onclick="responder(false)">Corrigir a distorção da lente</button>
             </div>
         </div>
         <div id="content9" class="content9">
@@ -177,12 +187,13 @@
             <p>O que é o "histograma" em fotografia digital?</p>
 
             <div class="respostas">
-                <button class="resposta-btn " onclick="errada9()">Um gráfico que mostra a quantidade de ruído na
+                <button class="resposta-btn " onclick="responder(false)">Um gráfico que mostra a quantidade de ruído na
                     imagem</button>
-                <button class="resposta-btn " onclick="errada9()">Um indicador da nitidez da imagem</button>
-                <button class="resposta-btn" onclick="certa9()">Uma representação visual da distribuição de cores na
+                <button class="resposta-btn " onclick="responder(false)">Um indicador da nitidez da imagem</button>
+                <button class="resposta-btn" onclick="responder(true)">Uma representação visual da distribuição de cores
+                    na
                     imagem</button>
-                <button class="resposta-btn " onclick="errada9()">Uma técnica para reduzir a aberração
+                <button class="resposta-btn " onclick="responder(false)">Uma técnica para reduzir a aberração
                     cromática</button>
             </div>
 
@@ -193,284 +204,147 @@
             <p>Qual é a vantagem de fotografar em formato JPEG em comparação com o formato RAW?</p>
 
             <div class="respostas">
-                <button class="resposta-btn" onclick="certa10()">Menor tamanho de arquivo</button>
-                <button class="resposta-btn " onclick="errada10()">Melhor reprodução de cores</button>
-                <button class="resposta-btn " onclick="errada10()">Maior flexibilidade na pós-produção</button>
-                <button class="resposta-btn " onclick="errada10()">Maior flexibilidade na pós-produção</button>
+                <button class="resposta-btn" onclick="responder(true)">Menor tamanho de arquivo</button>
+                <button class="resposta-btn " onclick="responder(false)">Melhor reprodução de cores</button>
+                <button class="resposta-btn " onclick="responder(false)">Maior flexibilidade na pós-produção</button>
+                <button class="resposta-btn " onclick="responder(false)">Maior flexibilidade na pós-produção</button>
             </div>
         </div>
 
     </div>
+
 </body>
 <script>
-
-    // const lista_pontos = [];
-    var pontos = 0;
-    var pontoFinal = 0;
-    var erro = 0;
-    var acerto = 0;
-    var idUsuario = sessionStorage.ID_USUARIO;
+    const resultado = {
+        acerto: [],
+        erros: [],
+        tempoFinalizado: []
+    };
 
     function entrada() {
-        content1.style.display = "flex";
-        content.style.display = "none";
+
+        content.style.display = "none"
+        content1.style.display = "flex"
+        rodar()
+        intervalo = setInterval(rodar, 10)
+
+    };
+
+    let min = '00';
+    let hr = 0;
+    let sec = 0;
+    let intervalo
+
+    function rodar() {
+        sec++
+        if (sec == 60) {
+            min++
+            sec = 0
+            if (min == 60) {
+                min = 0
+                sec = 0
+            }
+        }
+        document.getElementById('cronometro').innerHTML = `${min}:${sec}`
     }
 
-    function errada1() {
-        pontos += 0;
 
 
-        setTimeout(function () {
-            content1.style.display = "none";
-            content2.style.display = "flex";
-        }, 1000);
 
-        console.log("Pontuação atual: " + pontos);
+    let ax = 1;
 
-    }
-    function errada2() {
-        pontos += 0;
+    // declarando a a variavel q vai ser usada para conferir os paramentros 
+    function responder(resposta) {
 
+        // lógica para poder mudar o conteudo do conteudo que está sendo exibido, para o proximo conteudo
+        let proxima = ax + 1;
 
-        setTimeout(function () {
-            content2.style.display = "none";
-            content3.style.display = "flex";
-        }, 1000);
+        // pegando as divs das perguntas para poder fazer o jogo de display none e flex, usando as variaveis ax e proxima para tornar dinâmico 
+        let perguntaAtual = document.getElementById(`content${ax}`);
+        let proximaPergunta = document.getElementById(`content${proxima}`);
 
-        console.log("Pontuação atual: " + pontos);
+        // validando as respostas certas e erradas e inserindo no vetor
 
-    }
-    function errada3() {
-        pontos += 0;
+        if (resposta == true) {
+            resultado.acerto.push(1)
 
+            console.log("acertos = " + resultado.acerto.length)
+        } else if (resposta == false) {
+            resultado.erros.push(1)
 
-        setTimeout(function () {
-            content3.style.display = "none";
-            content4.style.display = "flex";
-        }, 1000);
-
-        console.log("Pontuação atual: " + pontos);
-
-    }
-    function errada4() {
-        pontos += 0;
-
-
-        setTimeout(function () {
-            content4.style.display = "none";
-            content5.style.display = "flex";
-        }, 1000);
-
-        console.log("Pontuação atual: " + pontos);
-
-    }
-    function errada5() {
-        pontos += 0;
-
-
-        setTimeout(function () {
-            content5.style.display = "none";
-            content6.style.display = "flex";
-        }, 1000);
-
-        console.log("Pontuação atual: " + pontos);
-
-    }
-    function errada6() {
-        pontos += 0;
-
-
-        setTimeout(function () {
-            content6.style.display = "none";
-            content7.style.display = "flex";
-        }, 1000);
-
-        console.log("Pontuação atual: " + pontos);
-
-    }
-    function errada7() {
-        pontos += 0;
-
-
-        setTimeout(function () {
-            content7.style.display = "none";
-            content8.style.display = "flex";
-        }, 1000);
-
-        console.log("Pontuação atual: " + pontos);
-
-    }
-    function errada8() {
-        pontos += 0;
-
-
-        setTimeout(function () {
-            content8.style.display = "none";
-            content9.style.display = "flex";
-        }, 1000);
-
-        console.log("Pontuação atual: " + pontos);
-
-    }
-    function errada9() {
-        pontos += 0;
-
-
-        setTimeout(function () {
-            content9.style.display = "none";
-            content10.style.display = "flex";
-        }, 1000);
-
-        console.log("Pontuação atual: " + pontos);
-
-    }
-    function errada10() {
-        pontos += 0;
-
-
-        setTimeout(function () {
-            content9.style.display = "none";
-            finalizar()
-        }, 1000);
-        console.log("Pontuação atual: " + pontos);
-
-    }
-
-    function certa1() {
-        pontos += 1;
-
-        setTimeout(function () {
-            content1.style.display = "none";
-            content2.style.display = "flex";
-        }, 1000);
-
-        console.log("Pontuação atual: " + pontos);
-
-    }
-
-    function certa2() {
-        pontos += 1;
-
-        setTimeout(function () {
-            content2.style.display = "none";
-            content3.style.display = "flex";
-        }, 1000);
-        console.log("Pontuação atual: " + pontos);
-    }
-
-    function certa3() {
-        pontos += 1;
-
-        setTimeout(function () {
-            content3.style.display = "none";
-            content4.style.display = "flex";
-        }, 1000);
-        console.log("Pontuação atual: " + pontos);
-    }
-
-    function certa4() {
-        pontos += 1;
-
-        setTimeout(function () {
-            content4.style.display = "none";
-            content5.style.display = "flex";
-        }, 1000);
-        console.log("Pontuação atual: " + pontos);
-    }
-
-    function certa5() {
-        pontos += 1;
-
-        setTimeout(function () {
-            content5.style.display = "none";
-            content6.style.display = "flex";
-        }, 1000);
-        console.log("Pontuação atual: " + pontos);
-    }
-
-    function certa6() {
-        pontos += 1;
-
-        setTimeout(function () {
-            content6.style.display = "none";
-            content7.style.display = "flex";
-        }, 1000);
-        console.log("Pontuação atual: " + pontos);
-    }
-
-    function certa7() {
-        pontos += 1;
-
-        setTimeout(function () {
-            content7.style.display = "none";
-            content8.style.display = "flex";
-        }, 1000);
-        console.log("Pontuação atual: " + pontos);
-    }
-
-    function certa8() {
-        pontos += 1;
-
-        setTimeout(function () {
-            content8.style.display = "none";
-            content9.style.display = "flex";
-        }, 1000);
-        console.log("Pontuação atual: " + pontos);
-    }
-
-    function certa9() {
-        pontos += 1;
-
-        setTimeout(function () {
-            content9.style.display = "none";
-            content10.style.display = "flex";
-        }, 1000);
-        console.log("Pontuação atual: " + pontos);
-    }
-
-    function certa10() {
-        pontos += 1;
-        console.log("Pontuação atual: " + pontos);
-
-        setTimeout(function () {
-            finalizar()
-        }, 1000);
-    }
-
-    function finalizar() {
-        pontoFinal = pontos * 10
-        acertos = pontos;
-        erro = pontos - 10;
-
-        if (pontos >= 100) {
-            alert("Parabéns, você acertou todas as questões!");
-        } else {
-            alert("Seu score " + (10 - pontos) + "perguntas");
+            console.log("erros = " + resultado.erros.length)
         }
 
-        fetch("/score/aplicarE", {
+        // quando  a variavel proxima for = 11 o cronometro vai parar e ser inserido no vetor, e vai voltar para a tela de entrada
+
+        if (proxima == 11) {
+            clearInterval(intervalo)
+            content.style.display = "flex"
+            resultado.tempoFinalizado.push(document.getElementById('cronometro').innerText)
+            document.getElementById('cronometro').innerText = '00:00'
+            ax = 1
+            registrar()
+        }
+
+        perguntaAtual.style.display = "none"
+        proximaPergunta.style.display = "flex"
+
+
+        ax++
+
+    }
+
+    function registrar() {
+
+        // fazendo a multiplicação para ver a quantidade de pontos do usuario
+
+        let qntPontos = resultado.acerto.length * 10;
+
+        // pegando o id do usuario  no session storage para usar no fetch para registrar o score
+        let idUsuario = sessionStorage.ID_USUARIO;
+
+        // fazendo a requisição para o servidor para registrar o score
+        fetch("/score/registrarExperiente", {
+
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({
-                pontoServer: pontoFinal,
-                acertoServer: acertos,
-                erroServer: erro,
-                usuarioServer: idUsuario
-            }),
-            
-        }).then(response => {
-            if (response.ok) {
-                console.log('Pontos cadastrados com sucesso!');
 
-                window.location.href = "metricas.html";
+
+            // reatribuindo as variaveis e mandando elas para um json, e assim poder usar nas outras partes de inserção de dados
+            body: JSON.stringify({
+
+                idUsuario: idUsuario,
+                pontos: qntPontos,
+                acertos: resultado.acerto.length,
+                erros: resultado.erros.length,
+                tempo: resultado.tempoFinalizado[0]
+
+            }),
+
+        }).then(response => {
+
+            // validações para ver se funcionou ou não a inserção dos dados
+
+            if (response.ok) {
+
+                console.log('Resultados registrados com sucesso!');
+
             } else {
-                console.error('Erro ao cadastrar os dados.');
+
+                console.error('Erro ao registrar os dados.');
+
             }
+
         }).catch(error => {
+
             console.error('Erro ao enviar a requisição:', error);
+
         });
+
+
+
     }
 </script>
 

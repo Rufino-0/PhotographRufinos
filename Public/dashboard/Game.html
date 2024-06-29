@@ -2,7 +2,6 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,7 +43,16 @@
         </ul>
         <button onclick=" limparSessao()"><img id="exit" src="../assets/dash/exit.png" alt=""></button>
     </nav>
+
+    <!-- Incio do quiz iniciante com 10 questões -->
+
     <div class="geral">
+
+        <!-- mostrando o cronometro do jogo -->
+
+        <h1 id="cronometro">00:00</h1>
+
+        <!-- div inicial que faz a primeira interação com o cliente  -->
 
         <div id="content" class="content">
             <h3>Quiz - Fotografia Iniciante</h3>
@@ -60,6 +68,10 @@
             <button class="resposta-btn" onclick="entrada()">Jogar!</button>
 
         </div>
+
+        <!-- todas as divs abaixo estão em ordem de 1 a 10 -->
+         <!-- as questões abaixo usam a mesma função de responder porem as falsas tem o parametro 'false' e as certas 'true' -->
+
         <div id="content1" class="content1">
             <h3>1° - Questão</h3>
 
@@ -69,61 +81,66 @@
 
 
             <div class="respostas">
-                <button class="resposta-btn " onclick="errada1()">f/22</button>
-                <button class="resposta-btn " onclick="errada1()">f/5.6</button>
-                <button class="resposta-btn " onclick="errada1()">f/11</button>
-                <button class="resposta-btn" onclick="certa1()">f/2.8</button>
+                <button class="resposta-btn " onclick="responder(false)">f/5.6</button>
+                <button class="resposta-btn " onclick="responder(false)">f/11</button>
+                <button class="resposta-btn" onclick="responder(true)">f/2.8</button>
             </div>
         </div>
         <div id="content2" class="content2">
             <h3>2° - Questão</h3>
 
+
             <p>Qual destes não é um tipo comum de lente fotográfica?</p>
 
             <div class="respostas">
-                <button class="resposta-btn " onclick="errada2()">Grande Angular</button>
-                <button class="resposta-btn" onclick="certa2()">Pixel</button>
-                <button class="resposta-btn " onclick="errada2()">Teleobjetiva</button>
-                <button class="resposta-btn " onclick="errada2()">Macro</button>
+                <button class="resposta-btn " onclick="responder(false)">Grande Angular</button>
+                <button class="resposta-btn" onclick="responder(true)">Pixel</button>
+                <button class="resposta-btn " onclick="responder(false)">Teleobjetiva</button>
+                <button class="resposta-btn " onclick="responder(false)">Macro</button>
             </div>
         </div>
         <div id="content3" class="content3">
             <h3>3° - Questão</h3>
 
+
             <p>O que faz o obturador em uma câmera?</p>
 
             <div class="respostas">
-                <button class="resposta-btn " onclick="errada3()">Controla a quantidade de luz que entra na
+                <button class="resposta-btn " onclick="responder(false)">Controla a quantidade de luz que entra na
                     câmera</button>
-                <button class="resposta-btn " onclick="errada3()">Controla a nitidez da imagem</button>
-                <button class="resposta-btn " onclick="errada3()">Controla a cor da imagem</button>
-                <button class="resposta-btn" onclick="certa3()">Controla a velocidade do obturador</button>
+                <button class="resposta-btn " onclick="responder(false)">Controla a nitidez da imagem</button>
+                <button class="resposta-btn " onclick="responder(false)">Controla a cor da imagem</button>
+                <button class="resposta-btn" onclick="responder(true)">Controla a velocidade do obturador</button>
             </div>
         </div>
         <div id="content4" class="content4">
             <h3>4° - Questão</h3>
 
+
             <p>Qual é a função do ISO em uma câmera?</p>
 
             <div class="respostas">
-                <button class="resposta-btn " onclick="errada4()">Controlar a velocidade do obturador</button>
-                <button class="resposta-btn " onclick="errada4()">Controlar a abertura do diafragma</button>
-                <button class="resposta-btn " onclick="errada4()">Controlar o zoom da lente</button>
-                <button class="resposta-btn" onclick="certa4()">Controlar a sensibilidade do sensor à luz</button>
+                <button class="resposta-btn " onclick="responder(false)">Controlar a velocidade do obturador</button>
+                <button class="resposta-btn " onclick="responder(false)">Controlar a abertura do diafragma</button>
+                <button class="resposta-btn " onclick="responder(false)">Controlar o zoom da lente</button>
+                <button class="resposta-btn" onclick="responder(true)">Controlar a sensibilidade do sensor à
+                    luz</button>
             </div>
         </div>
         <div id="content5" class="content5">
             <h3>5° - Questão</h3>
 
+
             <p>O que é o foco automático em uma câmera?</p>
 
             <div class="respostas">
-                <button class="resposta-btn " onclick="errada5()">Um tipo de lente que permite zoom automático</button>
-                <button class="resposta-btn " onclick="errada5()">Um tipo de câmera que ajusta automaticamente a
+                <button class="resposta-btn " onclick="responder(false)">Um tipo de lente que permite zoom
+                    automático</button>
+                <button class="resposta-btn " onclick="responder(false)">Um tipo de câmera que ajusta automaticamente a
                     abertura do diafragma</button>
-                <button class="resposta-btn" onclick="certa5()">Um recurso que ajusta automaticamente o foco da
+                <button class="resposta-btn" onclick="responder(true)">Um recurso que ajusta automaticamente o foco da
                     imagem</button>
-                <button class="resposta-btn " onclick="errada5()">Um modo de disparo que ajusta automaticamente a
+                <button class="resposta-btn " onclick="responder(false)">Um modo de disparo que ajusta automaticamente a
                     velocidade do obturador</button>
             </div>
         </div>
@@ -133,10 +150,11 @@
             <p>Qual é a função do diafragma em uma câmera?</p>
 
             <div class="respostas">
-                <button class="resposta-btn" onclick="certa6()">Controlar a profundidade de campo</button>
-                <button class="resposta-btn " onclick="errada6()">Controlar a sensibilidade do sensor à luz</button>
-                <button class="resposta-btn " onclick="errada6()">Controlar a velocidade do obturador</button>
-                <button class="resposta-btn " onclick="errada6()">Controlar a nitidez da imagem</button>
+                <button class="resposta-btn" onclick="responder(true)">Controlar a profundidade de campo</button>
+                <button class="resposta-btn " onclick="responder(false)">Controlar a sensibilidade do sensor à
+                    luz</button>
+                <button class="resposta-btn " onclick="responder(false)">Controlar a velocidade do obturador</button>
+                <button class="resposta-btn " onclick="responder(false)">Controlar a nitidez da imagem</button>
             </div>
         </div>
         <div id="content7" class="content7">
@@ -145,10 +163,13 @@
             <p>Qual é a principal diferença entre fotografia em preto e branco e fotografia em cores?</p>
 
             <div class="respostas">
-                <button class="resposta-btn " onclick="errada7()">Fotografia em cores tem mais detalhes</button>
-                <button class="resposta-btn" onclick="certa7()">Fotografia em preto e branco não utiliza cores</button>
-                <button class="resposta-btn " onclick="errada7()">Fotografia em preto e branco é mais antiga</button>
-                <button class="resposta-btn " onclick="errada7()">Fotografia em preto e branco é mais barata</button>
+                <button class="resposta-btn " onclick="responder(false)">Fotografia em cores tem mais detalhes</button>
+                <button class="resposta-btn" onclick="responder(true)">Fotografia em preto e branco não utiliza
+                    cores</button>
+                <button class="resposta-btn " onclick="responder(false)">Fotografia em preto e branco é mais
+                    antiga</button>
+                <button class="resposta-btn " onclick="responder(false)">Fotografia em preto e branco é mais
+                    barata</button>
             </div>
         </div>
         <div id="content8" class="content8">
@@ -157,13 +178,14 @@
             <p>O que é o "formato RAW" em fotografia digital?</p>
 
             <div class="respostas">
-                <button class="resposta-btn " onclick="errada8()">Um formato de imagem com compressão com
+                <button class="resposta-btn " onclick="responder(false)">Um formato de imagem com compressão com
                     perdas</button>
-                <button class="resposta-btn " onclick="errada8()">Um formato de imagem com compressão sem
+                <button class="resposta-btn " onclick="responder(false)">Um formato de imagem com compressão sem
                     perdas</button>
-                <button class="resposta-btn" onclick="certa8()">Um formato de imagem que inclui todos os dados do
+                <button class="resposta-btn" onclick="responder(true)">Um formato de imagem que inclui todos os dados do
                     sensor</button>
-                <button class="resposta-btn " onclick="errada8()">Um formato de imagem que só pode ser editado em preto
+                <button class="resposta-btn " onclick="responder(false)">Um formato de imagem que só pode ser editado em
+                    preto
                     e branco</button>
             </div>
         </div>
@@ -173,13 +195,15 @@
             <p>O que é o "modo manual" em uma câmera?</p>
 
             <div class="respostas">
-                <button class="resposta-btn " onclick="errada9()">Um modo que ajusta automaticamente todas as
+                <button class="resposta-btn " onclick="responder(false)">Um modo que ajusta automaticamente todas as
                     configurações da câmera</button>
-                <button class="resposta-btn " onclick="errada9()">Um modo que só permite a captura de fotografias em
+                <button class="resposta-btn " onclick="responder(false)">Um modo que só permite a captura de fotografias
+                    em
                     preto e branco</button>
-                <button class="resposta-btn" onclick="certa9()">Um modo que permite ao fotógrafo ajustar manualmente as
+                <button class="resposta-btn" onclick="responder(true)">Um modo que permite ao fotógrafo ajustar
+                    manualmente as
                     configurações da câmera</button>
-                <button class="resposta-btn " onclick="errada9()">Um modo que captura automaticamente imagens
+                <button class="resposta-btn " onclick="responder(false)">Um modo que captura automaticamente imagens
                     panorâmicas</button>
             </div>
             <button id="finalizar-btn" style="display: none;" onclick="finalizar()">Finalizar</button>
@@ -191,362 +215,163 @@
             <p>Qual é a função do visor em uma câmera?</p>
 
             <div class="respostas">
-                <button class="resposta-btn" onclick="certa10()">Permitir que o fotógrafo enxergue a cena antes de
+                <button class="resposta-btn" onclick="responder(true)">Permitir que o fotógrafo enxergue a cena antes de
                     capturar a imagem</button>
-                <button class="resposta-btn " onclick="errada10()">Conectar a câmera a dispositivos externos para
+                <button class="resposta-btn " onclick="responder(false)">Conectar a câmera a dispositivos externos para
                     compartilhamento de imagens</button>
-                <button class="resposta-btn " onclick="errada10()">Controlar a exposição da imagem em tempo
+                <button class="resposta-btn " onclick="responder(false)">Controlar a exposição da imagem em tempo
                     real</button>
-                <button class="resposta-btn " onclick="errada10()">Mostrar a imagem capturada após a foto ter sido
+                <button class="resposta-btn " onclick="responder(false)">Mostrar a imagem capturada após a foto ter sido
                     tirada</button>
             </div>
+            <button class="resposta-btn " onclick="responder(false)">f/22</button>
         </div>
 
-    </div>
 </body>
 <script>
-<<<<<<< HEAD
 
-<<<<<<< HEAD
-=======
-=======
-    var idUsuario = sessionStorage.ID_USUARIO;
-    const lista_pontos = [];
->>>>>>> 8371e951fd1c1757890263f38cd3a8079bee3a8b
->>>>>>> f5c84f4768dcfc842c0bec7d67eb9bc261cb4eec
-    var pontos = 0;
-    var pontoFinal = 0;
-    var erro = 0;
-    var acerto = 0;
+    // vetor que vai fazer o armazenamento de todos os dados do quiz
+
+
+    const resultado = {
+        acerto: [],
+        erros: [],
+        tempoFinalizado: []
+    };
+
+    // função que inicia a contagem do cronometro, e exibe as questões para que o usuario possa usar  
 
     function entrada() {
-        content1.style.display = "flex";
-        content.style.display = "none";
-    }
 
-    function errada1() {
-        pontos += 0;
-
-
-        setTimeout(function () {
-            content1.style.display = "none";
-            content2.style.display = "flex";
-        }, 400);
-
-        console.log("Pontuação atual: " + pontos);
-
-    }
-    function errada2() {
-        pontos += 0;
-
-
-        setTimeout(function () {
-            content2.style.display = "none";
-            content3.style.display = "flex";
-        }, 400);
-
-        console.log("Pontuação atual: " + pontos);
-
-    }
-    function errada3() {
-        pontos += 0;
-
-
-        setTimeout(function () {
-            content3.style.display = "none";
-            content4.style.display = "flex";
-        }, 400);
-
-        console.log("Pontuação atual: " + pontos);
-
-    }
-    function errada4() {
-        pontos += 0;
-
-
-        setTimeout(function () {
-            content4.style.display = "none";
-            content5.style.display = "flex";
-        }, 400);
-
-        console.log("Pontuação atual: " + pontos);
-
-    }
-    function errada5() {
-        pontos += 0;
-
-
-        setTimeout(function () {
-            content5.style.display = "none";
-            content6.style.display = "flex";
-        }, 400);
-
-        console.log("Pontuação atual: " + pontos);
-
-    }
-    function errada6() {
-        pontos += 0;
-
-
-        setTimeout(function () {
-            content6.style.display = "none";
-            content7.style.display = "flex";
-        }, 400);
-
-        console.log("Pontuação atual: " + pontos);
-
-    }
-    function errada7() {
-        pontos += 0;
-
-
-        setTimeout(function () {
-            content7.style.display = "none";
-            content8.style.display = "flex";
-        }, 400);
-
-        console.log("Pontuação atual: " + pontos);
-
-    }
-    function errada8() {
-        pontos += 0;
-
-
-        setTimeout(function () {
-            content8.style.display = "none";
-            content9.style.display = "flex";
-        }, 400);
-
-        console.log("Pontuação atual: " + pontos);
-
-    }
-    function errada9() {
-        pontos += 0;
-
-
-        setTimeout(function () {
-            content9.style.display = "none";
-            content10.style.display = "flex";
-        }, 400);
-
-        console.log("Pontuação atual: " + pontos);
-
-    }
-    function errada10() {
-        pontos += 0;
-
-
-        setTimeout(function () {
-            content9.style.display = "none";
-            finalizar()
-        }, 400);
-        console.log("Pontuação atual: " + pontos);
-
-    }
-
-    function certa1() {
-        pontos += 1;
-
-        setTimeout(function () {
-            content1.style.display = "none";
-            content2.style.display = "flex";
-        }, 400);
-
-        console.log("Pontuação atual: " + pontos);
-
-    }
-
-    function certa2() {
-        pontos += 1;
-
-        setTimeout(function () {
-            content2.style.display = "none";
-            content3.style.display = "flex";
-        }, 400);
-        console.log("Pontuação atual: " + pontos);
-    }
-
-    function certa3() {
-        pontos += 1;
-
-        setTimeout(function () {
-            content3.style.display = "none";
-            content4.style.display = "flex";
-        }, 400);
-        console.log("Pontuação atual: " + pontos);
-    }
-
-    function certa4() {
-        pontos += 1;
-
-        setTimeout(function () {
-            content4.style.display = "none";
-            content5.style.display = "flex";
-        }, 400);
-        console.log("Pontuação atual: " + pontos);
-    }
-
-    function certa5() {
-        pontos += 1;
-
-        setTimeout(function () {
-            content5.style.display = "none";
-            content6.style.display = "flex";
-        }, 400);
-        console.log("Pontuação atual: " + pontos);
-    }
-
-    function certa6() {
-        pontos += 1;
-
-        setTimeout(function () {
-            content6.style.display = "none";
-            content7.style.display = "flex";
-        }, 400);
-        console.log("Pontuação atual: " + pontos);
-    }
-
-    function certa7() {
-        pontos += 1;
-
-        setTimeout(function () {
-            content7.style.display = "none";
-            content8.style.display = "flex";
-        }, 400);
-        console.log("Pontuação atual: " + pontos);
-    }
-
-    function certa8() {
-        pontos += 1;
-
-        setTimeout(function () {
-            content8.style.display = "none";
-            content9.style.display = "flex";
-        }, 400);
-        console.log("Pontuação atual: " + pontos);
-    }
-
-    function certa9() {
-        pontos += 1;
-
-        setTimeout(function () {
-            content9.style.display = "none";
-            content10.style.display = "flex";
-        }, 400);
-        console.log("Pontuação atual: " + pontos);
-    }
-
-    function certa10() {
-        pontos += 1;
-        console.log("Pontuação atual: " + pontos);
-
-        setTimeout(function () {
-            finalizar()
-        }, 400);
-    }
-
-    function finalizar() {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> f5c84f4768dcfc842c0bec7d67eb9bc261cb4eec
-        pontoFinal = pontos * 10
-        acertos = pontos;
-        erro = pontos - 10;
-=======
-    lista_pontos.push(pontos);
-    pontoFinal += pontos * 10;
-    acertos = pontos;
-    erro = pontos - 10;
-
-<<<<<<< HEAD
-        if (pontos >= 100) {
-            alert("Parabéns, você acertou todas as questões!");
-        } else {
-=======
-    pontuacao1().then(() => {
-        window.location.href = "GameExperiente.html";
->>>>>>> 8371e951fd1c1757890263f38cd3a8079bee3a8b
-
-        if (pontos >= 100) {
-            alert("Parabéns, você acertou todas as questões!");
-        } else {
-<<<<<<< HEAD
->>>>>>> f5c84f4768dcfc842c0bec7d67eb9bc261cb4eec
-            alert("Seu score " + (10 - pontos) + "perguntas");
+        content.style.display = "none"
+        content1.style.display = "flex"
+        rodar()
+        intervalo = setInterval(rodar, 10)
+
+    };
+
+    // declarando as variaveis que serão usadas no cronometro 
+
+    let min = '00';
+    let hr = 0;
+    let sec = 0;
+    let intervalo
+
+    // função que roda o cronometro, usando uma logico simples de contagem de segundos, minutos 
+
+    function rodar() {
+        sec++
+        if (sec == 60) {
+            min++
+            sec = 0
+            if (min == 60) {
+                min = 0
+                sec = 0
+            }
         }
 
-        fetch("/score/aplicarI", {
+        // aqui vai pegar o conteudo com o id cronometro e vai fazer a manipulação para mostrar os números contando 
+
+        document.getElementById('cronometro').innerHTML = `${min}:${sec}`
+    }
+
+    // Logica para exibir as perguntas do quiz, e para quando o usuario responder, vai mudar o conteudo do conteudo que está sendo exibido, para o proximo conteudo
+    let ax = 1;
+
+    // declarando a a variavel q vai ser usada para conferir os paramentros 
+    function responder(resposta) {
+
+        // lógica para poder mudar o conteudo do conteudo que está sendo exibido, para o proximo conteudo
+        let proxima = ax + 1;
+
+        // pegando as divs das perguntas para poder fazer o jogo de display none e flex, usando as variaveis ax e proxima para tornar dinâmico 
+        let perguntaAtual = document.getElementById(`content${ax}`);
+        let proximaPergunta = document.getElementById(`content${proxima}`);
+
+        // validando as respostas certas e erradas e inserindo no vetor
+    
+        if (resposta == true) {
+            resultado.acerto.push(1)
+
+            console.log("acertos = " + resultado.acerto.length)
+        } else if (resposta == false) {
+            resultado.erros.push(1)
+
+            console.log("erros = " + resultado.erros.length)
+        }
+
+        // quando  a variavel proxima for = 11 o cronometro vai parar e ser inserido no vetor, e vai voltar para a tela de entrada
+
+        if (proxima == 11) {
+            clearInterval(intervalo)
+            content.style.display = "flex"
+            resultado.tempoFinalizado.push(document.getElementById('cronometro').innerText)
+            document.getElementById('cronometro').innerText = '00:00'
+            ax = 1
+            registrar()
+        }
+
+        perguntaAtual.style.display = "none"
+        proximaPergunta.style.display = "flex"
+
+
+        ax++
+
+    }
+
+    function registrar() {
+
+        // fazendo a multiplicação para ver a quantidade de pontos do usuario
+
+        let qntPontos = resultado.acerto.length * 10;
+
+        // pegando o id do usuario  no session storage para usar no fetch para registrar o score
+        let idUsuario = sessionStorage.ID_USUARIO;
+
+        // fazendo a requisição para o servidor para registrar o score
+        fetch("/score/registrarIniciante", {
+
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({
-                pontoServer: pontoFinal,
-                acertoServer: acertos,
-                erroServer: erro,
-                usuarioServer: idUsuario
-            }),
-            
-        }).then(response => {
-            if (response.ok) {
-                console.log('Pontos cadastrados com sucesso!');
 
-                window.location.href = "metricas.html";
+
+            // reatribuindo as variaveis e mandando elas para um json, e assim poder usar nas outras partes de inserção de dados
+            body: JSON.stringify({
+
+                idUsuario: idUsuario,
+                pontos: qntPontos,
+                acertos: resultado.acerto.length,
+                erros: resultado.erros.length,
+                tempo: resultado.tempoFinalizado[0]
+
+            }),
+
+        }).then(response => {
+
+            // validações para ver se funcionou ou não a inserção dos dados
+
+            if (response.ok) {
+
+                console.log('Resultados registrados com sucesso!');
+
             } else {
-                console.error('Erro ao cadastrar os dados.');
+
+                console.error('Erro ao registrar os dados.');
+
             }
+
         }).catch(error => {
+
             console.error('Erro ao enviar a requisição:', error);
+
         });
+
+
+
     }
 
-<<<<<<< HEAD
-=======
-=======
-            alert("Seu score " + (pontos) + "pontos");
-        }
-    }).catch((error) => {
-        console.error('Erro ao enviar pontuação para o servidor:', error);
-    });
-}
-
-
-
-
-function pontuacao1() {
-    return new Promise((resolve, reject) => {
-        var idUsuario = sessionStorage.ID_USUARIO;
-        var pontos = lista_pontos.length;
-        gameTimeout = setTimeout(() => {
-            fetch("/score/pontuacao1", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    acertoServer: acertos,
-                    erroServer: erro,
-                    PontoServer: pontos,
-                    usuarioServer: idUsuario
-                }),
-            }).then(response => {
-                if (response.ok) {
-                    console.log('Pontos cadastrados com sucesso!');
-                    resolve(); // Resolve the promise if request is successful
-                } else {
-                    console.error('Erro ao cadastrar.');
-                    reject(new Error('Erro ao cadastrar.'));
-                }
-            }).catch(error => {
-                console.error('Erro ao enviar a requisição:', error);
-                reject(error); // Reject the promise if there's an error
-            });
-        }, 45000);
-    });
-}
->>>>>>> 8371e951fd1c1757890263f38cd3a8079bee3a8b
->>>>>>> f5c84f4768dcfc842c0bec7d67eb9bc261cb4eec
 </script>
 
 </html>

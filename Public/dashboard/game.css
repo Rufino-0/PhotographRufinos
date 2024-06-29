@@ -140,6 +140,11 @@ nav button {
  justify-content: center;
 }
 
+.geral h1{
+  position: absolute;
+  margin-top: 96vh;
+}
+
 .resposta-btn {
  display: flex;
  justify-content: space-around;
@@ -223,17 +228,17 @@ nav button {
 }
 
 .content2 {
- width: 51vw;
- height: 66vh;
- background-color: #cbcbcb;
- border-radius: 15px;
- margin-top: 23vh;
- box-shadow: 0 0 20px black;
- justify-content: space-around;
- display: none;
- flex-direction: column;
- align-items: center;
- display: none;
+  width: 74vw;
+  height: 66vh;
+  background-color: #cbcbcb;
+  border-radius: 15px;
+  margin-top: 23vh;
+  box-shadow: 0 0 20px black;
+  justify-content: space-around;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  display: none;
 }
 
 .conten2 h3 {

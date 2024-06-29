@@ -1,30 +1,38 @@
 var scoreModel = require("../models/scoreModel");
 
-function aplicarI(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo jogo.html
-    var acerto = req.body.acertoServer;
-    var idUsuario = req.body.usuarioServer;
-    var erro = req.body.erroServer;
-    var ponto = req.body.pontoServer;
+// funções para registrar os dados do quiz iniciante e experiente no banco de dados
 
-
-    // Faça as validações dos valores
-    if (acerto == undefined) {
-        res.status(400).send("Seu score está undefined!");
-
-    } else if (erro == undefined) {
-        res.status(400).send("Seu erro está undefined!");
-
-    } else if (ponto == undefined) {
-        res.status(400).send("Seu ponto está undefined!");
-
-    } else if (idUsuario == undefined) {
-        res.status(400).send("Seu id está undefined!");
-    }
+function registrarIniciante(req, res) {
     
-        
-    // Passe os valores como parâmetro e vá para o arquivo scoreModel.js
-    scoreModel.aplicarI(acerto, erro, ponto, idUsuario)
+    // dados importados do quiz iniciante e com novos nomes 
+
+    var usuario = req.body.idUsuario;
+    var pontos = req.body.pontos;
+    var acertos = req.body.acertos;
+    var erros = req.body.erros;
+    var tempo = req.body.tempo;
+
+    // validações pra cada uma das novas variaveis conferirindo se elas não estão indefinidas
+
+    if (usuario == undefined) {
+        res.status(400).send("O usuario está undefined!");
+
+    } else if (pontos == undefined) {
+        res.status(400).send("Seus pontos estão undefined!");
+
+    } else if (acertos == undefined) {
+        res.status(400).send("Seus acertos estão undefined!");
+
+    } else if (erros == undefined) {
+        res.status(400).send("Seus erros estão undefined!");
+
+    }else if (tempo == undefined) {
+        res.status(400).send("Seu tempo está undefined!");
+    }
+
+    // dados sendo mandados para o model, em ordem de insrção para o banco de dados 
+
+    scoreModel.registrarIniciante(usuario, pontos, acertos, erros, tempo)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -41,46 +49,43 @@ function aplicarI(req, res) {
         );
 }
 
-function aplicarE(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo jogo.html
-    var acerto = req.body.acertoServer;
-    var idUsuario = req.body.usuarioServer;
-    var erro = req.body.erroServer;
-    var ponto = req.body.pontoServer;
 
-    // Faça as validações dos valores
-    if (acerto == undefined) {
-        res.status(400).send("Seu score está undefined!");
 
-    } else if (erro == undefined) {
-        res.status(400).send("Seu erro está undefined!");
+function registrarExperiente(req, res) {
 
-    } else if (ponto == undefined) {
-        res.status(400).send("Seu ponto está undefined!");
-
-    } else if (idUsuario == undefined) {
-        res.status(400).send("Seu id está undefined!");
-    }
+    // dados importados do quiz experiente e com novos nomes 
     
-        
-    // Passe os valores como parâmetro e vá para o arquivo scoreModel.js
-    scoreModel.aplicarI(acerto, erro, ponto, idUsuario)
+    var usuario = req.body.idUsuario;
+    var pontos = req.body.pontos;
+    var acertos = req.body.acertos;
+    var erros = req.body.erros;
+    var tempo = req.body.tempo;
 
-    if (ponto == undefined) {
-        res.status(400).send("Seu ponto está undefined!");
-    } else if (idUsuario == undefined) {
-        res.status(400).send("Seu idUsuario está undefined!");
-    } else if (acerto == undefined) {
-        res.status(400).send("Seu acerto está undefined!");
-    } else if (erro == undefined) {
-        res.status(400).send("Seu erro está undefined!");
+
+    // validações pra cada uma das novas variaveis conferirindo se elas não estão indefinidas
+
+    if (usuario == undefined) {
+        res.status(400).send("O usuario está undefined!");
+
+    } else if (pontos == undefined) {
+        res.status(400).send("Seus pontos estão undefined!");
+
+    } else if (acertos == undefined) {
+        res.status(400).send("Seus acertos estão undefined!");
+
+    } else if (erros == undefined) {
+        res.status(400).send("Seus erros estão undefined!");
+
+    }else if (tempo == undefined) {
+        res.status(400).send("Seu tempo está undefined!");
     }
 
-    // Passe os valores como parâmetro e vá para o arquivo scoreModel.js
-    scoreModel.aplicarI(idUsuario, ponto, acerto, erro)
+    // dados sendo mandados para o model, em ordem de insrção para o banco de dados 
+   
+    scoreModel.registrarExperiente(usuario, pontos, acertos, erros, tempo)
         .then(
-            function () {
-                console.log('Pontos cadastrados com sucesso!');
+            function (resultado) {
+                res.json(resultado);
             }
         ).catch(
             function (erro) {
@@ -94,44 +99,9 @@ function aplicarE(req, res) {
         );
 }
 
-function pontuacao1(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo jogo.html
-    var acerto = req.body.acertoServer;
-    var idUsuario = req.body.usuarioServer;
-    var erro = req.body.erroServer;
-    var ponto = req.body.pontoServer;
-
-    // Faça as validações dos valores
-    if (ponto == undefined) {
-        res.status(400).send("Seu ponto está undefined!");
-    } else if (idUsuario == undefined) {
-        res.status(400).send("Seu idUsuario está undefined!");
-    } else if (acerto == undefined) {
-        res.status(400).send("Seu acerto está undefined!");
-    } else if (erro == undefined) {
-        res.status(400).send("Seu erro está undefined!");
-    }
-
-    // Passe os valores como parâmetro e vá para o arquivo scoreModel.js
-    scoreModel.pontuacao1(idUsuario, ponto, acerto, erro)
-        .then(
-            function () {
-                console.log('Pontos cadastrados com sucesso!');
-            }
-        ).catch(
-            function (erro) {
-                console.log(erro);
-                console.log(
-                    "\nHouve um erro ao inserir os dados experientes Erro: ",
-                    erro.sqlMessage
-                );
-                res.status(500).json(erro.sqlMessage);
-            }
-        );
-
-}
+// pegando as funções para exportar para o model 
 
 module.exports = {
-    aplicarI,
-    pontuacao1
+    registrarIniciante,
+    registrarExperiente
 }

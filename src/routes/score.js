@@ -3,18 +3,16 @@ var router = express.Router();
 
 var scoreController = require("../controllers/scoreController");
 
-//Recebendo os dados do html e direcionando para a função aplicar de scoreController.js
-router.post("/aplicarI", function (req, res) {
-    scoreController.aplicarI(req, res);
-})
-router.post("/aplicarE", function (req, res) {
-    scoreController.aplicarE(req, res);
-})
+// recebimento de dados vindos dos htmls e passando para o controller
 
-router.post("/pontuacao1", function (req, res) {
-    scoreController.pontuacao1(req, res);
+// passando a direção dos dados do quiz iniciante para o controller
+router.post("/registrarIniciante", function (req, res) {
+    scoreController.registrarIniciante(req, res);
 })
 
-
+// passando a direção dos dados do quiz experiente para o controller
+router.post("/registrarExperiente", function (req, res) {
+    scoreController.registrarExperiente(req, res);
+})
 
 module.exports = router;
