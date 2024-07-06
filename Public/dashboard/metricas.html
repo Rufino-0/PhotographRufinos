@@ -11,7 +11,7 @@
 </head>
 
 
-<body onload="exibirGrafico()">
+<body onload="exibirGraficos()">
 
     <nav id="navbar">
         <a onclick="limparSessaohome()" href="../dashboard/dashSite.html"><img id="logo"
@@ -50,8 +50,8 @@
 
         <div class="ranking">
             <h3>Rankig Iniciante</h3>
-            <p>
-                1° posição - Pessoa 1 -- 100 pontos <br> <br>
+            <p id="rankingIniciante">
+                <!-- 1° posição - Pessoa 1 -- 100 pontos <br> <br>
                 2° posição - Pessoa 2 -- 100 pontos <br> <br>
                 3° posição - Pessoa 3 -- 100 pontos <br> <br>
                 4° posição - Pessoa 4 -- 100 pontos <br> <br>
@@ -60,46 +60,46 @@
                 7° posição - Pessoa 7 -- 100 pontos <br> <br>
                 8° posição - Pessoa 8 -- 100 pontos <br> <br>
                 9° posição - Pessoa 9 -- 100 pontos <br> <br>
-                10° posição - Pessoa 10 -- 100 pontos <br> <br>
+                10° posição - Pessoa 10 -- 100 pontos <br> <br> -->
 
             </p>
 
         </div>
 
         <!-- Graficos das metricas iniciante -->
-        
+
         <div class="graficos">
-            
+
             <!-- primeiro grafico de area onde mostra a quantidade de acertos e erros no quiz iniciante -->
-            
-            <div id="graficoIniciante"  class="conteudoGrafico1">
+
+            <div id="graficoIniciante" class="conteudoGrafico1">
                 <canvas id="myChart1"></canvas>
             </div>
-            
+
             <!-- final do primeiro grafico -->
             <!-- inicio do segundo grafico onde mostra o tempo de termino comparando com os outros jogadores -->
-            
+
             <div id="graficoIniciante1" style="display: none;" class="conteudoGrafico1">
                 <canvas id="myChart11"></canvas>
             </div>
             <!-- final do segundo grafico -->
             <!-- botões para alternar entre os graficos -->
             <div>
-                <button class="btn" onclick="primerioGraficoIniciante()">porcentagem de acertos</button>
-                <button class="btn" onclick="segundoGraficoIniciante()">tempo de termino do quiz</button>
+                <button class="btn" onclick="GraficoIniciante(1)">porcentagem de acertos</button>
+                <button class="btn" onclick="GraficoIniciante(2)">tempo de termino do quiz</button>
             </div>
-            
+
         </div>
         <!-- Fim dos graficos iniciante -->
-        
+
     </div>
-    
+
     <div class="container">
-        
+
         <div class="ranking">
             <h3>Rankig Experiente</h3>
-            <p>
-                1° posição - Pessoa 1 -- 100 pontos <br> <br>
+            <p id="rankingExperiente">
+                <!-- 1° posição - Pessoa 1 -- 100 pontos <br> <br>
                 2° posição - Pessoa 2 -- 100 pontos <br> <br>
                 3° posição - Pessoa 3 -- 100 pontos <br> <br>
                 4° posição - Pessoa 4 -- 100 pontos <br> <br>
@@ -108,39 +108,39 @@
                 7° posição - Pessoa 7 -- 100 pontos <br> <br>
                 8° posição - Pessoa 8 -- 100 pontos <br> <br>
                 9° posição - Pessoa 9 -- 100 pontos <br> <br>
-                10° posição - Pessoa 10 -- 100 pontos <br> <br>
+                10° posição - Pessoa 10 -- 100 pontos <br> <br> -->
 
             </p>
         </div>
-        
-        
+
+
         <!-- Graficos das metricas Experiente -->
-        
+
         <div class="graficos2">
-            
+
             <!-- primeiro grafico de area onde mostra a quantidade de acertos e erros no quiz experiente -->
-            
+
             <div id="graficoExperiente" class="conteudoGrafico1">
                 <canvas id="myChart2"></canvas>
             </div>
-            
+
             <!-- final do primeiro grafico -->
-            
+
             <!-- inicio do segundo grafico onde mostra o tempo de termino comparando com os outros jogadores -->
-            
+
             <div id="graficoExperiente1" style="display: none;" class="conteudoGrafico1">
                 <canvas id="myChart22"></canvas>
             </div>
-            
+
             <!-- final do segundo grafico -->
 
             <!-- botões para alternar entre os graficos -->
 
             <div>
-                <button class="btn" onclick="primeiroGraficoExperiente()">porcentagem de acertos</button>
-                <button class="btn" onclick="segundoGraficoExperiente()">tempo de termino do quiz</button>
+                <button class="btn" onclick="GraficoExperiente(1)">porcentagem de acertos</button>
+                <button class="btn" onclick="GraficoExperiente(2)">tempo de termino do quiz</button>
             </div>
-            
+
         </div>
 
     </div>
@@ -149,150 +149,459 @@
 </html>
 <script>
 
-    // inicio do script para a plotagem dos graficos
+    // variavel para poder pegar o id do usuario e usar no graficos
+    let Usuario = sessionStorage.ID_USUARIO;
 
-    // interatividade com os graficos do quiz iniciante
+    function exibirGraficos() {
 
-    function primerioGraficoIniciante() {
-
-        graficoIniciante.style.display = 'flex'
-        graficoIniciante1.style.display = 'none';
-    }
-    function segundoGraficoIniciante() {
-
-        graficoIniciante.style.display = 'none'
-        graficoIniciante1.style.display = 'block';
-    }
-
-    // fim da interatividade iniciante
-
-    // interatividade com os graficos do quiz experiente
-
-    function primeiroGraficoExperiente(){
-        graficoExperiente.style.display = 'flex'
-        graficoExperiente1.style.display = 'none';
-    }
-
-    function segundoGraficoExperiente(){
-
-        graficoExperiente.style.display = 'none'
-        graficoExperiente1.style.display = 'flex';
+        obterDadosRankingIniciante()
+        obterDadosRankingExperiente()
+        obterDadosGraficoIniciantePorcentagem()
+        obterDadosGraficoInicianteTempo()
+        obterDadosGraficoExperientePorcentagem()
+        obterDadosGraficoExperienteTempo()
 
     }
 
-    // fim da interatividade experiente
+
+    // função de interatividade com os graficos iniciante 
+    function GraficoIniciante(resposta) {
+        // Verifica qual gráfico deve ser exibido com base na resposta
+        if (resposta === 1) {
+            // Exibe o gráfico de porcentagem de acertos
+            graficoIniciante.style.display = 'flex'
+            graficoIniciante1.style.display = 'none'
+
+            // Chama a função para obter os dados do gráfico de porcentagem de acertos
+            obterDadosGraficoIniciantePorcentagem()
+
+        } else if (resposta === 2) {
+            // Exibe o gráfico de tempo de término
+            graficoIniciante.style.display = 'none'
+            graficoIniciante1.style.display = 'block'
+
+            // Chama a função para obter os dados do gráfico de tempo de término
+            obterDadosGraficoInicianteTempo()
+        }
+    }
+
+    // função de interatividade com os graficos experiente
+    function GraficoExperiente(resposta) {
+        // Verifica qual gráfico deve ser exibido com base na resposta
+        if (resposta === 1) {
+            // Exibe o gráfico de porcentagem de acertos
+            graficoExperiente.style.display = 'flex'
+            graficoExperiente1.style.display = 'none'
+
+            // Chama a função para obter os dados do gráfico de porcentagem de acertos
+            obterDadosGraficoExperientePorcentagem()
+
+        } else if (resposta === 2) {
+            // Exibe o gráfico de tempo de término
+            graficoExperiente.style.display = 'none'
+            graficoExperiente1.style.display = 'flex';
+
+            // Chama a função para obter os dados do gráfico de tempo de término
+            obterDadosGraficoExperienteTempo()
+        }
+
+    }
 
 
+    // função para obter os dados do grafico de porcentagem de acertos do grafico iniciante
+    function obterDadosRankingIniciante() {
+
+        // está chamando os dados vindo do crontroller para usar no graficos
+        fetch(`/medidas/rankingIniciante`, { cache: 'no-store' })
+            .then(function (response) {
+
+                // verificando se obteve dados
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        resposta.reverse();
+
+                        // chamando a função para plotar os dados no grafico com o parametro de resposta vindo do controller
+                        exibirDadosRankingIniciante(resposta);
+                    });
+                } else {
+                    // se nenhum dado for encontrado vai exibir essa mensagem
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            // exibindo o erro caso falhe alguma coisa
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ ranking: ${error.message}`);
+            });
+    }
+
+    function exibirDadosRankingIniciante(resposta) {
+        console.log('iniciando plotagem do gráfico...');
+
+        // vetor para armazenar os dados do ranking e poder exibir nas metricas 
+        let ranking = {
+            nome: [],
+            pontuacao: []
+        };
+        // variavel auxiliar
+        let texto = '';
+
+        console.log('Dados recebidos para plotar no gráfico Usuario:', resposta);
+
+        // rapetição para registrar os dados no vetor e na variavel auxiliar 
+        for (let i = 0; i < resposta.length; i++) {
+
+            // renomeando os dados vindo do controller para uma variavel
+            let registro = resposta[i];
+
+            // inserindo os dados no vetor de ranking
+            ranking.nome.push(registro.Usuario);
+            ranking.pontuacao.push(registro.Pontuação);
+
+            // manipulação dos dados para exibir no grafico
+            texto +=
+            `
+             ${i + 1}° posição - ${ranking.nome[i]} -- ${ranking.pontuacao[i]} pontos <br> <br>
+            `
+
+        }
+
+        console.log('Dados do Ranking:', ranking);
+
+        // jogando os dados na parte de ranking 
+        rankingIniciante.innerHTML = texto;
+    }
+
+    // função para obter os dados do grafico de tempo de término do grafico iniciante
+    function obterDadosRankingExperiente() {
+
+        // está chamando os dados vindo do crontroller para usar no graficos
+        fetch(`/medidas/rankingExperiente`, { cache: 'no-store' })
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        resposta.reverse();
+
+                        // chamando a função para plotar os dados no grafico com o parametro de resposta vindo do controller
+                        exibirDadosRankingExperiente(resposta);
+                    });
+                } else {
+                    // se nenhum dado for encontrado vai exibir essa mensagem
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            // exibindo o erro caso falhe alguma coisa
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ ranking: ${error.message}`);
+            });
+    }
+
+    // função para exibir os dados no grafico
+    function exibirDadosRankingExperiente(resposta) {
+        console.log('iniciando plotagem do gráfico...');
+
+        // vetor para armazenar os dados do ranking e poder exibir nas metricas
+        let ranking = {
+            nome: [],
+            pontuacao: []
+        };
+        // variavel auxiliar
+        let texto = '';
+
+        console.log('Dados recebidos para plotar no gráfico Usuario:', resposta);
+
+        // rapetição para registrar os dados no vetor e na variavel auxiliar
+        for (let i = 0; i < resposta.length; i++) {
+
+            // renomeando os dados vindo do controller para uma variavel
+            let registro = resposta[i];
+
+            // inserindo os dados no vetor de ranking
+            ranking.nome.push(registro.Usuario);
+            ranking.pontuacao.push(registro.Pontuação);
+
+            // manipulação dos dados para exibir no grafico
+            texto +=
+                `
+            ${i + 1}° posição - ${ranking.nome[i]} -- ${ranking.pontuacao[i]} pontos <br> <br>
+            `
+
+        }
+
+        console.log('Dados do Ranking:', ranking);
+
+        rankingExperiente.innerHTML = texto;
+
+    }
+
+    // função para obter os dados do grafico de porcentagem de acertos e erros do quiz para usuários iniciantes
+    function obterDadosGraficoIniciantePorcentagem() {
+
+        // está chamando os dados vindo do crontroller para usar no gráfico de porcentagem de acertos e erros do quiz para usuários iniciantes
+        fetch(`/medidas/porcentagemInciante?idUsuario=${Usuario}`, { cache: 'no-store' })
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        resposta.reverse();
+
+                        // chamando a função para plotar os dados no grafico com o parametro de resposta vindo do controller
+                        plotarGraficoIniciantePorcentagem(resposta);
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    // função para obter os dados do gráfico de tempo de término do quiz para usuários iniciantes
+    function obterDadosGraficoInicianteTempo() {
+
+        // está chamando os dados vindo do crontroller para usar no gráfico de tempo de término do quiz para usuários iniciantes
+        fetch(`/medidas/tempoInciante`, { cache: 'no-store' })
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        resposta.reverse();
+
+                        // chamando a função para plotar os dados no grafico com o parametro de resposta vindo do controller
+                        plotarGraficoInicianteTempo(resposta);
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+    };
 
 
-    function exibirGrafico() {
+    // função para obter os dados do gráfico de porcentagem de acertos e erros do quiz para usuários experientes
+    function obterDadosGraficoExperientePorcentagem() {
 
-        // grafico de acertos iniciante 
+        // está chamando os dados vindo do crontroller para usar no gráfico de porcentagem de acertos e erros do quiz para usuários experientes
+        fetch(`/medidas/porcentagemExperiente?idUsuario=${Usuario}`, { cache: 'no-store' })
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        resposta.reverse();
 
-        const axt = document.getElementById('myChart1'); 
+                        // chamando a função para plotar os dados no grafico com o parametro de resposta vindo do controller
+                        plotarGraficoExperientePorcentagem(resposta);
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
 
-        new Chart(axt, {
+    // função para obter os dados do gráfico de tempo de término do quiz para usuários experientes
+    function obterDadosGraficoExperienteTempo() {
+
+        // está chamando os dados vindo do crontroller para usar no gráfico de tempo de término do quiz para usuários experientes
+        fetch(`/medidas/tempoExperiente`, { cache: 'no-store' })
+            .then(function (response) {
+                if (response.ok) {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        resposta.reverse();
+
+                        // chamando a função para plotar os dados no grafico com o parametro de resposta vindo do controller
+                        plotarGraficoExperienteTempo(resposta);
+                    });
+                } else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+
+    };
+
+    // função para plotar o gráfico de porcentagem de acertos e erros do quiz para usuários iniciantes
+    function plotarGraficoIniciantePorcentagem(resposta) {
+        console.log('iniciando plotagem do gráfico...');
+
+        let labels = [];
+
+        // configurações do gráfico para jogar no chartjs
+        let dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Acertos',
+                data: [],
+                fill: true,
+                borderColor: 'rgb(15, 156, 227)',
+                tension: 0.1
+            },
+            {
+                label: 'Erros',
+                data: [],
+                fill: true,
+                borderColor: 'rgb(230, 49, 70)',
+                tension: 0.1
+            }]
+        };
+
+        console.log('Dados recebidos para plotar no gráfico Usuario:', resposta);
+
+        // repetição para inserir os dados nas configurações do chart
+        for (let i = 0; i < resposta.length; i++) {
+            let registro = resposta[i];
+            let porcentagemE = registro.ErrosQuiz * 10
+            let porcentagemA = registro.AcertosQuiz * 10
+            dados.datasets[0].data.push(`${porcentagemE}`);
+            dados.datasets[1].data.push(`${porcentagemA}`);
+        }
+
+        console.log('Labels:', labels);
+        console.log('Dados do Dataset:', dados.datasets);
+
+        const config = {
             type: 'polarArea',
-            data: {
-                labels: ['Acerto', 'Erros'],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [6, 4],
-                    borderWidth: 1,
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
+            data: dados,
+        };
 
-        // fim grafico de acertos iniciante
-        
-        // grafico acertos experiente 
+        let ctx = document.getElementById('myChart1').getContext('2d');
 
-        const ctx = document.getElementById('myChart2');
-
-        new Chart(ctx, {
-            type: 'polarArea',
-            data: {
-                labels: ['Acerto', 'Erros'],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [5, 5],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-
-        // fim grafico acertos experiente
-
-
-        // grafico de tempo iniciante 
-
-        const axt1 = document.getElementById('myChart11');
-
-        new Chart(axt1, {
-            type: 'bar',
-            data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [6, 4, 3, 6, 4, 7],
-                    borderWidth: 1,
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-
-        // fim grafico tempo experiente 
-
-        // grafico tempo experiente
-
-        const ctx1 = document.getElementById('myChart22');
-
-        new Chart(ctx1, {
-            type: 'bar',
-            data: {
-                labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [6, 4, 3, 6, 4, 7],
-                    borderWidth: 1,
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-
+        let myChart8 = new Chart(ctx, config);
     }
 
-    // fim grafico tempo experiente 
+    // função para plotar o gráfico de tempo de término do quiz para usuários iniciantes
+    function plotarGraficoInicianteTempo(resposta) {
+        console.log('iniciando plotagem do gráfico...');
 
-    // fim da plotagem dos graficos
+        let labels = [];
 
-    // fim do script para plotagem dos graficos 
+        let dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Tempo Finalizado',
+                data: [],
+                fill: true,
+                backgroundColor: 'rgba(74, 141, 199, 0.641)',
+                tension: 0.3
+            }]
+        };
+
+        console.log('Dados recebidos para plotar no gráfico Usuario:', resposta);
+
+        for (let i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            labels.push(registro.NomeUsuario);
+            dados.datasets[0].data.push(registro.TempoFinal);
+        }
+
+        console.log('Labels:', labels);
+        console.log('Dados do Dataset:', dados.datasets);
+
+        const config = {
+            type: 'bar',
+            data: dados,
+        };
+
+        let ctx = document.getElementById('myChart11').getContext('2d');
+
+        let myChartsegundo = new Chart(ctx, config);
+    }
+
+    // função para plotar o gráfico de porcentagem de acertos e erros do quiz para usuários experientes
+    function plotarGraficoExperientePorcentagem(resposta) {
+        console.log('iniciando plotagem do gráfico...');
+        let labels = [];
+        let dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Acertos',
+                data: [],
+                fill: true,
+                borderColor: 'rgb(15, 156, 227)',
+                tension: 0.1
+            },
+            {
+                label: 'Erros',
+                data: [],
+                fill: true,
+                borderColor: 'rgb(230, 49, 70)',
+                tension: 0.1
+            }]
+        };
+
+        console.log('Dados recebidos para plotar no gráfico Usuario:', resposta);
+
+        for (let i = 0; i < resposta.length; i++) {
+            let registro = resposta[i];
+            let porcentagemE = registro.ErrosQuiz * 10
+            let porcentagemA = registro.AcertosQuiz * 10
+            dados.datasets[0].data.push(`${porcentagemE}`);
+            dados.datasets[1].data.push(`${porcentagemA}`);
+        }
+
+        console.log('Labels:', labels);
+        console.log('Dados do Dataset:', dados.datasets);
+
+        const config = {
+            type: 'polarArea',
+            data: dados,
+        };
+
+        let ctx = document.getElementById('myChart2').getContext('2d');
+
+        let myChart27 = new Chart(ctx, config);
+    }
+
+    // função para plotar o gráfico de tempo de término do quiz para usuários experientes
+    function plotarGraficoExperienteTempo(resposta) {
+        console.log('iniciando plotagem do gráfico...');
+
+        let labels = [];
+
+        let dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Tempo Finalizado',
+                data: [],
+                string: [],
+                fill: true,
+                borderColor: 'rgb(15, 156, 227)',
+                tension: 0.1
+            }]
+        };
+
+        console.log('Dados recebidos para plotar no gráfico Usuario:', resposta);
+
+        for (let i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            labels.push(registro.NomeUsuario);
+            dados.datasets[0].data.push(registro.TempoFinal);
+        }
+
+        console.log('Labels:', labels);
+        console.log('Dados do Dataset:', dados.datasets);
+
+        const config = {
+            type: 'bar',
+            data: dados,
+        };
+
+        let ctx = document.getElementById('myChart22').getContext('2d');
+
+        let myChartsegundo = new Chart(ctx, config);
+    }
+
+
 
 
 </script>

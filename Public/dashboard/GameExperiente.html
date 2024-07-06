@@ -45,7 +45,7 @@
     </nav>
     <div class="geral">
 
-        <h1 id="cronometro">00:00</h1>
+        <h1 id="cronometro">00.00</h1>
 
         <div id="content" class="content">
             <h3>Quiz - Fotografia Experiente</h3>
@@ -245,7 +245,7 @@
                 sec = 0
             }
         }
-        document.getElementById('cronometro').innerHTML = `${min}:${sec}`
+        document.getElementById('cronometro').innerHTML = `${min}.${sec}`
     }
 
 
@@ -281,7 +281,7 @@
             clearInterval(intervalo)
             content.style.display = "flex"
             resultado.tempoFinalizado.push(document.getElementById('cronometro').innerText)
-            document.getElementById('cronometro').innerText = '00:00'
+            document.getElementById('cronometro').innerText = '00.00'
             ax = 1
             registrar()
         }
@@ -289,9 +289,7 @@
         perguntaAtual.style.display = "none"
         proximaPergunta.style.display = "flex"
 
-
         ax++
-
     }
 
     function registrar() {
@@ -310,7 +308,6 @@
             headers: {
                 "Content-Type": "application/json",
             },
-
 
             // reatribuindo as variaveis e mandando elas para um json, e assim poder usar nas outras partes de inserção de dados
             body: JSON.stringify({
@@ -342,9 +339,6 @@
             console.error('Erro ao enviar a requisição:', error);
 
         });
-
-
-
     }
 </script>
 

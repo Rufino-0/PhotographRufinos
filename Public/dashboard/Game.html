@@ -50,7 +50,7 @@
 
         <!-- mostrando o cronometro do jogo -->
 
-        <h1 id="cronometro">00:00</h1>
+        <h1 id="cronometro">00.00</h1>
 
         <!-- div inicial que faz a primeira interação com o cliente  -->
 
@@ -232,7 +232,6 @@
 
     // vetor que vai fazer o armazenamento de todos os dados do quiz
 
-
     const resultado = {
         acerto: [],
         erros: [],
@@ -246,7 +245,7 @@
         content.style.display = "none"
         content1.style.display = "flex"
         rodar()
-        intervalo = setInterval(rodar, 10)
+        intervalo = setInterval(rodar, 100)
 
     };
 
@@ -272,7 +271,7 @@
 
         // aqui vai pegar o conteudo com o id cronometro e vai fazer a manipulação para mostrar os números contando 
 
-        document.getElementById('cronometro').innerHTML = `${min}:${sec}`
+        document.getElementById('cronometro').innerHTML = `${min}.${sec}`
     }
 
     // Logica para exibir as perguntas do quiz, e para quando o usuario responder, vai mudar o conteudo do conteudo que está sendo exibido, para o proximo conteudo
@@ -299,7 +298,6 @@
 
             console.log("erros = " + resultado.erros.length)
         }
-
         // quando  a variavel proxima for = 11 o cronometro vai parar e ser inserido no vetor, e vai voltar para a tela de entrada
 
         if (proxima == 11) {
@@ -310,13 +308,9 @@
             ax = 1
             registrar()
         }
-
         perguntaAtual.style.display = "none"
         proximaPergunta.style.display = "flex"
-
-
         ax++
-
     }
 
     function registrar() {
@@ -367,9 +361,6 @@
             console.error('Erro ao enviar a requisição:', error);
 
         });
-
-
-
     }
 
 </script>

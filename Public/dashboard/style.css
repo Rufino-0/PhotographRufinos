@@ -25,10 +25,11 @@ nav {
  width: 100%;
  font-size: 22px;
  position: fixed;
+ z-index: 1;
  background-attachment: fixed;
  background-color: gray;
  justify-content: space-around;
- box-shadow: 0px 0px 15px black
+ box-shadow: 0px 0px 15px rgb(0, 0, 0)
 }
 
 
