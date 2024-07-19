@@ -156,6 +156,23 @@ nav button {
     font-size: 19px;
 }
 
+.mensagemPorcent {
+    display: none;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mensagemPorcent h2 {
+    margin: 25px 0px 25px 0px;
+}
+
+.mensagemPorcent button {
+    width: 19vh;
+    height: 7vh;
+    border-radius: 25px;
+    border: none;
+}
 
 .graficos{
     width: 61vw;

@@ -73,7 +73,16 @@
             <!-- primeiro grafico de area onde mostra a quantidade de acertos e erros no quiz iniciante -->
 
             <div id="graficoIniciante" class="conteudoGrafico1">
+                <!-- canva que vai ser plotado na dashboard - Inserção 10/07/24 -->
                 <canvas id="myChart1"></canvas>
+                <!-- div que exibe uma mensagem de erro caso não tenha dados para exibir - Inserção 19/07/24 -->
+                <div class="mensagemPorcent" id="ErroIniciante">
+                    <h1>Sem dados para exibir</h1>
+                    <h2>Por favor faça o quiz para o resultado ser exibido</h2>
+                    <br>
+                    <a href="../dashboard/Game.html"><button >Responder quiz iniciante</button></a>
+
+                </div>
             </div>
 
             <!-- final do primeiro grafico -->
@@ -121,7 +130,16 @@
             <!-- primeiro grafico de area onde mostra a quantidade de acertos e erros no quiz experiente -->
 
             <div id="graficoExperiente" class="conteudoGrafico1">
+                <!-- canva que vai ser plotado na dashboard - Inserção 10/07/24 -->
                 <canvas id="myChart2"></canvas>
+                <!-- div que exibe uma mensagem de erro caso não tenha dados para exibir - Inserção 19/07/24 -->
+                <div class="mensagemPorcent" id="ErroExperiente">
+                    <h1>Sem dados para exibir</h1>
+                    <h2>Por favor faça o quiz para o resultado ser exibido</h2>
+                    <br>
+                    <a href="../dashboard/GameExperiente.html"><button>Responder quiz experiente</button></a>
+
+                </div>
             </div>
 
             <!-- final do primeiro grafico -->
@@ -338,19 +356,31 @@
     // função para obter os dados do grafico de porcentagem de acertos e erros do quiz para usuários iniciantes
     function obterDadosGraficoIniciantePorcentagem() {
 
-        // está chamando os dados vindo do crontroller para usar no gráfico de porcentagem de acertos e erros do quiz para usuários iniciantes
+        // está chamando os dados vindo do crontroller para usar no gráfico de porcentagem de acertos e erros do quiz para usuários iniciantes 
+        //Inserção 12/07/24
         fetch(`/medidas/porcentagemInciante?idUsuario=${Usuario}`, { cache: 'no-store' })
             .then(function (response) {
-                if (response.ok) {
+                // veirificando se os valores puxados tem algum conteúdo e se não tiver vai exibir uma mensagem ao usuario - Inserção 19/07/24
+                if ( response.statusText === "No Content") {
+
+                    console.log("Sem dados do quiz iniciante para plotar")
+                    
+                    myChart1.style.display = "none"
+                    ErroIniciante.style.display = "flex";
+
+
+                } else if (response.ok == true) {
                     response.json().then(function (resposta) {
                         console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                         resposta.reverse();
 
                         // chamando a função para plotar os dados no grafico com o parametro de resposta vindo do controller
                         plotarGraficoIniciantePorcentagem(resposta);
+
                     });
                 } else {
                     console.error('Nenhum dado encontrado ou erro na API');
+
                 }
             })
             .catch(function (error) {
@@ -386,20 +416,29 @@
     // função para obter os dados do gráfico de porcentagem de acertos e erros do quiz para usuários experientes
     function obterDadosGraficoExperientePorcentagem() {
 
-        // está chamando os dados vindo do crontroller para usar no gráfico de porcentagem de acertos e erros do quiz para usuários experientes
+        // está chamando os dados vindo do crontroller para usar no gráfico de porcentagem de acertos e erros do quiz para usuários experientes - Inserção 12/07/24
         fetch(`/medidas/porcentagemExperiente?idUsuario=${Usuario}`, { cache: 'no-store' })
             .then(function (response) {
-                if (response.ok) {
-                    response.json().then(function (resposta) {
-                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-                        resposta.reverse();
+                  // veirificando se os valores puxados tem algum conteúdo e se não tiver vai exibir uma mensagem ao usuario - Inserção 19/07/24
+                if (response.statusText === "No Content") {
 
-                        // chamando a função para plotar os dados no grafico com o parametro de resposta vindo do controller
-                        plotarGraficoExperientePorcentagem(resposta);
-                    });
-                } else {
-                    console.error('Nenhum dado encontrado ou erro na API');
-                }
+                    console.log("Sem dados do quiz experiente para plotar")
+                    // sistema de troca de tela pra o aviso - 19/07/24
+                    myChart2.style.display = "none"
+                    ErroExperiente.style.display = "flex";
+
+
+                } else if (response.ok === true && response.statusText === "OK") {
+                        response.json().then(function (resposta) {
+                            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                            resposta.reverse();
+
+                            // chamando a função para plotar os dados no grafico com o parametro de resposta vindo do controller
+                            plotarGraficoExperientePorcentagem(resposta);
+                        });
+                    } else {
+                        console.error('Nenhum dado encontrado ou erro na API');
+                    }
             })
             .catch(function (error) {
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
@@ -432,7 +471,10 @@
 
     // função para plotar o gráfico de porcentagem de acertos e erros do quiz para usuários iniciantes
     function plotarGraficoIniciantePorcentagem(resposta) {
-        console.log('iniciando plotagem do gráfico...');
+        if (resposta === undefined) {
+            alert("erros merda")
+        }
+        console.log('iniciando plotagem da porcentagem...');
 
         let labels = [];
 
@@ -462,6 +504,7 @@
             let registro = resposta[i];
             let porcentagemE = registro.ErrosQuiz * 10
             let porcentagemA = registro.AcertosQuiz * 10
+
             dados.datasets[0].data.push(`${porcentagemE}`);
             dados.datasets[1].data.push(`${porcentagemA}`);
         }

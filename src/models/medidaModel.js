@@ -3,18 +3,21 @@ var database = require("../database/config");
 // instruções vinda do crontroller para executar no banco de dados
 
 // script de dados do grafico de porcentagem iniciante 
-function porcentagemInciante(limite_linhas, idUsuario) {
+// alteração de ordem de dados dos paremetros - 19/07/2024
+function porcentagemInciante(idUsuario, limite_linhas) {
 
     // Instrução que vai ser inserida no sql
     var instrucaoSql = `select acertos as AcertosQuiz, erros as ErrosQuiz from quiziniciante 
-    join usuario on fkUsuario = ${idUsuario} order by quiziniciante.id limit ${limite_linhas};`;
+    join usuario on fkUsuario = ${idUsuario} limit ${limite_linhas};`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
+   
+    return database.executar(instrucaoSql)
 }
 
 // script de dados do grafico de porcentagem experiente
-function porcentagemExperiente(limite_linhas, idUsuario) {
+// alteração de ordem de dados dos paremetros - 19/07/2024
+function porcentagemExperiente(idUsuario, limite_linhas,) {
 
     // Instrução que vai ser inserida no sql
     var instrucaoSql = `select acertos as AcertosQuiz, erros as ErrosQuiz from quizexperiente 

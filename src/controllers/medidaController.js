@@ -14,7 +14,7 @@ function porcentagemInciante(req, res) {
     
     // chamando o metodo do model para buscar os dados dosql
     medidaModel.porcentagemInciante(idUsuario, limite_linhas).then(function (resultado) {
-        if (resultado.length > 0) {
+       if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
             res.status(204).send("Nenhum resultado encontrado!")
@@ -24,6 +24,8 @@ function porcentagemInciante(req, res) {
         console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
         res.status(500).json(erro.sqlMessage);
     });
+
+    console.log("SEM RESULTADO");
 }
 
 // script de pesquisa de dados do grafico de porcentagem experiente
