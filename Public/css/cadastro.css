@@ -1,0 +1,215 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Roboto Flex';
+}
+
+.content {
+
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content1 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 55vw;
+}
+
+.content1 h1 {
+  font-size: 3vw;
+  font-weight: 550;
+  margin: 0;
+}
+
+.content1 h3 {
+
+  font-size: 5vh;
+  font-weight: 250;
+  margin-top: -5px;
+  margin-bottom: 3vh;
+}
+
+.content1 input {
+
+  width: 319px;
+  border: none;
+  border-bottom: 1px solid rgb(52, 52, 52);
+  margin-top: 16px;
+  margin-bottom: 31px;
+  font-size: 17px;
+  padding: 9px;
+  height: 16px;
+}
+
+.content1 button {
+
+  width: 104px;
+  height: 33px;
+  border-radius: 5px;
+  border: solid 1px;
+
+}
+
+.content2 {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 55vw;
+}
+
+.content2 h1 {
+  font-size: 3vw;
+  font-weight: 550;
+  margin: 0;
+}
+
+.content2 h3 {
+
+  font-size: 5vh;
+  font-weight: 250;
+  margin-top: -5px;
+  margin-bottom: 3vh;
+}
+
+.content2 input {
+
+  width: 319px;
+  border: none;
+  border-bottom: 1px solid rgb(52, 52, 52);
+  margin-top: 16px;
+  margin-bottom: 31px;
+  font-size: 17px;
+  padding: 9px;
+  height: 16px;
+}
+
+.content2 button {
+
+  width: 104px;
+  height: 33px;
+  border-radius: 5px;
+  border: solid 1px;
+
+}
+
+.verificacao {
+
+  border: solid 1px #1400FF;
+  border-radius: 5px;
+  padding: 2vh;
+  color: #1100da;
+  
+}
+
+
+.verificacao li {
+  list-style: initial;
+  font-size: 14px;
+  margin-bottom: 1vh;
+}
+
+.proxima1 {
+  background-color: #30F60F;
+  color: white;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.proxima1:hover {
+  background-color: #31e111;
+}
+
+.cancelar1 {
+  color: black;
+  background-color: white;
+  margin-right: 7px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.cancelar1:hover {
+  background-color: #cecece;
+}
+
+
+.Voltar {
+  color: red;
+  border: solid 1px red;
+  background-color: white;
+  margin-right: 7px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.Voltar:hover {
+  color: white;
+  background-color: rgba(222, 0, 0, 0.664);
+}
+
+.proxima2 {
+  background-color: #30F60F;
+  color: white;
+  border: solid 1px #30F60F;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.proxima2:hover {
+  background-color: #31e111;
+}
+
+.alerta {
+  color: red;
+  font-size: 10px;
+  margin-top: -22px;
+  margin-bottom: 18px;
+  transition: 1.5s;
+}
+
+
+
+
+.primeiro {
+  background-image: url(../assets/cadastro/First.png);
+  background-repeat: no-repeat;
+  background-size: 60.2vw;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  transition: 1.5s;
+}
+
+.segundo {
+  background-image: url(../assets/cadastro/second.png);
+  background-repeat: no-repeat;
+  background-size: 63vw;
+  width: 100%;
+  height: 100%;
+  display: none;
+  transition: 1.5s;
+}
+
+.terceiro {
+  background-image: url(../assets/cadastro/terceiro.png);
+  background-repeat: no-repeat;
+  background-size: 52vw;
+  width: 100%;
+  height: 100%;
+  display: none;
+  transition: 1.5s;
+}
