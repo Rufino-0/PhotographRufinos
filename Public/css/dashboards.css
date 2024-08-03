@@ -8,6 +8,7 @@ body {
  background-image: url(../assets/index/fundoCadastro.jpg);
  background-size: cover;
  background-repeat: no-repeat;
+ 
 }
 
 #logo {
@@ -166,3 +167,77 @@ nav button {
  margin-top: 10px;
 }
 
+.avaliacao {
+
+  width: 42vw;
+  height: 47vh;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 60vh;
+  top: 27vh;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.668);}
+
+.avaliacao div {
+  margin-top: 8vh;
+}
+
+.btn {
+  width: 97px;
+  height: 33px;
+  font-size: 20px;
+}
+
+.estrelas img {
+  width: 9vh;
+  margin-left: 3vh;
+  transition: .5s;
+}
+.estrelas h1 {
+  font-size: 8vh;
+  margin-bottom: 3vh;
+  margin-top: -13vh;
+  display: flex;
+  justify-content: center;
+}
+
+#exitAvaliacao {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  top: 2vh;
+  left: 82vh;
+}
+
+#exitAvaliacao img {
+  width: 6vh;
+  cursor: pointer;
+}
+
+#btn1:hover {
+transform: scale(1.5);
+}
+
+#btn2:hover {
+  transform: scale(1.5);
+}
+#btn3:hover {
+  transform: scale(1.5);
+}
+#btn4:hover {
+  transform: scale(1.5);
+}
+#btn5:hover {
+  transform: scale(1.5);
+}
+
+.resposta_avaliacao {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

@@ -19,6 +19,8 @@ var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
 var scoreRouter = require("./src/routes/score");
 var medidaRouter = require("./src/routes/medidas");
+// adicionadno uma nova rota para puxar e inserir novos dados - inserido 02/08/24
+var avaliacaoRouter = require("./src/routes/avaliacao");
 
 
 app.use(express.json());
@@ -30,7 +32,8 @@ app.use(cors());
 app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
 app.use("/score", scoreRouter);
-
+app.use("/avaliacao", avaliacaoRouter);
+// falando para o  servidor que ele deve usar a rota de avaliação inserido 02/08/24
 app.use("/medidas", medidaRouter);
 
 app.listen(PORTA_APP, function () {

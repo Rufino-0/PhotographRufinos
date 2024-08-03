@@ -9,16 +9,16 @@ body {
 
 .content {
 
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .content1 {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -181,35 +181,120 @@ body {
   transition: 1.5s;
 }
 
+.confirmacao {
+  
+  position: absolute;
+  display: none;
+  z-index: 3;
+  width: 30vw;
+  height: 37vh;
+  border: solid 1px black;
+  background-color: white;
+  border-radius: 5px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3vh;
+
+}
 
 
+
+
+.confirmacao img {
+  width: 8vw;
+}
+
+.confirmacao h2 {
+  color: #2aad12;
+}
+
+
+#senhasBtn1 {
+  border: none;
+  position: absolute;
+  display: none;
+  top: 34vh;
+  left: 88vw;
+  width: auto;
+  height: auto;
+  padding: 3px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+#senhasBtn2 {
+  border: none;
+  position: absolute;
+  display: flex;
+  top: 34vh;
+  left: 88vw;
+  width: auto;
+  height: auto;
+  padding: 3px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+#senhasBtn3 {
+  border: none;
+  position: absolute;
+  display: none;
+  top: 70vh;
+  left: 88vw;
+  width: auto;
+  height: auto;
+  padding: 3px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+#senhasBtn4 {
+  border: none;
+  position: absolute;
+  display: flex;
+  top: 70vh;
+  left: 88vw;
+  width: auto;
+  height: auto;
+  padding: 3px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+
+.senhas1 {
+  width: 20px;
+}
+
+.senhas2 {
+  width: 20px;
+}
 
 .primeiro {
   background-image: url(../assets/cadastro/First.png);
   background-repeat: no-repeat;
-  background-size: 60.2vw;
-  width: 100%;
-  height: 100%;
+  background-size: 61vw;
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  transition: 1.5s;
 }
 
 .segundo {
   background-image: url(../assets/cadastro/second.png);
   background-repeat: no-repeat;
-  background-size: 63vw;
-  width: 100%;
-  height: 100%;
+  background-size: 64vw;
+  width: 100vw;
+  height: 100vh;
   display: none;
-  transition: 1.5s;
 }
 
 .terceiro {
   background-image: url(../assets/cadastro/terceiro.png);
   background-repeat: no-repeat;
-  background-size: 52vw;
-  width: 100%;
-  height: 100%;
+  background-size: 53vw;
+  width: 100vw;
+  height: 100vh;
   display: none;
   transition: 1.5s;
 }

@@ -1,0 +1,147 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Roboto Flex';
+}
+
+.background {
+
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../assets/login/fundo.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+
+.container {
+
+  display: flex;
+  width: 514px;
+  height: 514px;
+  background-color: white;
+  border-radius: 20px;
+  border: none;
+  flex-direction: column;
+
+}
+
+.itens {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.itens h1 {
+  font-size: 3vw;
+  font-weight: 550;
+  margin: 0;
+  margin-top: 41px;
+}
+
+.itens h2 {
+
+  font-size: 5vh;
+  font-weight: 250;
+  margin-top: -5px;
+  margin-bottom: 3vh;
+
+}
+
+.itens input {
+  width: 319px;
+  border: none;
+  border-bottom: 1px solid rgb(52, 52, 52);
+  margin-top: 16px;
+  margin-bottom: 31px;
+  font-size: 17px;
+  padding: 9px;
+  height: 16px;
+}
+
+.itens button {
+  width: 104px;
+  height: 33px;
+  border-radius: 5px;
+  border: solid 1px;
+  margin-top: 7vh;
+}
+
+.itens div {
+  margin-top: 8px;
+}
+
+
+.itens a {
+  font-size: 0.8rem;
+  top: 65vh;
+  position: absolute;
+  right: 80.5vh;
+}
+
+.itens a:hover {
+  color: #3700dc;
+}
+
+.itens p {
+
+  color: red;
+  margin-top: -5vh;
+  font-size: 2vh;
+  margin-right: 33vh;
+}
+
+#bnt2 {
+  background-color: #31e111;
+  color: white;
+  width: 104px;
+  height: 33px;
+  border-radius: 5px;
+  border: solid 1px #31e111;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+#bnt2:hover {
+  background-color: #32fc0e;
+}
+
+#bnt1 {
+  color: red;
+  border: solid 1px red;
+  background-color: white;
+  margin-right: 7px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+#bnt1:hover {
+  color: white;
+  background-color: rgba(250, 0, 0, 0.673);
+}
+
+#logo {
+
+  width: 68vh;
+  margin-top: 5vh;
+  margin-left: 8vh;
+
+}
+
+#altoral {
+
+  width: 23vh;
+  position: absolute;
+  left: 126vh;
+  top: 90vh;
+
+}

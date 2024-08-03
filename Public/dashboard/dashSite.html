@@ -16,7 +16,8 @@
 
 <body>
     <nav id="navbar">
-        <a onclick="limparSessaohome()" href="../index.html"><img id="logo" src="../assets/index/LogoBlack.png" alt="LogoBlack"></a>
+        <a onclick="limparSessao()" href="../index.html"><img id="logo" src="../assets/index/LogoBlack.png"
+                alt="LogoBlack"></a>
         <ul>
             <li class="dropdown"><a>Fotografia</a>
 
@@ -44,34 +45,55 @@
             </li>
         </ul>
         <button onclick=" limparSessao()"><img id="exit" src="../assets/dash/exit.png" alt=""></button>
-    </nav> 
+    </nav>
 
     <div class="container">
-        
+
         <div class="card">
-                <div class="teste"></div>
-                <h3>Curiosidade 1</h3>
-                <p>A primeira fotografia reconhecida como a mais antiga já feita foi tirada por Joseph Nicéphore Niépce em 1826 ou 1827. A imagem, intitulada "View from the Window at Le Gras", capturou a vista de uma janela e é um marco na história da fotografia, demonstrando os primórdios da técnica. </p>
-            </div>
-            <div class="card">
-                <div class="teste"></div>
-                <h3>Curiosidade 2</h3>
-                <p>Você sabia que a palavra "fotografia" tem origem grega? É uma combinação de "photos", que significa "luz", e "graphê", que se traduz como "escrita" ou "desenho". Portanto, fotografia literalmente significa "escrever com luz", refletindo a essência da arte de capturar imagens por meio da luz.</p>
-            </div>
-            <div class="card">
-                <div class="teste"></div>
-                <h3>Curiosidade 3</h3>
-                <p>A menor câmera fotográfica do mundo, reconhecida pelo Guinness World Records, tem dimensões de apenas 2,5 x 2 x 1,1 centímetros. Essa câmera, chamada "Mame-Cam", foi desenvolvida pelo japonês Yasuhiko Meguro em 1996 e pode tirar fotografias de alta qualidade apesar do seu tamanho diminuto.</p>
-            </div>
-           
+            <div class="teste"></div>
+            <h3>Curiosidade 1</h3>
+            <p>A primeira fotografia reconhecida como a mais antiga já feita foi tirada por Joseph Nicéphore Niépce em
+                1826 ou 1827. A imagem, intitulada "View from the Window at Le Gras", capturou a vista de uma janela e é
+                um marco na história da fotografia, demonstrando os primórdios da técnica. </p>
+        </div>
+        <div class="card">
+            <div class="teste"></div>
+            <h3>Curiosidade 2</h3>
+            <p>Você sabia que a palavra "fotografia" tem origem grega? É uma combinação de "photos", que significa
+                "luz", e "graphê", que se traduz como "escrita" ou "desenho". Portanto, fotografia literalmente
+                significa "escrever com luz", refletindo a essência da arte de capturar imagens por meio da luz.</p>
+        </div>
+        <div class="card">
+            <div class="teste"></div>
+            <h3>Curiosidade 3</h3>
+            <p>A menor câmera fotográfica do mundo, reconhecida pelo Guinness World Records, tem dimensões de apenas 2,5
+                x 2 x 1,1 centímetros. Essa câmera, chamada "Mame-Cam", foi desenvolvida pelo japonês Yasuhiko Meguro em
+                1996 e pode tirar fotografias de alta qualidade apesar do seu tamanho diminuto.</p>
+        </div>
+
     </div>
+
+    <!-- card de exibição de saida para o usuario - inserido 02/08/24 -->
+    <div id="avaliacao" class="avaliacao">
+        <button onclick="avaliacao.style.display = 'none';" id="exitAvaliacao"><img src="../assets/dash/sair.png" alt=""></button>
+        <div id="estrelas" class="estrelas">
+            <h1>Avalie nosso Site!</h1>
+            <img onclick="avaliar(1)" id="btn1" src="../assets/dash/estrela.png">
+            <img onclick="avaliar(2)" id="btn2" src="../assets/dash/estrela.png">
+            <img onclick="avaliar(3)" id="btn3" src="../assets/dash/estrela.png">
+            <img onclick="avaliar(4)" id="btn4" src="../assets/dash/estrela.png">
+            <img onclick="avaliar(5)" id="btn5" src="../assets/dash/estrela.png">
+        </div>
+
+        <div id="respostaAvaliacao" class="resposta_avaliacao">
+            <h1>Obrigado pela avaliação!</h1>
+        <h2 id="respostaAPI"></p>
+        </div>
+
 </body>
 
 </html>
 <script>
-    function home(){
-        alert("Saindo da dash, faça login para  entrar novamente...")
 
-        limparSessao()
-    }
+    
 </script>

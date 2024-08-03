@@ -7,88 +7,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Photograph | Login</title>
-
     <script src="./js/sessao.js"></script>
-
-    <link rel="stylesheet" href="./css/estilo.css">
-    <link rel="icon" href="./assets/index/LogoNavBar.png">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,200..1000&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    <div class="login">
-        <div class="alerta_erro">
-            <div class="card_erro" id="cardErro">
-                <span id="mensagem_erro"></span>
-            </div>
-        </div>
-        <div class="containerLogin">
-            <div class="cardLogin card-login">
-                <div class="conteudoLogin">
 
-                    <div class="formularioLogin">
-                        <h2>Login</h2>
-                        <div class="campo">
-                            <span>E-mail:</span>
-                            <input id="email_input" type="text" placeholder="Login">
-                        </div>
-                        <div class="campo">
-                            <span>Senha:</span>
-                            <input id="senha_input" type="password" placeholder="******">
-                        </div>
-                        <button class="botao" onclick="entrar()">Entrar</button>
-                    </div>
-                    <div class="imgLateralLogin">
-                        <h1>Bem vindo novamente!</h1>
+    <div class="background">
+        <div class="container">
+            <a href="index.html"><img id="logo" src="./assets/login/Logo.png" alt="LogoPhotograph"></a>
+            <div class="itens">
+                <h1>SEJA BEM-VINDO!</h1>
+                <h2>Insira seus dados para continuar:</h2>
 
-                        <p>Ainda não tem login ?
-                            faça agora mesmo!
-                        </p>
-                    
-                        <button onclick="NovoCadastro()">Cadastrar</button>
-                    </div>
+                <input type="text" id="email_input" placeholder="E-mail *">
+                <p id="aviso1"></p>
+                <input type="text" id="senha_input" placeholder="Senha *">
+                <p id="aviso2"></p>
+                <a href="cadastro.html">Não tenho cadastro? </a>
+
+
+                <div>
+                    <button onclick="exibir(1)" id="bnt1">Cancelar</button>
+                    <button onclick="exibir(2)" id="bnt2">Login</button>
                 </div>
-                <div id="loader" class="loader">
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                  </div>
-                
+
             </div>
+            <img id="altoral" src="./assets/login/autorais.png" alt="Direitos Altorais">
         </div>
     </div>
+
 </body>
 
 </html>
 
 <script>
 
-    function NovoCadastro(){
-        aguardar();
-        setTimeout(function () {
-                        window.location = "./cadastro.html";
-                    }, 1500);
-    }
-    
+    function exibir(resposta) {
 
+        let email = email_input.value;
+        let senha = senha_input.value;
+
+        if (resposta == 1) {
+
+            if(confirm("Você será redirecionado para a pagína inicial")) {
+
+                window.location = "index.html"
+            }
+
+        } else if (resposta == 2) {
+
+            if (email == '') {
+
+                aviso1.innerText = 'Preencha o campo E-mail!'
+
+                setTimeout(function(){
+                    aviso1.innerText = ''
+                },2000);
+
+            } else if ((email.indexOf('@') == -1 || email.indexOf('.com') == -1) || email.indexOf('.school') == email.length - 1) {   
+
+                aviso1.innerText  = 'Insira um E-mail valido!'
+
+                setTimeout(function(){
+                    aviso1.innerText = ''
+                }, 2000);
+
+            } else if (senha == '') {
+
+                aviso2.innerText = 'Preencha o campo Senha!'
+
+                setTimeout(function(){
+                    aviso2.innerText = ''
+                },2000)
+
+            } else if (senha.length < 8) {
+
+                aviso2.innerText = 'Insira uma senha valida!'
+
+                setTimeout(function(){
+                    aviso2.innerText = ''
+                },2000)
+
+            } else {
+
+                entrar()
+            }
+
+        }
+    }
 
     function entrar() {
-        aguardar();
 
-        var emailVar = email_input.value;
-        var senhaVar = senha_input.value;
-
-        if (emailVar == "" || senhaVar == "") {
-           alert("Preencha todos os campos")
-        }
-        else {
-            setInterval(aguardar, 5000)
-        }
-
-        console.log("FORM LOGIN: ", emailVar);
-        console.log("FORM SENHA: ", senhaVar);
+        let email = email_input.value;
+        let senha = senha_input.value;
 
         fetch("/usuarios/autenticar", {
             method: "POST",
@@ -96,10 +112,11 @@
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                emailServer: emailVar,
-                senhaServer: senhaVar
+                emailServer: email,
+                senhaServer: senha
             })
         }).then(function (resposta) {
+            
             console.log("ESTOU NO THEN DO entrar()!")
 
             if (resposta.ok) {
@@ -111,6 +128,7 @@
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.id;
+                    sessionStorage.AVALIACAO_USUARIO = json.avaliacao;
 
                     setTimeout(function () {
                         window.location = "./dashboard/dashSite.html";
